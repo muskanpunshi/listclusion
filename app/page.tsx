@@ -1,5 +1,11 @@
-import WebLayout from "@components/container/layout";
+import PopularCategory from "@components/popularCategory";
+import HeroBanner from "@components/heroBanner";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return <WebLayout>{children}</WebLayout>;
+export default function Home() {
+  return (
+    <div>
+      <HeroBanner />
+      <PopularCategory />
+    </div>
+  );
 }

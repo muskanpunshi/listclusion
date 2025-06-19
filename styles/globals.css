@@ -1,6 +1,88 @@
-
 @import "tailwindcss";
 
-body{
-    
+
+@font-face {
+  font-family: "Gordita";
+  src: url("/template/fonts/gordita/Gordita-Light.woff2") format("woff2"),
+       url("/template/fonts/gordita/Gordita-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gordita";
+  src: url("/template/fonts/gordita/Gordita-Regular.woff2") format("woff2"),
+       url("/template/fonts/gordita/Gordita-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gordita";
+  src: url("/template/fonts/gordita/Gordita-Medium.woff2") format("woff2"),
+       url("/template/fonts/gordita/Gordita-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gordita";
+  src: url("/template/fonts/gordita/Gordita-Bold.woff2") format("woff2"),
+       url("/template/fonts/gordita/Gordita-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-primary: "Gordita", sans-serif;
+  --color-primary: #e8c347;
+  --color-text-color: #000000b3;
+  --color-grey: #fff9;
+  --color-background: #ffffff;
+  --color-dark-background: #141414;
+}
+
+@theme {
+  --font-primary: var(--font-primary);
+  --color-primary: var(--color-primary);
+  --color-text-color: var(--color-text-color);
+  --color-background: var(--color-background);
+  --color-dark-background: var(--color-dark-background);
+  --color-grey: var(--color-grey);
+}
+
+@layer utilities {
+  @keyframes fade-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fade-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .fade-in-left {
+    animation: fade-in-left 0.6s ease-out forwards;
+  }
+
+  .fade-in-right {
+    animation: fade-in-right 0.6s ease-out forwards;
+  }
 }
