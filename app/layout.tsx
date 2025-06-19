@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import WebLayout from "@components/container/layout";
 
 import "@styles/globals.css";
 
-import { Montserrat } from "next/font/google";
+// import { Montserrat } from "next/font/google";
 
-const montserrat = Montserrat({
-  weight: ["400", "700"],
-  style: ["normal",],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-montserrat",
-});
+// const montserrat = Montserrat({
+//   weight: ["400", "700"],
+//   style: ["normal",],
+//   subsets: ["latin"],
+//   display: "swap",
+//   variable: "--font-montserrat",
+// });
 
 
 export const metadata: Metadata = {
@@ -26,9 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${montserrat.variable}  antialiased`}
+        className={` font-primary  antialiased`}
       >
-        {children}
+        <WebLayout>{children}</WebLayout>
       </body>
     </html>
   );
