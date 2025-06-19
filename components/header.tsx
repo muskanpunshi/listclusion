@@ -9,20 +9,22 @@ import { FaSearch } from "react-icons/fa";
 import Logo from "@public/template/logo-1.png";
 import { HeaderNavbar, headerNavigation } from "../routes/navigation";
 import MobileNavigation from "./mobileNavigation";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const { sticky } = UseSticky();
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <>
-    <header
-  className={`z-[999] w-full transition-all duration-300 ease-in-out ${
-    sticky
-      ? "fixed top-0 bg-white shadow-md"
-      : "absolute top-0 bg-transparent"
-  }`}
->
+      <header
+        className={`z-[999] w-full transition-all duration-300 ease-in-out ${
+          sticky
+            ? "fixed top-0 bg-white shadow-md"
+            : "absolute top-0 bg-transparent"
+        }`}
+      >
         <div className="flex items-center justify-between py-4 px-10 max-md:px-4">
           {/* Logo */}
           <div className="flex items-center">
@@ -37,17 +39,24 @@ const Header = () => {
             {/* Desktop Navigation */}
             <nav className="hidden lg:block ml-[90px]">
               <ul className="flex items-center space-x-14 lg:space-x-10">
-                {headerNavigation.map((nav: HeaderNavbar, index: number) => (
-                  <li key={index}>
-                    <Link
-                      href={nav.path}
-                      className="text-[18px] font-medium  text-text-color hover:text-primary transition-all duration-200 ease-in-out
-"
-                    >
-                      {nav.label}
-                    </Link>
-                  </li>
-                ))}
+                {headerNavigation.map((nav: HeaderNavbar, index: number) => {
+                  const isActive = pathname === nav.path;
+                  console.log(isActive);
+                  return (
+                    <li key={index}>
+                      <Link
+                        href={nav.path}
+                        className={`text-[18px] font-medium   hover:text-primary transition-all duration-200 ease-in-out  ${
+                          isActive
+                            ? "text-primary"
+                            : "text-black hover:text-primary"
+                        } `}
+                      >
+                        {nav.label}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </nav>
           </div>
