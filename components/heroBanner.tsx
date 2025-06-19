@@ -9,10 +9,10 @@ const HeroBanner = () => {
   return (
     <div
       className="relative min-h-[100vh] flex items-center   bg-top bg-cover bg-no-repeat
- bg-[url(/template/conwood_banner.jpg)] px-6 max-md:px-4
+ bg-[url(/template/conwood_banner.jpg)] px-4 max-md:px-4
  "
     >
-      <div className="max-w-[1440px] mx-auto px-0 ">
+      <div className="max-w-[1440px]  px-0 ">
         <div className="flex flex-wrap items-center justify-between ">
           <div className="w-full  lg:w-[60%]  fade-in-left">
             <Heading className="sm:text-[48px] md:text-[58px] lg:text-[72px] xl:text-[90px] font-medium text-black leading-[1.25] capitalize pr-6">
