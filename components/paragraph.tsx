@@ -9,13 +9,21 @@ interface CustomParagraph {
 
 const Paragraph = ({ className, children, htmlText }: CustomParagraph) => {
   return children ? (
-    <p className={cn(["font-primary font-light text-white 	text-[16px] max-md:text-[14px] ", className])}>
+    <p
+      className={cn([
+        "font-primary font-light text-[16px]  ",
+        className
+      ])}
+    >
       {children}
     </p>
   ) : (
     <div
       dangerouslySetInnerHTML={{ __html: htmlText ?? "" }}
-      className={cn(["font-primary font-light  text-[16px] max-md:text-[14px]", className])}
+      className={cn([
+        "font-primary font-light  text-[16px] max-md:text-[14px]",
+        className
+      ])}
     ></div>
   );
 };
