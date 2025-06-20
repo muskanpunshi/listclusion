@@ -13,7 +13,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className={`relative w-full  `}>
       <Header />
-      <div className="overflow-x-hidden  overflow-y-auto bg-background ">{children}</div>
+      <div className="overflow-hidden bg-background ">{children}</div>
       <Footer />
     </div>
   );

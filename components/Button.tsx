@@ -18,14 +18,14 @@ const Button: React.FC<LinkButtonProps> = ({
   children
 }) => {
   const baseStyle =
-    "inline-flex items-center justify-center gap-2 px-6 py-4  font-medium transition-all duration-300 ease-in-out ";
+    "inline-flex items-center justify-center gap-2 px-6 py-3 min-w-[150px]  font-medium transition-all duration-300 ease-in-out ";
 
   if (iconOnly) {
     return (
       <Link href={href}>
         <p
           className={cn(
-            "w-10 h-10 rounded-full bg-black text-white flex items-center justify-center",
+            "w-10 h-10 rounded-full bg-black hover:bg-primary text-white flex items-center justify-center transition-all duration-300 ease-in-out",
             className
           )}
         >
@@ -37,7 +37,7 @@ const Button: React.FC<LinkButtonProps> = ({
 
   return (
     <Link href={href}>
-      <p className={cn(baseStyle, "bg-black text-white", className)}>
+      <p className={cn(baseStyle, "bg-white text-black border border-black hover:bg-primary hover:text-white hover:border-primary", className)}>
         {children}
       </p>
     </Link>

@@ -3,7 +3,7 @@ import {category_data} from "@utils/data";
 import Heading from "./heading";
 import { IoIosArrowForward } from "react-icons/io";
 import Button from "@components/Button";
-import CategoryItemCard from "@components/CategoryItemCard";
+import CategoryItemCard from "@components/categoryItemCard";
 
 const PopularCategory = () => {
   return (

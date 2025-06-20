@@ -8,18 +8,15 @@ import categoryIcon_5 from "@public/template/icon/icon_19.svg";
 import categoryIcon_6 from "@public/template/icon/icon_20.svg";
 import categoryIcon_7 from "@public/template/icon/icon_21.svg";
 
+import city1 from "@public/template/city1.jpg";
+import city2 from "@public/template/city2.jpg";
+
+
 export interface CategoryItem {
   id: number;
   icon?: StaticImageData;
   text: string;
 
-}
-export interface FeatureItem {
-  id: number;
-  page: string;
-  item_bg: string;
-  title: string;
-  desc: string;
 }
 
 
@@ -40,42 +37,39 @@ export const category_data: CategoryItem[] = [
 
 
 
-export const feature_data: FeatureItem[] = [
+export interface FeatureItem {
+  id: number;
+  title: string;
+  desc: string;
+  image:  StaticImageData;
+}
+
+export const featureData: FeatureItem[] = [
   {
     id: 1,
-    page: "home_1_feature_2",
-    item_bg: "card-1",
-    title: "Kelowna",
-    desc: "1,230 Properties",
+    title: "Architects Consultants",
+    desc: "1,230 Listing",
+    image: city1,
   },
   {
     id: 2,
-    page: "home_1_feature_2",
-    item_bg: "card-2",
-    title: "California",
-    desc: "1190 Properties",
+    title: "Interior Designers",
+    desc: "1,140 Listing",
+    image: city2,
   },
   {
     id: 3,
-    page: "home_1_feature_2",
-    item_bg: "card-3",
-    title: "New York",
-    desc: "1710 Properties",
+    title: "Furniture Manufactures",
+    desc: "1,740 Listing",
+    image:city1,
   },
   {
     id: 4,
-    page: "home_1_feature_2",
-    item_bg: "card-5",
-    title: "Miami",
-    desc: "670 Properties",
-  },
-  {
-    id: 5,
-    page: "home_1_feature_2",
-    item_bg: "card-5",
-    title: "Dhaka",
-    desc: "1670 Properties",
+    title: "Metal Works",
+    desc: "720 Listing",
+    image: city2,
   },
 ];
+
 
 
