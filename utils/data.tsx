@@ -11,37 +11,32 @@ import categoryIcon_7 from "@public/template/icon/icon_21.svg";
 import city1 from "@public/template/city1.jpg";
 import city2 from "@public/template/city2.jpg";
 
-
 export interface CategoryItem {
   id: number;
   icon?: StaticImageData;
   text: string;
-
 }
 
-
 export const category_data: CategoryItem[] = [
-  { id: 1, icon: categoryIcon_1, text: "Architects Consultants"},
-  { id: 2, icon: categoryIcon_2, text: "Engineering Consultants"},
-  { id: 3, icon: categoryIcon_3, text: "Builders & Developers"},
-  { id: 4, icon: categoryIcon_4, text: "Interior Designers"},
-  { id: 5, icon: categoryIcon_5, text: "Mechanical Consultant"},
-  { id: 6, icon: categoryIcon_6, text: "Electrical Consultants"},
-  { id: 7, icon: categoryIcon_7, text: "HVAC Consultants"},
-  { id: 8, icon: categoryIcon_7, text: "Plumbling Consultants"},
-  { id: 9, icon: categoryIcon_7, text: "Furniture Manufactures"},
-  { id: 10, icon: categoryIcon_7, text: "Project Managers"},
-  { id: 11, icon: categoryIcon_7, text: "Quantity Surveyors Consultants"},
-  { id: 12, icon: categoryIcon_7, text: "Metal Works"}
+  { id: 1, icon: categoryIcon_1, text: "Architects Consultants" },
+  { id: 2, icon: categoryIcon_2, text: "Engineering Consultants" },
+  { id: 3, icon: categoryIcon_3, text: "Builders & Developers" },
+  { id: 4, icon: categoryIcon_4, text: "Interior Designers" },
+  { id: 5, icon: categoryIcon_5, text: "Mechanical Consultant" },
+  { id: 6, icon: categoryIcon_6, text: "Electrical Consultants" },
+  { id: 7, icon: categoryIcon_7, text: "HVAC Consultants" },
+  { id: 8, icon: categoryIcon_7, text: "Plumbling Consultants" },
+  { id: 9, icon: categoryIcon_7, text: "Furniture Manufactures" },
+  { id: 10, icon: categoryIcon_7, text: "Project Managers" },
+  { id: 11, icon: categoryIcon_7, text: "Quantity Surveyors Consultants" },
+  { id: 12, icon: categoryIcon_7, text: "Metal Works" },
 ];
-
-
 
 export interface FeatureItem {
   id: number;
   title: string;
   desc: string;
-  image:  StaticImageData;
+  image: StaticImageData;
 }
 
 export const featureData: FeatureItem[] = [
@@ -61,7 +56,7 @@ export const featureData: FeatureItem[] = [
     id: 3,
     title: "Furniture Manufactures",
     desc: "1,740 Listing",
-    image:city1,
+    image: city1,
   },
   {
     id: 4,
@@ -71,5 +66,294 @@ export const featureData: FeatureItem[] = [
   },
 ];
 
+import propertyThumb_1 from "@public/template/project-1.jpg";
+import propertyThumb_2 from "@public/template/project-2.jpg";
+import propertyThumb_3 from "@public/template/project-3.jpg";
+import propertyThumb_4 from "@public/template/project-1.jpg";
+import propertyThumb_5 from "@public/template/project-2.jpg";
+import propertyThumb_6 from "@public/template/project-3.jpg";
 
+import property2Thumb_1 from "@public/template/project-1.jpg";
+import property2Thumb_2 from "@public/template/project-2.jpg";
+import property2Thumb_3 from "@public/template/project-3.jpg";
 
+import property2Thumb_11 from "@public/template/project-1.jpg";
+import property2Thumb_22 from "@public/template/project-2.jpg";
+import property2Thumb_33 from "@public/template/project-3.jpg";
+
+import property3Thumb_1 from "@public/template/project-1.jpg";
+import property3Thumb_2 from "@public/template/project-2.jpg";
+import property3Thumb_3 from "@public/template/project-3.jpg";
+import property3Thumb_4 from "@public/template/project-1.jpg";
+
+import propertyLargThumb_1 from "@public/template/project-1.jpg";
+import propertyLargThumb_2 from "@public/template/project-2.jpg";
+import propertyLargThumb_3 from "@public/template/project-3.jpg";
+import propertyLargThumb_4 from "@public/template/project-1.jpg";
+import propertyLargThumb_5 from "@public/template/project-2.jpg";
+import propertyLargThumb_6 from "@public/template/project-3.jpg";
+
+// import propertyIcon_1 from "@/public/template/images/icon/icon_04.svg";
+// import propertyIcon_2 from "@/public/template/images/icon/icon_05.svg";
+// import propertyIcon_3 from "@/public/template/images/icon/icon_06.svg";
+
+interface DataType {
+  id: number;
+  page: string;
+  tag: string;
+  tag_bg?: string;
+  thumb?: StaticImageData;
+  carousel_thumb: {
+    id?: string;
+    img: StaticImageData;
+    active?: string;
+  }[];
+  title: string;
+  address: string;
+  data_delay_time?: string;
+  price: number;
+  price_text?: string;
+  carousel?: string;
+}
+
+const property_data: DataType[] = [
+  {
+    id: 1,
+    page: "home_1",
+    tag: "FOR RENT",
+    carousel_thumb: [
+      { img: property2Thumb_11, active: "active" },
+      { img: property2Thumb_22 },
+      { img: property2Thumb_33 },
+    ],
+    title: "PYRAMID CONSTRUCTORS",
+    address: "Architects Consultants",
+
+    price: 3280,
+    price_text: "m",
+    carousel: "1",
+  },
+  {
+    id: 2,
+    page: "home_1",
+    tag: "FOR SELL",
+    tag_bg: "sale",
+    carousel_thumb: [
+      { img: propertyThumb_2, active: "active" },
+      { img: propertyThumb_3 },
+      { img: propertyThumb_1 },
+    ],
+    title: "ARIF & ASSOCIATES",
+    address: "Engineering Consultants",
+
+    data_delay_time: "0.1s",
+    price: 28100,
+    carousel: "2",
+  },
+  {
+    id: 3,
+    page: "home_1",
+    tag: "FOR SELL",
+    tag_bg: "sale",
+    carousel_thumb: [
+      { img: propertyThumb_3, active: "active" },
+      { img: propertyThumb_2 },
+      { img: propertyThumb_1 },
+    ],
+    title: "AA BUILDERS & DEVELOPERS",
+    address: "Builders & Developers",
+
+    data_delay_time: "0.2s",
+    price: 42500,
+    carousel: "3",
+  },
+  {
+    id: 4,
+    page: "home_1",
+    tag: "FOR RENT",
+    carousel_thumb: [
+      { img: propertyThumb_4, active: "active" },
+      { img: propertyThumb_5 },
+      { img: propertyThumb_6 },
+    ],
+    title: "AL-SHAFI ENTERPRISES",
+    address: "Interior Designers",
+
+    price: 3280,
+    price_text: "m",
+    carousel: "4",
+  },
+  {
+    id: 5,
+    page: "home_1",
+    tag: "FOR SELL",
+    tag_bg: "sale",
+    carousel_thumb: [
+      { img: propertyThumb_5, active: "active" },
+      { img: propertyThumb_4 },
+      { img: propertyThumb_6 },
+    ],
+    title: "AZIZ ENTERPRISES",
+    address: "Mechanical Consultant",
+
+    data_delay_time: "0.1s",
+    price: 28100,
+    carousel: "5",
+  },
+  {
+    id: 6,
+    page: "home_1",
+    tag: "FOR RENT",
+    carousel_thumb: [
+      { img: propertyThumb_6, active: "active" },
+      { img: propertyThumb_5 },
+      { img: propertyThumb_4 },
+    ],
+    title: "CRESENT",
+    address: "Electrical Consultants",
+
+    data_delay_time: "0.2s",
+    price: 42500,
+    price_text: "m",
+    carousel: "6",
+  },
+
+  // home two
+
+  {
+    id: 1,
+    page: "home_2",
+    tag: "FOR RENT",
+    carousel_thumb: [
+      { img: property2Thumb_1, active: "active" },
+      { img: property2Thumb_2 },
+      { img: property2Thumb_3 },
+    ],
+    title: "Blueberry villa.",
+    address: "Mirpur 10, Stadium dhaka 1208",
+
+    price: 34900.0,
+    carousel: "1",
+  },
+  {
+    id: 2,
+    page: "home_2",
+    tag: "FOR SELL",
+    carousel_thumb: [
+      { img: property2Thumb_2, active: "active" },
+      { img: property2Thumb_1 },
+      { img: property2Thumb_2 },
+    ],
+    title: "White House villa",
+    address: "Muza link road, ca, usa",
+
+    data_delay_time: "0.1s",
+    price: 28100.0,
+    carousel: "2",
+  },
+  {
+    id: 3,
+    page: "home_2",
+    tag: "FOR SELL",
+    carousel_thumb: [
+      { img: property2Thumb_3, active: "active" },
+      { img: property2Thumb_2 },
+      { img: property2Thumb_1 },
+    ],
+    title: "Luxury villa in Dal lake.",
+    address: "Mirpur 10, Stadium",
+
+    data_delay_time: "0.2s",
+    price: 42500.0,
+    carousel: "3",
+  },
+
+  // home_3_property_2
+
+  {
+    id: 1,
+    page: "home_3_property_2",
+    tag: "FOR RENT",
+    thumb: property3Thumb_1,
+    carousel_thumb: [
+      { id: "1", img: propertyLargThumb_1 },
+      { id: "2", img: propertyLargThumb_2 },
+      { id: "3", img: propertyLargThumb_3 },
+    ],
+    title: "Blueberry villa.",
+    address: "Mirpur 10, Stadium dhaka 1208",
+
+    price: 34900,
+    carousel: "03",
+  },
+  {
+    id: 2,
+    page: "home_3_property_2",
+    tag: "FOR SELL",
+    thumb: property3Thumb_2,
+    carousel_thumb: [
+      { id: "4", img: propertyLargThumb_4 },
+      { id: "5", img: propertyLargThumb_5 },
+      { id: "6", img: propertyLargThumb_6 },
+    ],
+    title: "White House villa",
+    address: "California link road, ca, usa",
+
+    price: 28100,
+    carousel: "03",
+  },
+  {
+    id: 3,
+    page: "home_3_property_2",
+    tag: "FOR SELL",
+    thumb: property3Thumb_3,
+    carousel_thumb: [
+      { id: "1", img: propertyLargThumb_1 },
+      { id: "5", img: propertyLargThumb_5 },
+      { id: "3", img: propertyLargThumb_3 },
+      { id: "2", img: propertyLargThumb_2 },
+    ],
+    title: "Luxury villa in Dal lake.",
+    address: "Mirpur 10, Stadium",
+
+    price: 42500,
+    carousel: "04",
+  },
+  {
+    id: 4,
+    page: "home_3_property_2",
+    tag: "FOR SELL",
+    thumb: property3Thumb_4,
+    carousel_thumb: [
+      { id: "4", img: propertyLargThumb_4 },
+      { id: "6", img: propertyLargThumb_6 },
+      { id: "3", img: propertyLargThumb_3 },
+      { id: "2", img: propertyLargThumb_2 },
+    ],
+    title: "South Sun House",
+    address: "Mirpur 10, Stadium",
+
+    price: 55500,
+    carousel: "04",
+  },
+  {
+    id: 5,
+    page: "home_3_property_2",
+    tag: "FOR SELL",
+    thumb: property3Thumb_2,
+    carousel_thumb: [
+      { id: "4", img: propertyLargThumb_4 },
+      { id: "5", img: propertyLargThumb_5 },
+      { id: "6", img: propertyLargThumb_6 },
+    ],
+    title: "White House villa",
+    address: "California link road, ca, usa",
+
+    price: 28100,
+    carousel: "03",
+  },
+
+  // home_5
+];
+
+export default property_data;

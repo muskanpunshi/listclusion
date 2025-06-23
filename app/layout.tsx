@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 
 import "@styles/globals.css";
+import "swiper/css";
+import "swiper/css/effect-creative";
+import "swiper/css/effect-fade";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,11 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`bg-white dark:bg-white font-primary  `}
-      >
+      <body className={`bg-white dark:bg-white font-primary  `}>
         {/* <WebLayout> */}
-          {children}
+        {children}
         {/* {/* </WebLayout> */}
       </body>
     </html>
