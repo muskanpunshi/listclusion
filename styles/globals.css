@@ -86,6 +86,16 @@
       transform: translateY(0);
     }
   }
+   @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Animation classes */
 
   .fade-in-left {
     animation: fade-in-left 1s ease-out forwards;
@@ -98,5 +108,9 @@
   .fade-in-up {
     
     animation:fade-in-up 1s ease-out forwards;
+  }
+
+   .spin-slow {
+    animation: spin-slow 30s linear infinite;
   }
 }

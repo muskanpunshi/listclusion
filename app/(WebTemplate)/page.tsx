@@ -2,6 +2,7 @@
 import HeroBanner from "@components/heroBanner";
 import BlockFeature from "@components/blockFeature";
 import FooterPromoBanner from "@components/footerPromoBanner";
+import Testimonials from "@components/testimonials";
 
 export default function Home() {
   return (
@@ -9,7 +10,9 @@ export default function Home() {
       <HeroBanner />
       {/* <PopularCategory /> */}
       <BlockFeature />
+      <Testimonials />
       <FooterPromoBanner />
+
      
     </div>
   );
