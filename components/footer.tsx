@@ -64,20 +64,22 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        {footerSections.map((section, index) => (
-          <div key={index} className="md:col-span-3">
-            <Paragraph className="font-semibold text-white mb-4 text-[24px] max-md:text-[18px] max-sm:text-[18px]">
-              {section.title}
-            </Paragraph>
-            <ul className="space-y-2 text-grey">
-              {section.items.map((item, idx) => (
-                <li key={idx} className="text-[18px] max-md:text-[14px] my-5 hover:text-primary transition-colors duration-200">
-                  <a href={item.href}>{item.label}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <>
+          {footerSections.map((section, index) => (
+            <div key={index} className="md:col-span-3">
+              <Paragraph className="font-semibold text-white mb-4 text-[24px] max-md:text-[18px] max-sm:text-[18px]">
+                {section.title}
+              </Paragraph>
+              <ul className="space-y-2 text-grey">
+                {section.items.map((item, idx) => (
+                  <li key={idx} className="text-[18px] max-md:text-[14px] my-5 hover:text-primary transition-colors duration-200">
+                    <a href={item.href}>{item.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </>
       </Container>
 
       <div className="text-center text-grey border-t border-neutral-800 py-4">
