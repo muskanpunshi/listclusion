@@ -107,32 +107,46 @@
 
 
 .swiper-pagination {
-  text-align: center;
-}
+  height: 30px;
+  position: absolute;
+  /* Place pagination over image */
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  visibility: hidden;
 
-.listing-slider .swiper-slide {
-  height: auto !important;
-  position: relative;
+  transition: all .3s ease-in-out;
+
+
+  /* optional: space between bullets */
 }
 
 .swiper-pagination-bullet {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 20;
-  width: 20px;
+  position: relative;
+  /* NOT absolute anymore */
+  width: 35px;
   height: 4px;
   border-radius: 10px;
-  display: block;
   background: #ffffff;
   opacity: 0.5;
-  margin: 5px;
   cursor: pointer;
+  transition: opacity 0.3s ease;
+  z-index: 40;
 }
 
 .swiper-pagination-bullet-active {
   opacity: 1;
-  color: #a69769;
-  background: #a69769;
+  background: #ffffff;
+}
+
+.card-pagination:hover .swiper-pagination {
+  opacity: 1;
+  visibility: visible;
+
 }

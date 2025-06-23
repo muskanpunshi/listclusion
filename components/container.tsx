@@ -11,7 +11,7 @@ function Container({
   return (
     <div
       className={cn([
-        "w-full max-w-[1440px]  grid mx-auto max-sm:w-[90%] max-sm:px-0",
+        "w-[95%] max-w-[1440px] px-4 grid mx-auto max-sm:w-[90%] max-sm:px-0",
         className,
       ])}
     >

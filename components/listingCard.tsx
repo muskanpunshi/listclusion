@@ -6,14 +6,15 @@ import titleShape from "@public/template/shape/shape_03.svg";
 import { Pagination } from "swiper/modules";
 import property_data from "@utils/data";
 import Link from "next/link";
+import Container from "./container";
 
 const ListingCard = () => {
   return (
-    <section className="bg-pink-100 mt-16 xl:mt-28 pt-16 xl:pt-28 lg:pt-20 pb-24 xl:pb-28 lg:pb-24">
-      <div className="container mx-auto px-4">
+    <section className="bg-[#e5e5e5] mt-16 xl:mt-28 pt-16 xl:pt-28 lg:pt-20 pb-24 xl:pb-28 lg:pb-24">
+      <Container>
         <div className="relative">
           <div className="text-center lg:text-left mb-12 xl:mb-8 lg:mb-5">
-            <h3 className="text-3xl font-bold">
+            <h3 className="text-[64px] font-bold">
               New{" "}
               <span className="relative inline-block">
                 Listings
@@ -29,15 +30,11 @@ const ListingCard = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
             {property_data
               .filter((items) => items.page === "home_1")
               .map((item) => (
-                <div
-                  key={item.id}
-                  className="flex mt-10"
-                  data-wow-delay={item.data_delay_time}
-                >
+                <div key={item.id} className="flex mt-10 group card-pagination">
                   <div className="bg-white rounded-2xl shadow-md w-full flex flex-col">
                     <div className="p-4">
                       <div className="relative rounded-2xl overflow-hidden">
@@ -64,7 +61,7 @@ const ListingCard = () => {
                     <div className="p-6 flex flex-col gap-2">
                       <Link
                         href="/listing_details_01"
-                        className="text-xl font-semibold text-gray-800 hover:text-primary transition-all duration-300"
+                        className="text-xl font-semibold text-gray-800 group-hover:text-primary transition-all duration-300"
                       >
                         {item.title}
                       </Link>
@@ -77,7 +74,7 @@ const ListingCard = () => {
               ))}
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };
