@@ -6,12 +6,14 @@ import Paragraph from "./paragraph";
 import Heading from "./heading";
 import RotatingShape from "@public/template/shape/shape_62.svg";
 import { BsQuote } from "react-icons/bs";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import { testimonials } from "@utils/data";
 
 const Testimonials = () => {
   return (
     <section className=" bg-white min-h-[500px] ">
-     <Container className="mx-auto flex flex-col lg:flex-row items-center justify-between h-full min-h-[600px]">
-
+      <Container className="mx-auto flex flex-col lg:flex-row items-center justify-between h-full min-h-[600px]">
         <div className="relative lg:w-[45%] h-full">
           <Paragraph className="uppercase tracking-widest mb-2">
             Client Feedback
@@ -35,42 +37,47 @@ const Testimonials = () => {
           </div>
         </div>
 
-        {/* Right Side */}
-       <div className="relative lg:w-7/12 h-full border-l border-gray-300">
-          <div className="bg-[url('/template/shape/shape_61.svg')]  px-16 py-4 bg-cover  bg-no-repeat w-full h-full ">
-            <div className="w-18 h-18  bg-primary text-white flex items-center justify-center rounded-full ">
+        <div className="relative lg:w-7/12 h-full border-l">
+          <div className=" bg-[url('/template/shape/shape_61.svg')] bg-cover bg-no-repeat w-full h-full px-16 py-4 flex flex-col justify-between">
+            <div className="w-18 h-18 bg-primary text-white flex items-center justify-center rounded-full mb-4">
               <BsQuote className="text-3xl" />
             </div>
           </div>
+          <Swiper
+            modules={[Pagination]}
+            pagination={{ clickable: true }}
+            loop
+            className="h-full testimonial-swiper"
+          >
+            {testimonials.map((testimonial, index) => (
+              <SwiperSlide key={index} className="py-8 relative h-full">
+                <Paragraph className="min-h-[200px] text-[30px] italic leading-snug text-gray-800 mb-6 px-16">
+                  {testimonial.review}
+                </Paragraph>
 
-          {/* Testimonial */}
-          <Paragraph className="text-[44px] italic leading-snug text-gray-800  px-16 py-10">
-            Quick solutions coupled with extraordinary{" "}
-            <span className="text-primary font-medium">performance</span> a
-            recommendation that&apos;s unequivocal.
-          </Paragraph>
-
-          {/* Client Info */}
-          <div className="flex items-center gap-4 bg-[url('/diagonal-lines.png')] bg-repeat-x p-4 rounded-md">
-            <Image
-              src="/client-avatar.jpg" // Replace with your client image
-              alt="Client"
-              width={60}
-              height={60}
-              className="rounded-full object-cover"
-            />
-            <div>
-              <p className="font-semibold text-lg">Musa Delimuza</p>
-              <span className="text-gray-500 text-sm">Miami, USA</span>
-            </div>
-          </div>
-
-          {/* Dots Navigation */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 mt-4">
-            <span className="w-2 h-2 bg-black rounded-full"></span>
-            <span className="w-2 h-2 border border-black rounded-full"></span>
-            <span className="w-2 h-2 border border-black rounded-full"></span>
-          </div>
+                {/* Client Info */}
+                <div className="absolute bottom-0 left-0 w-full  pb-4">
+                  <div className="bg-[url('/template/shape/shape_61.svg')] bg-cover bg-no-repeat w-full flex items-center justify-end gap-6 p-4 rounded-md">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      width={40}
+                      height={40}
+                      className="rounded-full object-cover"
+                    />
+                    <div>
+                      <Paragraph className="font-semibold text-lg">
+                        {testimonial.name}
+                      </Paragraph>
+                      <span className="text-gray-500 text-sm">
+                        {testimonial.location}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </Container>
     </section>

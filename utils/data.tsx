@@ -66,6 +66,38 @@ export const featureData: FeatureItem[] = [
   },
 ];
 
+export type Testimonial = {
+  name: string;
+  location: string;
+  image: string;
+  review: string;
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    name: "Musa Delimuza",
+    location: "Miami, USA",
+    image: "/client-avatar.jpg",
+    review:
+      "Quick solutions coupled with extraordinary performance — a recommendation that's unequivocal.",
+  },
+  {
+    name: "Alina Cruse",
+    location: "Toronto, Canada",
+    image: "/client-avatar.jpg",
+    review:
+      "Found our dream home. Great experience with them. Thank you for the excellent service!",
+  },
+  {
+    name: "Carlos Mendes",
+    location: "Lisbon, Portugal",
+    image: "/client-avatar.jpg",
+    review:
+      "Efficient and friendly service, guided us perfectly. I'm fully satisfied with our new home!",
+  },
+];
+
+
 import propertyThumb_1 from "@public/template/project-1.jpg";
 import propertyThumb_2 from "@public/template/project-2.jpg";
 import propertyThumb_3 from "@public/template/project-3.jpg";

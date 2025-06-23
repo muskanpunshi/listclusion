@@ -90,7 +90,7 @@
       transform: translateY(0);
     }
   }
-   @keyframes spin-slow {
+  @keyframes spin-slow {
     from {
       transform: rotate(0deg);
     }
@@ -110,15 +110,13 @@
   }
 
   .fade-in-up {
-
     animation: fade-in-up 1s ease-out forwards;
   }
 
-   .spin-slow {
+  .spin-slow {
     animation: spin-slow 30s linear infinite;
   }
 }
-
 
 .swiper-pagination {
   text-align: center;
@@ -127,6 +125,10 @@
 .listing-slider .swiper-slide {
   height: auto !important;
   position: relative;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
 }
 
 .swiper-pagination-bullet {
@@ -149,4 +151,27 @@
   opacity: 1;
   color: #a69769;
   background: #a69769;
+}
+
+.testimonial-swiper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.testimonial-swiper .swiper-pagination-bullet {
+  position: absolute;
+  bottom: 60px;
+  left: 8%;
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  border-radius: 100%;
+  background: red;
+  transition: all 0.3s;
+}
+
+.testimonial-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  color: black;
+  background: black;
 }
