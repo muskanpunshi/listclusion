@@ -41,7 +41,7 @@ const Header = () => {
               <ul className="flex items-center space-x-14 lg:space-x-10">
                 {headerNavigation.map((nav: HeaderNavbar, index: number) => {
                   const isActive = pathname === nav.path;
-                  console.log(isActive);
+                  // console.log(isActive);
                   return (
                     <li key={index}>
                       <Link

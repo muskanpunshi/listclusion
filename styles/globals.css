@@ -162,6 +162,10 @@
   visibility: visible;
 }
 
+.testimonial-swiper .swiper-slide{
+  height: auto;
+}
+
 .testimonial-swiper .swiper-pagination{
   visibility: visible;
   opacity: 1;
