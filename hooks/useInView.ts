@@ -1,31 +1,32 @@
+// hooks/useInView.ts
 import { useEffect, useState } from "react";
 
-const useElementVisibility = (ref: React.RefObject<HTMLElement>): boolean => {
-  const [isVisible, setIsVisible] = useState(false);
+const useElementVisibility = (
+  ref: React.RefObject<HTMLElement | null>
+): boolean => {
+  const [hasBeenVisible, setHasBeenVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-        // observer.unobserve(ref.current);
-
+        if (entry.isIntersecting) {
+          setHasBeenVisible(true);
+          observer.disconnect();
+        }
       },
       { threshold: 0.5 }
     );
 
     if (ref.current) {
       observer.observe(ref.current);
-   
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
+      observer.disconnect();
     };
   }, [ref]);
 
-  return isVisible;
+  return hasBeenVisible;
 };
 
 export default useElementVisibility;

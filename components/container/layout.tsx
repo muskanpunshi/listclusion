@@ -11,9 +11,9 @@ import "@styles/globals.css";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className={`relative w-full  `}>
+    <div className={`relative w-full h-screen  `}>
       <Header />
-      <div className="overflow-hidden bg-background ">{children}</div>
+      <div className="overflow-hidden ">{children}</div>
       <Footer />
     </div>
   );
