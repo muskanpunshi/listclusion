@@ -17,11 +17,11 @@ const BlockFeature = () => {
 
   return (
     <section
-      className={`py-10 lg:py-20  overflow-y-hidden `}
+      className={`py-8 lg:pt-12 lg:pb-20 `}
       ref={ref}
     >
       <Container className={` ${isVisible ? "fade-in-up " : ""}`}>
-        <div className="flex items-center justify-between flex-wrap gap-4 mb-14">
+        <div className="flex items-center justify-between flex-wrap  mb-14">
           <div>
             <Heading className="text-text-primary ">Most Popular</Heading>
           </div>
