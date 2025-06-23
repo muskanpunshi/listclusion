@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import WebLayout from "@components/container/layout";
 
 import "@styles/globals.css";
 
@@ -16,9 +15,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` font-primary  antialiased`}
+        className={`bg-white dark:bg-white font-primary  `}
       >
-        <WebLayout>{children}</WebLayout>
+        {/* <WebLayout> */}
+          {children}
+        {/* {/* </WebLayout> */}
       </body>
     </html>
   );
