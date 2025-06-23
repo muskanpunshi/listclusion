@@ -11,6 +11,10 @@ import categoryIcon_7 from "@public/template/icon/icon_21.svg";
 import city1 from "@public/template/city1.jpg";
 import city2 from "@public/template/city2.jpg";
 
+
+import F1 from "@public/template/feedback1.webp";
+
+
 export interface CategoryItem {
   id: number;
   icon?: StaticImageData;
@@ -66,10 +70,13 @@ export const featureData: FeatureItem[] = [
   },
 ];
 
+
+
 export type Testimonial = {
   name: string;
   location: string;
-  image: string;
+    image: StaticImageData;
+
   review: string;
 };
 
@@ -77,21 +84,21 @@ export const testimonials: Testimonial[] = [
   {
     name: "Musa Delimuza",
     location: "Miami, USA",
-    image: "/client-avatar.jpg",
+    image: F1,
     review:
       "Quick solutions coupled with extraordinary performance — a recommendation that's unequivocal.",
   },
   {
     name: "Alina Cruse",
     location: "Toronto, Canada",
-    image: "/client-avatar.jpg",
+    image: F1,
     review:
       "Found our dream home. Great experience with them. Thank you for the excellent service!",
   },
   {
     name: "Carlos Mendes",
     location: "Lisbon, Portugal",
-    image: "/client-avatar.jpg",
+    image: F1,
     review:
       "Efficient and friendly service, guided us perfectly. I'm fully satisfied with our new home!",
   },

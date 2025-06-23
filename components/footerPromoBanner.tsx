@@ -21,11 +21,7 @@ const FooterPromoBanner = () => {
               </Heading>
 
               <div className="relative flex flex-wrap items-center gap-4 max-md:gap-1 mt-6  ">
-              
-                <Button
-                  href="#"
-                  className="  mt-2"
-                >
+                <Button href="#" className="  mt-2">
                   Become a Consultant
                 </Button>
                 <Button
@@ -37,20 +33,23 @@ const FooterPromoBanner = () => {
                 <Image
                   src={shape1}
                   alt=""
-                  className="mb-[-30px]  w-[80px] hidden lg:block"
+                  className="mb-[-30px] w-[80px] hidden lg:block"
                 />
               </div>
             </div>
 
-          
             <div className="w-full md:w-[50%] text-center mt-10 md:mt-0 relative">
               <div className="relative inline-block z-[1] bg-[url('/template/shape/shape_50.svg')] bg-no-repeat bg-cover ]">
-                <Image src={img} alt="Consultant Banner" className="mx-auto mt-[-30px]" />
+                <Image
+                  src={img}
+                  alt="Consultant Banner"
+                  className="mx-auto mt-[-30px]"
+                />
               </div>
             </div>
           </div>
         </div>
-   </Container>
+      </Container>
     </section>
   );
 };
