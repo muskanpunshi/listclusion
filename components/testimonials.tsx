@@ -7,7 +7,7 @@ import Heading from "./heading";
 import RotatingShape from "@public/template/shape/shape_62.svg";
 import { BsQuote } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination,EffectFade  } from "swiper/modules";
 import { testimonials } from "@utils/data";
 
 const Testimonials = () => {
@@ -44,14 +44,16 @@ const Testimonials = () => {
             </div>
           </div>
           <Swiper
-            modules={[Pagination]}
+            modules={[Pagination,EffectFade]}
             pagination={{ clickable: true }}
             loop
+              effect="fade" 
+  fadeEffect={{ crossFade: true }}
             className="h-full testimonial-swiper"
           >
             {testimonials.map((testimonial, index) => (
               <SwiperSlide key={index} className="py-8 relative h-full">
-                <Paragraph className="min-h-[200px] md:text-[30px]  text-[18px] font-medium italic leading-snug text-text-primary mb-6 md:px-16 px-6">
+                <Paragraph className= "truncate text-ellipsis min-h-[200px] xl:text-[36px] md:text-[30px]  text-[18px] font-medium italic leading-snug text-text-primary mb-6 md:px-16 px-6">
                   {testimonial.review}
                 </Paragraph>
 
