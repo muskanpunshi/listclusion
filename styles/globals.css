@@ -45,6 +45,15 @@
   --color-dark-background: #141414;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  --font-primary: "Gordita", sans-serif;
+}
+
 @theme {
   --font-primary: var(--font-primary);
   --color-primary: var(--color-primary);
@@ -90,10 +99,12 @@
       transform: translateY(0);
     }
   }
+
   @keyframes spin-slow {
     from {
       transform: rotate(0deg);
     }
+
     to {
       transform: rotate(360deg);
     }
@@ -154,6 +165,8 @@
   transition: all 0.3s ease-in-out;
 }
 
+
+
 .swiper-pagination-bullet {
   position: relative;
   /* NOT absolute anymore */
@@ -185,19 +198,25 @@
   visibility: visible;
   opacity: 1;
   justify-content: start;
+  padding-left: 40px;
+  bottom: 10%;
+  left: 10%;
+
 
   bottom: 6%;
   left: 9%;
 }
+
 .testimonial-swiper .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background: transparent;
   border: 1px solid black;
 }
+
 .testimonial-swiper .swiper-pagination-bullet-active {
   opacity: 1;
-  background: black;
+  background: var(--color-primary);
   border: 1px solid black;
 }

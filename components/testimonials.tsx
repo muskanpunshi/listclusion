@@ -46,21 +46,18 @@ const Testimonials = () => {
           </div>
           <Swiper
             modules={[Pagination, EffectFade, Autoplay]}
-            autoplay={{ delay: 7000 }}
             pagination={{ clickable: true }}
-            loop
+            autoplay={true}
+            loop={true}
             effect="fade"
             fadeEffect={{ crossFade: true }}
-            className=" testimonial-swiper"
+          className="h-full testimonial-swiper"
           >
             {testimonials.map((testimonial, index) => (
-              <SwiperSlide key={index}>
-                <div className="flex flex-col justify-between h-full">
-                  <div className=" md:px-16 px-6 py-16 ">
-                    <Paragraph className="line-clamp-4  xl:text-[36px] md:text-[30px]  text-[18px] font-medium italic leading-snug text-text-primary  ">
-                      {testimonial.review}
-                    </Paragraph>
-                  </div>
+              <SwiperSlide key={index} className="py-8 relative h-full">
+                <Paragraph className="truncate text-ellipsis min-h-[200px] xl:text-[36px] md:text-[30px]  text-[18px] font-medium italic leading-snug text-text-primary mb-6 md:px-16 px-6">
+                  {testimonial.review}
+                </Paragraph>
 
                   <div className="w-full bg-[url('/template/shape/shape_61.svg')] bg-cover bg-no-repeat md:px-16 px-2 py-3 flex justify-end ">
                     <div className="xl:w-1/3 w-2/3 flex items-center justify-end sm:gap-4 gap-2 ml-auto">
