@@ -12,8 +12,8 @@ import { testimonials } from "@utils/data";
 
 const Testimonials = () => {
   return (
-    <section className=" bg-white min-h-[500px] ">
-      <Container className="mx-auto flex flex-col max-lg:py-10  lg:flex-row lg:items-center justify-between h-full min-h-[600px]">
+    <section className=" bg-white min-h-[600px] lg:py-16 py-10">
+      <Container className="mx-auto flex flex-col  lg:flex-row lg:items-center lg:justify-between ">
         <div className="relative lg:w-[45%] h-full w-full">
           <Paragraph className="uppercase tracking-widest mb-2">
             Client Feedback
@@ -46,28 +46,24 @@ const Testimonials = () => {
           </div>
           <Swiper
             modules={[Pagination, EffectFade, Autoplay]}
+            autoplay={{ delay: 7000 }}
             pagination={{ clickable: true }}
             loop
             effect="fade"
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
             fadeEffect={{ crossFade: true }}
             className=" testimonial-swiper"
           >
             {testimonials.map((testimonial, index) => (
               <SwiperSlide key={index}>
                 <div className="flex flex-col justify-between h-full">
-                  <div className="  md:px-16 px-6 py-10 ">
+                  <div className=" md:px-16 px-6 py-16 ">
                     <Paragraph className="line-clamp-4  xl:text-[36px] md:text-[30px]  text-[18px] font-medium italic leading-snug text-text-primary  ">
                       {testimonial.review}
                     </Paragraph>
                   </div>
 
-                  {/* Client Info */}
-                  <div className="w-full bg-[url('/template/shape/shape_61.svg')] bg-cover bg-no-repeat md:px-16 px-6 py-3 ">
-                    <div className="w-1/3  flex items-center justify-start sm:gap-4 gap-2 ml-auto">
+                  <div className="w-full bg-[url('/template/shape/shape_61.svg')] bg-cover bg-no-repeat md:px-16 px-2 py-3 flex justify-end ">
+                    <div className="xl:w-1/3 w-2/3 flex items-center justify-end sm:gap-4 gap-2 ml-auto">
                       <Image
                         src={testimonial.image}
                         alt={testimonial.name}
@@ -76,7 +72,7 @@ const Testimonials = () => {
                         className=" rounded-full object-cover max-sm:w-12 max-sm:h-12"
                       />
                       <div className="w-full overflow-hidden">
-                        <Paragraph className="font-semibold text-lg truncate ">
+                        <Paragraph className="font-semibold text-xl max-md:text-base truncate ">
                           {testimonial.name}
                         </Paragraph>
                         <Paragraph className=" text-sm truncate">

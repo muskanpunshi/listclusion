@@ -4,6 +4,9 @@ import FooterPromoBanner from "@components/footerPromoBanner";
 import Testimonials from "@components/testimonials";
 import ListingCard from "@components/listingCard";
 
+import { faqData } from "@utils/data";
+import HomeFaqs from "@components/homeFaqs";
+
 export default function Home() {
   return (
     <div>
@@ -11,10 +14,7 @@ export default function Home() {
       <BlockFeature />
       <ListingCard />
       <Testimonials />
-      
-
-     
-      <ListingCard />
+      <HomeFaqs faqs={faqData} />
       <FooterPromoBanner />
     </div>
   );

@@ -105,6 +105,42 @@ export const testimonials: Testimonial[] = [
 ];
 
 
+export interface FaqResponse {
+  id?: number;
+  question?: string;
+  answer?: string;
+ 
+}
+
+export const faqData: FaqResponse[] = [
+  {
+    id: 1,
+    question: "How does the free trial work?",
+    answer: "Our free trial gives you full access to all features for 14 days, no credit card required.",
+  },
+  {
+    id: 2,
+    question: "How do you evaluate different criteria in your process?",
+    answer: "We assess product fit, market potential, team experience, and scalability before making a decision.",
+  },
+  {
+    id: 3,
+    question: "What do you look for in a founding team?",
+    answer: "We value diverse skill sets, a strong vision, and the ability to execute under pressure.",
+  },
+  {
+    id: 4,
+    question: "Do you recommend Pay as you go or Prepay?",
+    answer: "It depends on your usage pattern. Prepay offers better value for long-term usage, while Pay as you go is more flexible.",
+  },
+  {
+    id: 5,
+    question: "Can I cancel my subscription anytime?",
+    answer: "Yes, you can cancel anytime from your dashboard. No questions asked.",
+  },
+];
+
+
 import propertyThumb_1 from "@public/template/project-1.jpg";
 import propertyThumb_2 from "@public/template/project-2.jpg";
 import propertyThumb_3 from "@public/template/project-3.jpg";

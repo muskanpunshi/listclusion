@@ -11,7 +11,7 @@ const Paragraph = ({ className, children, htmlText }: CustomParagraph) => {
   return children ? (
     <p
       className={cn([
-        "font-primary font-light text-[16px]  ",
+        "font-primary  text-[16px]  ",
         className
       ])}
     >
@@ -21,7 +21,7 @@ const Paragraph = ({ className, children, htmlText }: CustomParagraph) => {
     <div
       dangerouslySetInnerHTML={{ __html: htmlText ?? "" }}
       className={cn([
-        "font-primary font-light  text-[16px] max-md:text-[14px]",
+        "font-primary   text-[16px] max-md:text-[14px]",
         className
       ])}
     ></div>

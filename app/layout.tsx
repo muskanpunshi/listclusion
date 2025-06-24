@@ -18,9 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`bg-white dark:bg-white font-primary  `}>
-        {/* <WebLayout> */}
         {children}
-        {/* {/* </WebLayout> */}
       </body>
     </html>
   );

@@ -1,0 +1,68 @@
+"use client";
+
+import { FaqResponse } from "@utils/data";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from "@components/radix/ui/accordion";
+import { cn } from "@utils/index";
+import Heading from "./heading";
+import Button from "./Button";
+import Image from "next/image";
+import RotatingShape from "@public/template/shape/shape_29.svg";
+import Container from "./container";
+import Paragraph from "./paragraph";
+
+const HomeFaqs = ({ faqs }: { faqs: FaqResponse[] }) => {
+  return (
+    <section className="bg-[#f3f3f3] py-16">
+      <Container className="flex flex-col lg:flex-row   gap-16 ">
+        <div className="relative lg:w-[45%] w-full">
+          <Heading className="leading-tight  mb-6">
+            Frequently Asked Questions
+          </Heading>
+          <Paragraph className="text-text-primary mb-10">
+            Don’t find the answer? We can help you.
+          </Paragraph>
+          <Button
+            href=""
+            className="bg-text-primary text-white border-0 font-semibold px-6 py-3 mt-4 "
+          >
+            ASK QUESTIONS
+          </Button>
+        </div>
+
+        <div className="relative lg:w-[55%] w-full bg-[url('/template/shape/shape_28.svg')] bg-no-repeat bg-center bg-cover py-[40px] px-[45px] max-md:p-[12px]  ">
+          <div className="absolute hidden lg:block left-[-23%] bottom-0 w-42 h-42 max-xl:h-32 max-xl:w-32 max-md:w-24 max-md:h-24  ">
+            <Image
+              src={RotatingShape}
+              alt="Rating"
+              layout="fill"
+              objectFit="contain"
+              className="animate-[spin-slow_80s_linear_infinite]  "
+            />
+          </div>
+
+          <div className="px-5 bg-white ">
+            <Accordion type="single" collapsible>
+              {faqs.slice(0, 4).map((faq, index, arr) => (
+                <AccordionItem
+                  key={index}
+                  value={`item-${index}`}
+                  className={cn(index === arr.length - 1 && "border-none")}
+                >
+                  <AccordionTrigger>{faq.question}</AccordionTrigger>
+                  <AccordionContent>{faq.answer}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+};
+
+export default HomeFaqs;
