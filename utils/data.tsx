@@ -11,9 +11,7 @@ import categoryIcon_7 from "@public/template/icon/icon_21.svg";
 import city1 from "@public/template/city1.jpg";
 import city2 from "@public/template/city2.jpg";
 
-
 import F1 from "@public/template/feedback1.webp";
-
 
 export interface CategoryItem {
   id: number;
@@ -36,46 +34,44 @@ export const category_data: CategoryItem[] = [
   { id: 12, icon: categoryIcon_7, text: "Metal Works" },
 ];
 
-export interface FeatureItem {
-  id: number;
-  title: string;
-  desc: string;
-  image: StaticImageData;
-}
+// export interface FeatureItem {
+//   id: number;
+//   title: string;
+//   desc: string;
+//   image: StaticImageData;
+// }
 
-export const featureData: FeatureItem[] = [
-  {
-    id: 1,
-    title: "Architects Consultants",
-    desc: "1,230 Listing",
-    image: city1,
-  },
-  {
-    id: 2,
-    title: "Interior Designers",
-    desc: "1,140 Listing",
-    image: city2,
-  },
-  {
-    id: 3,
-    title: "Furniture Manufactures",
-    desc: "1,740 Listing",
-    image: city1,
-  },
-  {
-    id: 4,
-    title: "Metal Works",
-    desc: "720 Listing",
-    image: city2,
-  },
-];
-
-
+// export const featureData: FeatureItem[] = [
+//   {
+//     id: 1,
+//     title: "Architects Consultants",
+//     desc: "1,230 Listing",
+//     image: city1,
+//   },
+//   {
+//     id: 2,
+//     title: "Interior Designers",
+//     desc: "1,140 Listing",
+//     image: city2,
+//   },
+//   {
+//     id: 3,
+//     title: "Furniture Manufactures",
+//     desc: "1,740 Listing",
+//     image: city1,
+//   },
+//   {
+//     id: 4,
+//     title: "Metal Works",
+//     desc: "720 Listing",
+//     image: city2,
+//   },
+// ];
 
 export type Testimonial = {
   name: string;
   location: string;
-    image: StaticImageData;
+  image: StaticImageData;
 
   review: string;
 };
@@ -103,7 +99,6 @@ export const testimonials: Testimonial[] = [
       "Efficient and friendly service, guided us perfectly. I'm fully satisfied with our new home!",
   },
 ];
-
 
 import propertyThumb_1 from "@public/template/project-1.jpg";
 import propertyThumb_2 from "@public/template/project-2.jpg";
@@ -155,7 +150,7 @@ interface DataType {
   carousel?: string;
 }
 
-const property_data: DataType[] = [
+export const property_data: DataType[] = [
   {
     id: 1,
     page: "home_1",
@@ -395,4 +390,140 @@ const property_data: DataType[] = [
   // home_5
 ];
 
-export default property_data;
+interface CategoryDataType {
+  id: number;
+  page: string;
+  item_bg?: string;
+  img?: StaticImageData;
+  icon?: StaticImageData;
+  title: string;
+  desc?: string;
+  tag?: string;
+  data_delay_time?: string;
+  btn?: string;
+  class_name?: string;
+  image?: any;
+}
+
+import image1 from "@public/template/architects-consultants.jpg";
+import image2 from "@public/template/builders-and-developers.jpg";
+import image3 from "@public/template/electrical-consultants.jpg";
+import image4 from "@public/template/engineering-consultants.jpg";
+import image5 from "@public/template/furniture-manufactures.jpg";
+import image6 from "@public/template/hvac-consultants.jpg";
+import image7 from "@public/template/interior-designers.jpg";
+import image8 from "@public/template/mechanical-consultant.jpg";
+import image9 from "@public/template/metal-works.jpg";
+import image10 from "@public/template/plumbling-consultants.jpg";
+import image11 from "@public/template/project-managers.jpg";
+import image12 from "@public/template/quanlity-surveyors-consultants.jpg";
+
+export const feature_data: CategoryDataType[] = [
+  {
+    id: 1,
+    page: "home_5_feature_1",
+    item_bg: "home-5-feature-item-1",
+    title: "Architects Consultants",
+    desc: "1,230 Listing",
+    image: image1,
+  },
+  {
+    id: 2,
+    page: "home_5_feature_1",
+    item_bg: "home-5-feature-item-2",
+    title: "Engineering Consultants",
+    desc: "1,140 Listing",
+    data_delay_time: "0.1s",
+    image: image2,
+  },
+  {
+    id: 3,
+    page: "home_5_feature_1",
+    item_bg: "home-5-feature-item-3",
+    title: "Builders & Developers",
+    desc: "1,740 Listing",
+    data_delay_time: "0.2s",
+    image: image3,
+  },
+  {
+    id: 4,
+    page: "home_5_feature_1",
+    item_bg: "home-5-feature-item-4",
+    title: "Interior Designers",
+    desc: "720 Listing",
+    data_delay_time: "0.3s",
+    image: image4,
+  },
+  {
+    id: 5,
+    page: "home_5_feature_1",
+    item_bg: "home-5-feature-item-5",
+    title: "Mechanical Consultant",
+    desc: "720 Listing",
+    data_delay_time: "0.3s",
+    image: image5,
+  },
+  {
+    id: 6,
+    page: "home_5_feature_1",
+    item_bg: "home-5-feature-item-6",
+    title: "Electrical Consultants",
+    desc: "720 Listing",
+    data_delay_time: "0.3s",
+    image: image6,
+  },
+  {
+    id: 7,
+    page: "home_5_feature_1",
+    item_bg: "home-5-feature-item-7",
+    title: "HVAC Consultants",
+    desc: "720 Listing",
+    data_delay_time: "0.3s",
+    image: image7,
+  },
+  {
+    id: 8,
+    page: "home_5_feature_1",
+    item_bg: "home-5-feature-item-8",
+    title: "Plumbling Consultants",
+    desc: "720 Listing",
+    data_delay_time: "0.3s",
+    image: image8,
+  },
+  {
+    id: 9,
+    page: "home_5_feature_1",
+    item_bg: "home-5-feature-item-9",
+    title: "Furniture Manufactures",
+    desc: "720 Listing",
+    data_delay_time: "0.3s",
+    image: image9,
+  },
+  {
+    id: 10,
+    page: "home_5_feature_1",
+    item_bg: "home-5-feature-item-10",
+    title: "Project Managers",
+    desc: "720 Listing",
+    data_delay_time: "0.3s",
+    image: image10,
+  },
+  {
+    id: 11,
+    page: "home_5_feature_1",
+    item_bg: "home-5-feature-item-11",
+    title: "Quantity Surveyors Consultants",
+    desc: "720 Listing",
+    data_delay_time: "0.3s",
+    image: image11,
+  },
+  {
+    id: 12,
+    page: "home_5_feature_1",
+    item_bg: "home-5-feature-item-12",
+    title: "Metal Works",
+    desc: "720 Listing",
+    data_delay_time: "0.3s",
+    image: image12,
+  },
+];

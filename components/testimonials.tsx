@@ -7,7 +7,7 @@ import Heading from "./heading";
 import RotatingShape from "@public/template/shape/shape_62.svg";
 import { BsQuote } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination,EffectFade  } from "swiper/modules";
+import { Pagination, EffectFade, Autoplay } from "swiper/modules";
 import { testimonials } from "@utils/data";
 
 const Testimonials = () => {
@@ -19,8 +19,7 @@ const Testimonials = () => {
             Client Feedback
           </Paragraph>
           <Heading className=" font-bold leading-snug mb-8">
-            Rely on Clients,
-            Not Just Our Claims.
+            Rely on Clients, Not Just Our Claims.
           </Heading>
           <div className="absolute flex flex-col right-10 lg:-bottom-16 max-lg:translate-x-[50%] w-42 h-42 max-xl:h-32 max-xl:w-32 max-md:w-24 max-md:h-24  lg:mt-4">
             <Image
@@ -31,7 +30,9 @@ const Testimonials = () => {
               className="spin-slow filter invert-[30%] grayscale brightness-50 "
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center z-10">
-              <p className="text-lg max-xl:text-md max-md:text-sm font-bold">9.3</p>
+              <p className="text-lg max-xl:text-md max-md:text-sm font-bold">
+                9.3
+              </p>
               <p className="text-sm max-sm:text-[12px]">Rating</p>
             </div>
           </div>
@@ -44,16 +45,17 @@ const Testimonials = () => {
             </div>
           </div>
           <Swiper
-            modules={[Pagination,EffectFade]}
+            modules={[Pagination, EffectFade, Autoplay]}
             pagination={{ clickable: true }}
-            loop
-              effect="fade" 
-  fadeEffect={{ crossFade: true }}
-            className="h-full testimonial-swiper"
+            autoplay={true}
+            loop={true}
+            effect="fade"
+            fadeEffect={{ crossFade: true }}
+          className="h-full testimonial-swiper"
           >
             {testimonials.map((testimonial, index) => (
               <SwiperSlide key={index} className="py-8 relative h-full">
-                <Paragraph className= "truncate text-ellipsis min-h-[200px] xl:text-[36px] md:text-[30px]  text-[18px] font-medium italic leading-snug text-text-primary mb-6 md:px-16 px-6">
+                <Paragraph className="truncate text-ellipsis min-h-[200px] xl:text-[36px] md:text-[30px]  text-[18px] font-medium italic leading-snug text-text-primary mb-6 md:px-16 px-6">
                   {testimonial.review}
                 </Paragraph>
 

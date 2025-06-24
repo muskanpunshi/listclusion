@@ -11,10 +11,6 @@ export default function Home() {
       <BlockFeature />
       <ListingCard />
       <Testimonials />
-      
-
-     
-      <ListingCard />
       <FooterPromoBanner />
     </div>
   );

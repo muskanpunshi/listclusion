@@ -2,30 +2,30 @@
 import Image from "next/image";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import titleShape from "@public/template/shape/shape_03.svg";
+import titleShape from "@public/template/shape/title_shape_03.svg";
 import { Pagination } from "swiper/modules";
-import property_data from "@utils/data";
+import { property_data } from "@utils/data";
 import Link from "next/link";
 import Container from "./container";
 
 const ListingCard = () => {
   return (
-    <section className="bg-[#e5e5e5] mt-16 xl:mt-28 pt-16 xl:pt-28 lg:pt-20 pb-24 xl:pb-28 lg:pb-24">
+    <section className="bg-[#e5e5e5] mt-8 xl:mt-16 pt-8 xl:pt-16 lg:pt-20 pb-24 xl:pb-28 lg:pb-24">
       <Container>
         <div className="relative">
           <div className="text-center lg:text-left mb-12 xl:mb-8 lg:mb-5">
-            <h3 className="text-[64px] font-bold">
+            <h3 className="text-[64px] font-[500] text-[#000000b3]">
               New{" "}
               <span className="relative inline-block">
                 Listings
                 <Image
                   src={titleShape}
                   alt=""
-                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16"
+                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
                 />
               </span>
             </h3>
-            <p className="text-lg mt-2 text-gray-600">
+            <p className="text-[22px] text-[#00000080] mt-2">
               Explore latest & featured Consultants.
             </p>
           </div>
@@ -61,7 +61,7 @@ const ListingCard = () => {
                     <div className="p-6 flex flex-col gap-2">
                       <Link
                         href="/listing_details_01"
-                        className="text-xl font-semibold text-gray-800 group-hover:text-primary transition-all duration-300"
+                        className="text-2xl font-medium  text-[#000000b3] group-hover:text-primary transition-all duration-300"
                       >
                         {item.title}
                       </Link>
