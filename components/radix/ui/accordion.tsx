@@ -5,6 +5,8 @@ import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { FaPlus, FaMinus } from "react-icons/fa6";
 import { cn } from "@utils/index";
 
+
+
 const Accordion = AccordionPrimitive.Root;
 
 const AccordionItem = React.forwardRef<
@@ -13,7 +15,7 @@ const AccordionItem = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AccordionPrimitive.Item
     ref={ref}
-    className={cn("border-b border-text-primary ", className)}
+    className={cn("border-b border-text-primary/30 ", className)}
     {...props}
   />
 ));
@@ -37,7 +39,7 @@ const AccordionTrigger = React.forwardRef<
       <AccordionPrimitive.Trigger
         ref={ref}
         className={cn(
-          "group flex w-full items-center justify-between py-6 data-[state=open]:pb-0 text-lg text-left text-text-primary font-medium ",
+          "group flex w-full items-center justify-between py-6 text-xl  max-md:text-lg transition-all text-left text-text-primary font-medium ",
           className
         )}
         {...props}
@@ -75,12 +77,12 @@ const AccordionContent = React.forwardRef<
   <AccordionPrimitive.Content
     ref={ref}
     className={cn(
-      "overflow-hidden text-base  data-[state=closed]:animate-slideUp text-text-primary data-[state=open]:animate-slideDown",
+      "overflow-hidden text-xl max-md:text-base    text-text-primary data-[state=open]:animate-[slideDown_300ms_ease-out] data-[state=closed]:animate-[slideUp_300ms_ease-out]  ",
       className
     )}
     {...props}
   >
-    <div className="py-2">{children}</div>
+    <div className="mb-4">{children}</div>
   </AccordionPrimitive.Content>
 ));
 AccordionContent.displayName = "AccordionContent";
