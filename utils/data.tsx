@@ -405,18 +405,18 @@ interface CategoryDataType {
   image?: any;
 }
 
-import image1 from "@public/template/architects-consultants.jpg";
-import image2 from "@public/template/builders-and-developers.jpg";
-import image3 from "@public/template/electrical-consultants.jpg";
-import image4 from "@public/template/engineering-consultants.jpg";
-import image5 from "@public/template/furniture-manufactures.jpg";
-import image6 from "@public/template/hvac-consultants.jpg";
-import image7 from "@public/template/interior-designers.jpg";
-import image8 from "@public/template/mechanical-consultant.jpg";
-import image9 from "@public/template/metal-works.jpg";
-import image10 from "@public/template/plumbling-consultants.jpg";
-import image11 from "@public/template/project-managers.jpg";
-import image12 from "@public/template/quanlity-surveyors-consultants.jpg";
+import image1 from "@public/template/architects-consultants.png";
+import image2 from "@public/template/builders-and-developers.png";
+import image3 from "@public/template/electrical-consultants.png";
+import image4 from "@public/template/engineering-consultants.png";
+import image5 from "@public/template/furniture-manufactures.png";
+import image6 from "@public/template/hvac-consultants.png";
+import image7 from "@public/template/interior-designers.png";
+import image8 from "@public/template/mechanical-consultant.png";
+import image9 from "@public/template/metal-works.png";
+import image10 from "@public/template/plumbling-consultants.png";
+import image11 from "@public/template/project-managers.png";
+import image12 from "@public/template/quanlity-surveyors-consultants.png";
 
 export const feature_data: CategoryDataType[] = [
   {
