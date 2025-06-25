@@ -14,7 +14,7 @@ const faqData:DataType[] = [
    {
       id: 1,
       id_name: "Selling",
-      title: "SELLING",
+      title: "Selling",
       md_pt:true,
       faq: [
          {
@@ -42,7 +42,7 @@ const faqData:DataType[] = [
    {
       id: 2,
       id_name: "Renting",
-      title: "RENTING",
+      title: "Renting",
       faq: [
          {
             id: 5,
@@ -69,7 +69,7 @@ const faqData:DataType[] = [
    {
       id: 3,
       id_name: "Buying",
-      title: "BUYING",
+      title: "Buying",
       faq: [
          {
             id: 9,
@@ -91,7 +91,7 @@ const faqData:DataType[] = [
    {
       id: 4,
       id_name: "Payments",
-      title: "PAYMENTS",
+      title: "Payments",
       faq: [
          {
             id: 12,
@@ -113,7 +113,7 @@ const faqData:DataType[] = [
    {
       id: 5,
       id_name: "Terms",
-      title: "TERMS & CONDITIONS",
+      title: "Terms & Conditions",
       faq: [
          {
             id: 15,
@@ -130,7 +130,7 @@ const faqData:DataType[] = [
    {
       id: 6,
       id_name: "Account",
-      title: "ACCOUNT",
+      title: "Account",
       faq: [
          {
             id: 17,
