@@ -17,8 +17,7 @@ const Button: React.FC<LinkButtonProps> = ({
   className = "",
   children,
 }) => {
-  const baseStyle =
-    "inline-flex items-center justify-center gap-2 px-6 py-3 min-w-[150px]  font-medium transition-all duration-300 ease-in-out ";
+ 
 
   if (iconOnly) {
     return (
@@ -37,7 +36,7 @@ const Button: React.FC<LinkButtonProps> = ({
   return (
     <Link
       className={cn(
-        "w-fit bg-black hover:bg-primary text-white flex items-center justify-center transition-all duration-300 ease-in-out ",
+        "w-fit px-8 py-4  bg-black hover:bg-primary text-white flex items-center justify-center transition-all duration-300 ease-in-out ",
         className
       )}
       href={href}

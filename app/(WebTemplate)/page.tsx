@@ -14,6 +14,7 @@ export default function Home() {
       <BlockFeature />
       <ListingCard />
       <Testimonials />
+      <HomeFaqs faqs={faqData} />
       <FooterPromoBanner />
     </div>
   );
