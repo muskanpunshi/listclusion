@@ -167,7 +167,7 @@ h6 {
 
 
 
-.swiper-pagination-bullet {
+.listing-slider .swiper-pagination-bullet {
   position: relative;
   /* NOT absolute anymore */
   width: 35px;
@@ -180,7 +180,7 @@ h6 {
   z-index: 40;
 }
 
-.swiper-pagination-bullet-active {
+.listing-slider .swiper-pagination-bullet-active {
   opacity: 1;
   background: #ffffff;
 }

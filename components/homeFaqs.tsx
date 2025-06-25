@@ -26,7 +26,7 @@ const HomeFaqs = ({ faqs }: { faqs: FaqResponse[] }) => {
             Don’t find the answer? We can help you.
           </Paragraph>
           <Button
-            href=""
+            href="/faqs"
             className="bg-text-primary text-white border-0 font-semibold px-6 py-3 mt-4 "
           >
             ASK QUESTIONS
