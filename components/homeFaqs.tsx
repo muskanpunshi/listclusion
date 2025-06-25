@@ -8,12 +8,11 @@ import {
   AccordionTrigger
 } from "@components/radix/ui/accordion";
 import { cn } from "@utils/index";
-import Heading from "./heading";
-import Button from "./Button";
-import Image from "next/image";
-import RotatingShape from "@public/template/shape/shape_29.svg";
+import Heading from "@components/heading";
+import Button from "@components/Button";
 import Container from "./container";
 import Paragraph from "./paragraph";
+import IconXShape from "@shapes/iconXShape";
 
 const HomeFaqs = ({ faqs }: { faqs: FaqResponse[] }) => {
   return (
@@ -35,14 +34,8 @@ const HomeFaqs = ({ faqs }: { faqs: FaqResponse[] }) => {
         </div>
 
         <div className="relative lg:w-[55%] w-full bg-[url('/template/shape/shape_28.svg')] bg-no-repeat bg-center bg-cover py-[40px] px-[45px] max-md:p-[12px]  ">
-          <div className="absolute hidden lg:block left-[-23%] bottom-0 w-42 h-42 max-xl:h-32 max-xl:w-32 max-md:w-24 max-md:h-24  ">
-            <Image
-              src={RotatingShape}
-              alt="Rating"
-              layout="fill"
-              objectFit="contain"
-              className="animate-[spin-slow_80s_linear_infinite]  "
-            />
+          <div className="absolute hidden lg:block left-[-23%] bottom-0 ">
+            <IconXShape className="animate-[spin-slow_80s_linear_infinite] w-42 h-42  max-xl:h-32 max-xl:w-32 max-md:w-24 max-md:h-24" />
           </div>
 
           <div className="px-5 bg-white ">

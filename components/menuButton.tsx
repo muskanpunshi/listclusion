@@ -9,7 +9,7 @@ function MenuButton({ isOpen, onClick }: component) {
   return (
     <div
       onClick={onClick}
-      className="relative w-10 h-10 flex items-center justify-center bg-yellow-500 rounded cursor-pointer z-[52]"
+      className="relative w-10 h-10 flex items-center justify-center bg-primary rounded cursor-pointer z-[52]"
     >
       {/* Line container */}
       <div className="relative w-6 h-4">
