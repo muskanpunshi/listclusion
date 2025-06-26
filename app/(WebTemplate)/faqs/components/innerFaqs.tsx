@@ -60,7 +60,7 @@ const InnerFaqs = () => {
             <div
               key={category.id}
               id={category.id_name}
-              className={`mb-12 pt-2`}
+              className={`mb-12 pt-2 scroll-mt-32`}
             >
               <Paragraph className="font-semibold text-primary uppercase mb-6 ">
                 {category.title}
