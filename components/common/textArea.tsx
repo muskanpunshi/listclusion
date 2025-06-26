@@ -25,7 +25,7 @@ function TextArea({
         rows={rows}
         placeholder={placeholder}
         className={cn([
-          "bg-primary-color  resize-none text-xs text-[#949393] block w-full border-[#6F6A5A] border rounded-md py-3 px-8  focus:outline-none focus:shadow-none placeholder:text-[#949393] ",
+          "bg-primary-color min-h-36 resize-none text-base  text-secondary bg-white block w-full border border-secondary/40  rounded-md py-4 px-5  focus:outline-none focus:shadow-none placeholder:text-[#949393] ",
           classes,
         ])}
         {...register(name)}

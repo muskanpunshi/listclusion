@@ -16,7 +16,7 @@ type LinkButtonProps = {
 };
 
 const Button: React.FC<LinkButtonProps> = ({
-  href,
+  href='#',
   type = "link",
   className = "",
   buttonType = "button",

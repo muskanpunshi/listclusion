@@ -6,108 +6,60 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import React, { useState } from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-// import Success from "@template-components/modals/successDialogue";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
-import {
-  ContactPageInput,
-  ContactPageSchema
-} from "@lib/validations/form.schema";
+import { ContactInput, ContactSchema } from "@lib/validations/form.schema";
+import Heading from "@components/heading";
 
 function Form() {
-  const methods = useForm<ContactPageInput>({
-    resolver: zodResolver(ContactPageSchema),
+  const methods = useForm<ContactInput>({
+    resolver: zodResolver(ContactSchema),
     mode: "onBlur"
   });
   const [isLoading, setIsLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { executeRecaptcha } = useGoogleReCaptcha();
+
   const {
     reset,
     handleSubmit,
     formState: { isSubmitSuccessful }
   } = methods;
-  const onSubmitHandler: SubmitHandler<ContactPageInput> = async (
-    values: any
-  ) => {
-    setIsLoading(true);
-    if (!executeRecaptcha) {
-      console.log("Execute recaptcha not yet available");
-      return;
-    }
-
-    executeRecaptcha("enquiryFormSubmit").then(
-      async (gReCaptchaToken: string) => {
-        console.log(gReCaptchaToken, "response Google reCaptcha server");
-      }
-    );
+  const onSubmitHandler: SubmitHandler<ContactInput> = async (values: any) => {
+    console.log("values");
   };
 
   return (
     <>
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmitHandler)}>
-          <div className="">
-            <Input
-              name="name"
-              classes={
-                "py-[20px] px-12 mb-5 max-sm:py-[18px] max-sm:placeholder:text-center placeholder:opacity-60 max-sm:placeholder:text-[12px] placeholder:text-[14px] bg-transparent bg-[#092730] !bg-opacity-100 opacity-90"
-              }
-              placeholder="Name"
-            />
-            <div className="flex gap-3 max-sm:flex-col max-sm:gap-0">
-              <div className="w-1/2 max-sm:w-full">
-                <Input
-                  name="email"
-                  classes={
-                    "py-[20px] px-12 max-sm:py-[18px] max-sm:placeholder:text-center mb-5 placeholder:opacity-60 max-sm:placeholder:text-[12px] placeholder:text-[14px] bg-transparent bg-[#092730] !bg-opacity-100 opacity-90"
-                  }
-                  placeholder="Email Address"
-                />
-              </div>
-              <div className="w-1/2 max-sm:w-full">
-                <Input
-                  name="phone"
-                  classes={
-                    "py-[20px] px-12 max-sm:py-[18px] max-sm:placeholder:text-center mb-5 placeholder:opacity-60 max-sm:placeholder:text-[12px] placeholder:text-[14px] bg-transparent bg-[#092730] !bg-opacity-100 opacity-90"
-                  }
-                  placeholder="Phone Number"
-                />
-              </div>
+          <div className="space-y-4">
+            <div className="mt-8">
+              <label className="block mb-1 font-medium">Name*</label>
+              <Input type="text" name="name" placeholder="Your Name*" />
             </div>
-            <Input
-              name="subject"
-              classes={
-                "py-[20px] px-12 max-sm:py-[18px] max-sm:placeholder:text-center mb-5 placeholder:opacity-60 max-sm:placeholder:text-[12px] placeholder:text-[14px] bg-transparent bg-[#092730] !bg-opacity-100 opacity-90"
-              }
-              placeholder="Subject"
-            />
-            <TextArea
-              rows={10}
-              name="message"
-              classes={
-                "py-[20px] px-12 max-sm:py-[18px] max-sm:placeholder:text-center mb-5 placeholder:opacity-60 max-sm:placeholder:text-[12px] placeholder:text-[14px] bg-transparent bg-[#092730] !bg-opacity-100 opacity-90"
-              }
-              placeholder="Message"
-            />
+            <div className="flex gap-3 max-sm:flex-col max-sm:gap-0 mt-8">
+              <div className="w-1/2 max-sm:w-full">
+                <label className="block mb-1 font-medium">Email*</label>
 
-            <div className="max-md:text-center max-sm:mt-6">
-              <Button
-                isLoading={isLoading}
-                type="button"
-                buttonType="submit"
-                className="px-14 max-sm:px-12 !text-[14px] !py-[11px] max-sm:!text-[12px]"
-              >
-                Submit
-              </Button>
+                <Input name="email" placeholder="Email Address" />
+              </div>
+              <div className="w-1/2 max-sm:w-full">
+                <label className="block mb-1 font-medium">Phone*</label>
+
+                <Input name="phone" placeholder="Phone Number" />
+              </div>
             </div>
+            <div className="mt-8">
+              <label className="block mb-1 font-medium">Message*</label>
+              <TextArea name="message" placeholder="Your Message" />
+            </div>
+            <Button
+              buttonType="submit"
+              className="w-full mt-8 bg-primary hover:bg-[#d1af32] text-white font-medium py-3 rounded uppercase"
+            >
+              Send Message
+            </Button>
           </div>
-          {/* <Success
-            isModalOpen={isModalOpen}
-            setIsModalOpen={setIsModalOpen}
-            message="Our Travel Specialist will get in touch with you shortly."
-            title="Thank You"
-          /> */}
         </form>
       </FormProvider>
     </>

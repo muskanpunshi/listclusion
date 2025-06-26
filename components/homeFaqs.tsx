@@ -16,7 +16,7 @@ import IconXShape from "@shapes/iconXShape";
 
 const HomeFaqs = ({ faqs }: { faqs: FaqResponse[] }) => {
   return (
-    <section className="bg-[#f3f3f3] py-16">
+    <section className="bg-[#f3f3f3] py-24">
       <Container className="flex flex-col lg:flex-row   gap-16 ">
         <div className="relative lg:w-[45%] w-full">
           <Heading className="leading-tight  mb-6">

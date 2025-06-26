@@ -53,13 +53,13 @@ export default function Footer() {
             <br /> United States
           </Paragraph>
           <div className="flex space-x-4 mt-4">
-            <div className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-secondary hover:bg-white flex items-center justify-center rounded-full">
+            <div className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-primary hover:bg-white flex items-center justify-center rounded-full">
               <FaFacebookF />
             </div>
-            <div className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-secondary hover:bg-white flex items-center justify-center rounded-full">
+            <div className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-primary hover:bg-white flex items-center justify-center rounded-full">
               <FaTwitter />
             </div>
-            <div className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-secondary hover:bg-white flex items-center justify-center rounded-full">
+            <div className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-primary hover:bg-white flex items-center justify-center rounded-full">
               <FaInstagram />
             </div>
           </div>
