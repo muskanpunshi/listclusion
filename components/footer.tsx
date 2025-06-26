@@ -1,6 +1,6 @@
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
-import Heading from "@components/heading";
-import Paragraph from "@components/paragraph";
+import Heading from "@components/common/heading";
+import Paragraph from "@components/common/paragraph";
 import Container from "@components/container";
 import Logo from "@public/template/logo-1.png";
 import Image from "next/image";
@@ -24,7 +24,7 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Email address"
-                className="w-full py-5 pl-6 pr-[20px] bg-white text-text-primary  focus:outline-none"
+                className="w-full py-5 pl-6 pr-[20px] bg-white text-secondary  focus:outline-none"
               />
               <button className="cursor-pointer text-[16px] absolute top-1/2 right-2 -translate-y-1/2 bg-primary hover:bg-[#e6b800] text-white px-5 py-3  font-semibold">
                 Get Started
@@ -53,13 +53,13 @@ export default function Footer() {
             <br /> United States
           </Paragraph>
           <div className="flex space-x-4 mt-4">
-            <div className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-text-primary hover:bg-white flex items-center justify-center rounded-full">
+            <div className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-primary hover:bg-white flex items-center justify-center rounded-full">
               <FaFacebookF />
             </div>
-            <div className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-text-primary hover:bg-white flex items-center justify-center rounded-full">
+            <div className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-primary hover:bg-white flex items-center justify-center rounded-full">
               <FaTwitter />
             </div>
-            <div className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-text-primary hover:bg-white flex items-center justify-center rounded-full">
+            <div className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-primary hover:bg-white flex items-center justify-center rounded-full">
               <FaInstagram />
             </div>
           </div>

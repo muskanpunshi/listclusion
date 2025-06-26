@@ -1,20 +1,28 @@
 "use client";
+import React, { useRef } from "react";
 
 import Image from "next/image";
 import Container from "./container";
-import Paragraph from "./paragraph";
-import Heading from "./heading";
+import Paragraph from "./common/paragraph";
+import Heading from "./common/heading";
 import RotatingShape from "@public/template/shape/shape_62.svg";
 import { BsQuote } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, EffectFade, Autoplay } from "swiper/modules";
 import { testimonials } from "@utils/data";
+import useElementVisibility from "@hooks/useInView";
 
 const Testimonials = () => {
+  const ref = useRef(null);
+  const isVisible = useElementVisibility(ref);
   return (
-    <section className=" bg-white min-h-[600px] lg:py-16 py-10">
+    <section className=" bg-white min-h-[600px] lg:py-16 py-10" ref={ref}>
       <Container className="mx-auto flex flex-col  lg:flex-row lg:items-center lg:justify-between ">
-        <div className="relative lg:w-[45%] h-full w-full">
+        <div
+          className={`relative lg:w-[45%] h-full w-full  ${
+            isVisible ? 'fade-in-left' : ""
+          }`}
+        >
           <Paragraph className="uppercase tracking-widest mb-2">
             Client Feedback
           </Paragraph>
@@ -55,7 +63,7 @@ const Testimonials = () => {
           >
             {testimonials.map((testimonial, index) => (
               <SwiperSlide key={index} className="py-8 relative h-full">
-                <Paragraph className="truncate text-ellipsis min-h-[200px] xl:text-[36px] md:text-[30px]  text-[18px] font-medium italic leading-snug text-text-primary mb-6 md:px-16 px-6">
+                <Paragraph className="truncate text-ellipsis min-h-[200px] xl:text-[36px] md:text-[30px]  text-[18px] font-medium italic leading-snug text-secondary mb-6 md:px-16 px-6">
                   {testimonial.review}
                 </Paragraph>
 

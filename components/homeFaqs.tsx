@@ -1,4 +1,5 @@
 "use client";
+import React, { useRef } from "react";
 
 import { FaqResponse } from "@utils/data";
 import {
@@ -8,26 +9,29 @@ import {
   AccordionTrigger
 } from "@components/radix/ui/accordion";
 import { cn } from "@utils/index";
-import Heading from "@components/heading";
-import Button from "@components/Button";
+import Heading from "@components/common/heading";
+import Button from "@components/common/Button";
 import Container from "./container";
-import Paragraph from "./paragraph";
+import Paragraph from "./common/paragraph";
 import IconXShape from "@shapes/iconXShape";
+import useElementVisibility from "@hooks/useInView";
 
 const HomeFaqs = ({ faqs }: { faqs: FaqResponse[] }) => {
+    const ref = useRef(null);
+  const isVisible = useElementVisibility(ref);
   return (
-    <section className="bg-[#f3f3f3] py-16">
+    <section className="bg-[#f3f3f3] py-24" ref={ref}>
       <Container className="flex flex-col lg:flex-row   gap-16 ">
-        <div className="relative lg:w-[45%] w-full">
+        <div className={`relative lg:w-[45%] w-full ${isVisible? 'fade-in-left': ''}`}>
           <Heading className="leading-tight  mb-6">
             Frequently Asked Questions
           </Heading>
-          <Paragraph className="text-text-primary mb-10">
+          <Paragraph className="text-secondary mb-10">
             Don’t find the answer? We can help you.
           </Paragraph>
           <Button
             href="/faqs"
-            className="bg-text-primary text-white border-0 font-semibold px-6 py-3 mt-4 "
+            className=" text-white border-0 px-6 py-3 mt-4 "
           >
             ASK QUESTIONS
           </Button>

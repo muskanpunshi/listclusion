@@ -26,15 +26,17 @@ export const headerNavigation: HeaderNavbar[] = [
       path: "/listing_04", // or dynamically `/categories/${slugify(cat.title)}`
     })),
   },
-  { label: "Blog", path: "#" },
   { label: "About Us", path: "#" },
-  { label: "Contact", path: "#" },
+  { label: "FAQs", path: "/faqs" },
+
+  { label: "Contact", path: "/contact" },
+
 ];
 export const footerSections: FooterSection[] = [
   {
     title: "Links",
     items: [
-      { label: "Home", href: "#" },
+      { label: "Home", href: "/" },
       { label: "Membership", href: "#" },
       { label: "About Company", href: "#" },
       { label: "Blog", href: "#" },
@@ -49,7 +51,7 @@ export const footerSections: FooterSection[] = [
       { label: "Terms & conditions", href: "#" },
       { label: "Cookie", href: "#" },
       { label: "Privacy policy", href: "#" },
-      { label: "Faq’s", href: "#" },
+      { label: "Faq’s", href: "/faqs" },
     ],
   },
   {

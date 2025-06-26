@@ -8,15 +8,10 @@ const Faqs = () => {
     <>
       <Banner
         title="Question & Answers"
-        breadcrumbs={[
-          
-          { title: "Faq’s", href: "/faqs" }
-        ]}
+        breadcrumbs={[{ title: "Faq’s", href: "/faqs" }]}
       />
-      <Container>
-        <InnerFaqs />
-      </Container>
-      
+ 
+      <InnerFaqs />
     </>
   );
 };

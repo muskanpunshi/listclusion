@@ -35,7 +35,7 @@ const MobileNavigation = ({
               <li key={index} className="w-full ">
                 <Link
                   href={nav.path}
-                  className="block font-medium text-text-primary hover:text-primary px-[12px] py-[10px] transition-colors border-t border-dashed border-[rgba(0,0,0,0.1)] h-12 "
+                  className="block font-medium text-secondary hover:text-primary px-[12px] py-[10px] transition-colors border-t border-dashed border-[rgba(0,0,0,0.1)] h-12 "
                   onClick={() => setIsOpen(false)}
                 >
                   {nav.label}

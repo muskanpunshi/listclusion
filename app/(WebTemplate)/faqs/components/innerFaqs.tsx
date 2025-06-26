@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import faqData from "../../../../data/faqData";
 import {
@@ -8,67 +9,63 @@ import {
 } from "@components/radix/ui/accordion";
 import { cn } from "@utils/index";
 import Container from "@components/container";
-
-const links = [
-  { id: "Selling", label: "Selling" },
-  { id: "Renting", label: "Renting" },
-  { id: "Buying", label: "Buying" },
-  { id: "Payments", label: "Payments" },
-  { id: "Terms", label: "Terms & Conditions" },
-  { id: "Account", label: "Account" }
-];
+import Link from "next/link";
+import Paragraph from "@components/common/paragraph";
+import Button from "@components/common/Button";
 
 const InnerFaqs = () => {
   return (
-    <div className=" mx-auto px-4 py-12">
-      <Container className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
+    <div className=" sm:py-12">
+      <Container className="grid grid-cols-1 lg:grid-cols-3 gap-8 ">
         <aside className="col-span-1">
-          <div className="space-y-10">
-           
-            <div className="bg-gray-50 rounded-lg p-6 shadow-sm">
+          <div className="relative rounded-t-lg p-6 bg-[url('/template/shape/shape_28.svg')] bg-no-repeat bg-cover">
+            <div className="bg-[#fefefe] rounded-lg py-8 px-5">
               <ul className="space-y-3">
-                {links.map((link, index) => (
-                  <li key={link.id}>
-                    <a
-                      href={`#${link.id}`}
-                      className="flex items-center space-x-2 text-gray-700 hover:text-black transition"
+                {faqData.map((link, index) => (
+                  <li key={link.id_name}>
+                    <Link
+                      href={`#${link.id_name}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const el = document.getElementById(link.id_name);
+                        if (el) {
+                          el.scrollIntoView({ behavior: "smooth" });
+                        }
+                      }}
+                      className="flex items-center mb-5 space-x-2 text-2xl max-sm:text-lg text-secondary hover:text-primary transition-all "
                     >
-                      <span className="font-medium">{index + 1}.</span>
-                      <span>{link.label}</span>
-                    </a>
+                      <span>{index + 1}.</span>
+                      <span>{link.title}</span>
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
+          </div>
 
-           
-            <div className="bg-gray-50 rounded-lg p-6 text-center shadow-sm">
-              <h4 className="text-lg font-semibold mb-6 leading-snug">
+          <div className="relative rounded-b-lg p-6 bg-[url('/template/shape/shape_28.svg')] bg-no-repeat bg-cover">
+            <div className="bg-[#fefefe] rounded-lg p-8 text-center">
+              <Paragraph className="text-[30px]  mb-6 leading-snug">
                 Don’t Find Your <br /> Answer?
-              </h4>
-              <a
-                href="/contact"
-                className="inline-block bg-black text-white px-5 py-2 rounded hover:bg-gray-800 transition"
-              >
+              </Paragraph>
+              <Button href="/contact" className="inline-block py-3 rounded-lg">
                 Contact us
-              </a>
+              </Button>
             </div>
           </div>
         </aside>
 
-    
         <div className="lg:col-span-2">
           {faqData.map((category) => (
             <div
               key={category.id}
               id={category.id_name}
-              className={`mb-12 ${category.md_pt ? "md:pt-12" : ""}`}
+              className={`mb-12 pt-2 scroll-mt-32`}
             >
-              <h3 className="text-sm font-semibold text-gray-400 uppercase mb-6">
+              <Paragraph className="font-semibold text-primary uppercase mb-6 ">
                 {category.title}
-              </h3>
-              <div className="divide-y divide-gray-200 border-t border-b">
+              </Paragraph>
+              <div className=" border-t border-b border-t-secondary/30 border-b-secondary/30">
                 <Accordion key={category.id} type="single" collapsible>
                   {category.faq.map((item, index, arr) => (
                     <AccordionItem

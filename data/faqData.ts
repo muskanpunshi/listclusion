@@ -13,8 +13,8 @@ interface DataType {
 const faqData:DataType[] = [
    {
       id: 1,
-      id_name: "Selling",
-      title: "SELLING",
+      id_name: "selling",
+      title: "Selling",
       md_pt:true,
       faq: [
          {
@@ -41,8 +41,8 @@ const faqData:DataType[] = [
    },
    {
       id: 2,
-      id_name: "Renting",
-      title: "RENTING",
+      id_name: "renting",
+      title: "Renting",
       faq: [
          {
             id: 5,
@@ -68,8 +68,8 @@ const faqData:DataType[] = [
    },
    {
       id: 3,
-      id_name: "Buying",
-      title: "BUYING",
+      id_name: "buying",
+      title: "Buying",
       faq: [
          {
             id: 9,
@@ -90,8 +90,8 @@ const faqData:DataType[] = [
    },
    {
       id: 4,
-      id_name: "Payments",
-      title: "PAYMENTS",
+      id_name: "payments",
+      title: "Payments",
       faq: [
          {
             id: 12,
@@ -112,8 +112,8 @@ const faqData:DataType[] = [
    },
    {
       id: 5,
-      id_name: "Terms",
-      title: "TERMS & CONDITIONS",
+      id_name: "terms",
+      title: "Terms & Conditions",
       faq: [
          {
             id: 15,
@@ -129,8 +129,8 @@ const faqData:DataType[] = [
    },
    {
       id: 6,
-      id_name: "Account",
-      title: "ACCOUNT",
+      id_name: "account",
+      title: "Account",
       faq: [
          {
             id: 17,

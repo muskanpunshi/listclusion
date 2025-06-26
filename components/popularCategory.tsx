@@ -1,9 +1,9 @@
 import {category_data} from "@utils/data";
 
-import Heading from "./heading";
+import Heading from "@components/common/heading";
 import { IoIosArrowForward } from "react-icons/io";
-import Button from "@components/Button";
-import CategoryItemCard from "@components/categoryItemCard";
+import Button from "@components/common/Button";
+import CategoryItemCard from "@components/CategoryItemCard";
 
 const PopularCategory = () => {
   return (

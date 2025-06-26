@@ -17,7 +17,7 @@ const Breadcrumb = ({ breadcrumbs }: BreadcrumbProps) => {
   return (
     <div className="relative text-center py-5  ">
       <div className="container mx-auto px-4 relative z-10">
-        <ul className="flex flex-wrap justify-center items-center space-x-2  text-lg text-text-primary border-b border-text-primary pb-2  ">
+        <ul className="flex flex-wrap justify-center items-center space-x-2  text-lg text-secondary border-b border-secondary pb-2  ">
           <li>
             <Link href="/" className=" hover:text-primary transition-all duration-300 ease-in-out">
               Home
