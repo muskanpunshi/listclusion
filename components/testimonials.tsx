@@ -55,7 +55,7 @@ const Testimonials = () => {
           >
             {testimonials.map((testimonial, index) => (
               <SwiperSlide key={index} className="py-8 relative h-full">
-                <Paragraph className="truncate text-ellipsis min-h-[200px] xl:text-[36px] md:text-[30px]  text-[18px] font-medium italic leading-snug text-text-primary mb-6 md:px-16 px-6">
+                <Paragraph className="truncate text-ellipsis min-h-[200px] xl:text-[36px] md:text-[30px]  text-[18px] font-medium italic leading-snug text-secondary mb-6 md:px-16 px-6">
                   {testimonial.review}
                 </Paragraph>
 

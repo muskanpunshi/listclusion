@@ -49,7 +49,7 @@ const Header = () => {
                         className={`text-[18px] font-medium   hover:text-primary transition-all duration-200 ease-in-out  ${
                           isActive
                             ? "text-primary"
-                            : "text-text-primary hover:text-primary"
+                            : "text-secondary hover:text-primary"
                         } `}
                       >
                         {nav.label}

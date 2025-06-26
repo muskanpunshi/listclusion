@@ -18,7 +18,7 @@ export const headerNavigation: HeaderNavbar[] = [
   { label: "Home", path: "/" },
   { label: "Blog", path: "#" },
   { label: "About Us", path: "#" },
-  { label: "Contact", path: "#" },
+  { label: "Contact", path: "/contact" },
 
 ];
 
@@ -41,7 +41,7 @@ export const footerSections: FooterSection[] = [
       { label: "Terms & conditions", href: "#" },
       { label: "Cookie", href: "#" },
       { label: "Privacy policy", href: "#" },
-      { label: "Faq’s", href: "#" },
+      { label: "Faq’s", href: "/faqs" },
     ],
   },
   {

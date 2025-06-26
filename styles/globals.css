@@ -39,11 +39,18 @@
 :root {
   --font-primary: "Gordita", sans-serif;
   --color-primary: #e8c347;
-  --color-text-primary: #000000b3;
+  --color-secondary: #000000b3;
   --color-grey: #fff9;
   --color-background: #ffffff;
   --color-dark-background: #141414;
 }
+
+
+body {
+  scroll-behavior: smooth;
+  font-display: swap;
+}
+
 
 h1,
 h2,
@@ -57,7 +64,7 @@ h6 {
 @theme {
   --font-primary: var(--font-primary);
   --color-primary: var(--color-primary);
-  --color-text-primary: var(--color-text-primary);
+  --color-secondary: var(--color-secondary);
   --color-background: var(--color-background);
   --color-dark-background: var(--color-dark-background);
   --color-grey: var(--color-grey);

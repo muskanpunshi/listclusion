@@ -14,13 +14,13 @@ const HeroBanner = () => {
           <div className="w-full  lg:w-[50%]  fade-in-left">
             <Heading
               isHeadingH1={true}
-              className="font-medium text-text-primary  pr-6 max-xl:pr-4"
+              className="font-medium text-secondary  pr-6 max-xl:pr-4"
             >
               Welcome to LISTCLUSION - your ultimate partner.
             </Heading>
           </div>
           <div className="w-full lg:w-[40%] mt-10 lg:mt-0 fade-in-right  h-full">
-            <Paragraph className=" sm:text-[18px] md:text-[24px] lg:text-[28px]  text-text-primary font-normal mb-10 lg:mb-5 leading-[1.6]">
+            <Paragraph className=" sm:text-[18px] md:text-[24px] lg:text-[28px]  text-secondary font-normal mb-10 lg:mb-5 leading-[1.6]">
               We connect importers, exporters, local manufacturers, and
               customers, providing a seamless and reliable sourcing experience
               on this platform.

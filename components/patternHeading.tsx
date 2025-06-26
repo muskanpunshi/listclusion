@@ -14,7 +14,7 @@ export default function PatternHeading({
 }) {
   return isHeadingH1 ? (
     <h1
-      className={`relative font-primary text-[70px] max-lg:text-[40px] max-sm:text-[36px] leading-[1.25] capitalize text-text-primary font-medium ${className}`}
+      className={`relative font-primary text-[70px] max-lg:text-[40px] max-sm:text-[36px] leading-[1.25] capitalize text-secondary font-medium ${className}`}
     >
       {children}
       <Image src={titleShape} alt="" className="absolute -z-[1] bottom-[-2%] left-1/2 translate-x-[-50%] max-w-full h-auto block" />
@@ -22,7 +22,7 @@ export default function PatternHeading({
   ) : (
     <h2
       className={cn([ 
-        "relative font-primary  text-text-primary text-[64px] max-xl:text-[48px]  max-lg:text-[36px] max-sm:[24px] font-medium ",
+        "relative font-primary  text-secondary text-[64px] max-xl:text-[48px]  max-lg:text-[36px] max-sm:[24px] font-medium ",
         className
       ])}
     >

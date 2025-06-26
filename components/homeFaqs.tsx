@@ -22,12 +22,12 @@ const HomeFaqs = ({ faqs }: { faqs: FaqResponse[] }) => {
           <Heading className="leading-tight  mb-6">
             Frequently Asked Questions
           </Heading>
-          <Paragraph className="text-text-primary mb-10">
+          <Paragraph className="text-secondary mb-10">
             Don’t find the answer? We can help you.
           </Paragraph>
           <Button
             href="/faqs"
-            className="bg-text-primary text-white border-0 font-semibold px-6 py-3 mt-4 "
+            className=" text-white border-0 px-6 py-3 mt-4 "
           >
             ASK QUESTIONS
           </Button>

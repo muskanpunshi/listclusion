@@ -10,7 +10,7 @@ const Faqs = () => {
         title="Question & Answers"
         breadcrumbs={[{ title: "Faq’s", href: "/faqs" }]}
       />
-
+ 
       <InnerFaqs />
     </>
   );

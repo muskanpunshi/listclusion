@@ -41,7 +41,7 @@ const InnerFaqs = () => {
                           });
                         }
                       }}
-                      className="flex items-center mb-5 space-x-2 text-2xl max-sm:text-lg text-text-primary hover:text-primary transition-all "
+                      className="flex items-center mb-5 space-x-2 text-2xl max-sm:text-lg text-secondary hover:text-primary transition-all "
                     >
                       <span>{index + 1}.</span>
                       <span>{link.title}</span>
