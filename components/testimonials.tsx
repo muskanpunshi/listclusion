@@ -51,7 +51,7 @@ const Testimonials = () => {
             loop={true}
             effect="fade"
             fadeEffect={{ crossFade: true }}
-          className="h-full testimonial-swiper"
+            className="h-full testimonial-swiper"
           >
             {testimonials.map((testimonial, index) => (
               <SwiperSlide key={index} className="py-8 relative h-full">
@@ -59,26 +59,25 @@ const Testimonials = () => {
                   {testimonial.review}
                 </Paragraph>
 
-                  <div className="w-full bg-[url('/template/shape/shape_61.svg')] bg-cover bg-no-repeat md:px-16 px-2 py-3 flex justify-end ">
-                    <div className="xl:w-1/3 w-2/3 flex items-center justify-end sm:gap-4 gap-2 ml-auto">
-                      <Image
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        width={60}
-                        height={60}
-                        className=" rounded-full object-cover max-sm:w-12 max-sm:h-12"
-                      />
-                      <div className="w-full overflow-hidden">
-                        <Paragraph className="font-semibold text-xl max-md:text-base truncate ">
-                          {testimonial.name}
-                        </Paragraph>
-                        <Paragraph className=" text-sm truncate">
-                          {testimonial.location}
-                        </Paragraph>
-                      </div>
+                <div className="w-full bg-[url('/template/shape/shape_61.svg')] bg-cover bg-no-repeat md:px-16 px-2 py-3 flex justify-end ">
+                  <div className="xl:w-1/3 w-2/3 flex items-center justify-end sm:gap-4 gap-2 ml-auto">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      width={60}
+                      height={60}
+                      className=" rounded-full object-cover max-sm:w-12 max-sm:h-12"
+                    />
+                    <div className="w-full overflow-hidden">
+                      <Paragraph className="font-semibold text-xl max-md:text-base truncate ">
+                        {testimonial.name}
+                      </Paragraph>
+                      <Paragraph className=" text-sm truncate">
+                        {testimonial.location}
+                      </Paragraph>
                     </div>
                   </div>
-               
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>

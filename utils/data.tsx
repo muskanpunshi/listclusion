@@ -100,42 +100,44 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-
 export interface FaqResponse {
   id?: number;
   question?: string;
   answer?: string;
- 
 }
 
 export const faqData: FaqResponse[] = [
   {
     id: 1,
     question: "How does the free trial work?",
-    answer: "Our free trial gives you full access to all features for 14 days, no credit card required.",
+    answer:
+      "Our free trial gives you full access to all features for 14 days, no credit card required.",
   },
   {
     id: 2,
     question: "How do you evaluate different criteria in your process?",
-    answer: "We assess product fit, market potential, team experience, and scalability before making a decision.",
+    answer:
+      "We assess product fit, market potential, team experience, and scalability before making a decision.",
   },
   {
     id: 3,
     question: "What do you look for in a founding team?",
-    answer: "We value diverse skill sets, a strong vision, and the ability to execute under pressure.",
+    answer:
+      "We value diverse skill sets, a strong vision, and the ability to execute under pressure.",
   },
   {
     id: 4,
     question: "Do you recommend Pay as you go or Prepay?",
-    answer: "It depends on your usage pattern. Prepay offers better value for long-term usage, while Pay as you go is more flexible.",
+    answer:
+      "It depends on your usage pattern. Prepay offers better value for long-term usage, while Pay as you go is more flexible.",
   },
   {
     id: 5,
     question: "Can I cancel my subscription anytime?",
-    answer: "Yes, you can cancel anytime from your dashboard. No questions asked.",
+    answer:
+      "Yes, you can cancel anytime from your dashboard. No questions asked.",
   },
 ];
-
 
 import propertyThumb_1 from "@public/template/project-1.jpg";
 import propertyThumb_2 from "@public/template/project-2.jpg";
@@ -439,21 +441,22 @@ interface CategoryDataType {
   data_delay_time?: string;
   btn?: string;
   class_name?: string;
-  image?: any;
+  image?: StaticImageData;
+  children?: Omit<CategoryDataType, "children" | "page">[];
 }
 
 import image1 from "@public/template/architects-consultants.png";
-import image2 from "@public/template/builders-and-developers.png";
-import image3 from "@public/template/electrical-consultants.png";
-import image4 from "@public/template/engineering-consultants.png";
-import image5 from "@public/template/furniture-manufactures.png";
-import image6 from "@public/template/hvac-consultants.png";
-import image7 from "@public/template/interior-designers.png";
-import image8 from "@public/template/mechanical-consultant.png";
-import image9 from "@public/template/metal-works.png";
-import image10 from "@public/template/plumbling-consultants.png";
-import image11 from "@public/template/project-managers.png";
-import image12 from "@public/template/quanlity-surveyors-consultants.png";
+import image2 from "@public/template/engineering-consultants.png";
+import image3 from "@public/template/builders-and-developers.png";
+import image4 from "@public/template/interior-designers.png";
+import image5 from "@public/template/mechanical-consultant.png";
+import image6 from "@public/template/electrical-consultants.png";
+import image7 from "@public/template/hvac-consultants.png";
+import image8 from "@public/template/plumbling-consultants.png";
+import image9 from "@public/template/furniture-manufactures.png";
+import image10 from "@public/template/project-managers.png";
+import image11 from "@public/template/quanlity-surveyors-consultants.png";
+import image12 from "@public/template/metal-works.png";
 
 export const feature_data: CategoryDataType[] = [
   {
@@ -562,5 +565,36 @@ export const feature_data: CategoryDataType[] = [
     desc: "720 Listing",
     data_delay_time: "0.3s",
     image: image12,
+  },
+  {
+    id: 13,
+    page: "home_5_feature_1",
+    title: "Suppliers",
+    desc: "2,000 Listings",
+    item_bg: "home-5-feature-item-suppliers",
+    image: image5,
+    children: [
+      {
+        id: 101,
+        title: "Light Suppliers",
+        desc: "500 Listings",
+        image: image6,
+        item_bg: "home-5-feature-item-light",
+      },
+      {
+        id: 102,
+        title: "Raw Wood Suppliers",
+        desc: "300 Listings",
+        image: image3,
+        item_bg: "home-5-feature-item-wood",
+      },
+      {
+        id: 103,
+        title: "Metal Suppliers",
+        desc: "300 Listings",
+        image: image8,
+        item_bg: "home-5-feature-item-metal",
+      },
+    ],
   },
 ];

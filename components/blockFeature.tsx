@@ -8,18 +8,34 @@ import Link from "next/link";
 import Image from "next/image";
 import titleShape from "@public/template/shape/title_shape_03.svg";
 import Container from "./container";
-import Button from "./Button";
-import { FaArrowUpLong } from "react-icons/fa6";
 import SliderButtons from "./sliderButtons";
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import SearchSelectInput from "./ui/searchSelect";
 
 const BLockFeatureTwo = ({ style }: any) => {
-  const filteredData = feature_data.filter(
-    (items) => items.page === "home_5_feature_1"
-  );
+  const filteredData = useMemo(() => {
+    const mainData = feature_data.filter(
+      (item) => item.page === "home_5_feature_1"
+    );
+
+    const flattened = mainData.flatMap((item: any) => {
+      if (item.children && Array.isArray(item.children)) {
+        return item.children.map((child) => ({
+          ...child,
+          parentTitle: item.title, // Optional if you want to show parent label
+        }));
+      }
+      return item;
+    });
+
+    return flattened;
+  }, []);
   const swiperRef = useRef<any>({}) as any;
   const [slideIndex, setSlideIndex] = useState(0);
   const [lastSlide, setLastSlide] = useState<boolean>(false);
+  const [selectedCategory, setSelectedCategory] = useState<string | undefined>(
+    undefined
+  );
 
   const handleSlideChange = (params: any) => {
     setSlideIndex(params.activeIndex);
@@ -29,12 +45,29 @@ const BLockFeatureTwo = ({ style }: any) => {
       setLastSlide(false);
     }
   };
+  // Create dropdown items from data
+  const dropdownItems = useMemo(() => {
+    return filteredData.map((item) => ({
+      value: item.title,
+      label: item.title,
+    }));
+  }, [filteredData]);
 
+  const handleCategoryChange = (value: string) => {
+    setSelectedCategory(value);
+
+    const index = filteredData.findIndex((item) => item.title === value);
+
+    // Slide to exact index (offset for looped swipers if needed)
+    if (index !== -1 && swiperRef.current?.swiper) {
+      swiperRef.current.swiper.slideToLoop(index); // slideToLoop handles looping properly
+    }
+  };
   return (
     <div className={`mt-[170px] xl:mt-[120px]`}>
       <Container>
         <div className="relative">
-          <div className="flex items-center justify-between text-center lg:text-left mb-10 xl:mb-8 lg:mb-5 animate-fadeInUp">
+          <div className="flex items-center justify-between text-center mb-12 lg:text-left animate-fadeInUp">
             <h3 className="text-[64px] font-[500] text-[#000000b3] pb-5">
               Most&nbsp;
               <span className="relative inline-block">
@@ -46,13 +79,13 @@ const BLockFeatureTwo = ({ style }: any) => {
                 />
               </span>
             </h3>
-            <div className="flex items-center gap-x-5">
-              <Button
-                className="hover:bg-primary px-8 py-4 rounded-none max-sm:mt-0 bg-black text-white"
-                href="#"
-              >
-                Explore All <FaArrowUpLong className="rotate-45" />
-              </Button>
+            <div className="flex w-[34%] items-center gap-x-5">
+              <SearchSelectInput
+                value={selectedCategory}
+                onChange={handleCategoryChange}
+                placeHolder="Please Select A Category"
+                items={dropdownItems}
+              />
               <SliderButtons
                 classes="flex gap-x-3 mb-0 justify-end max-md:justify-center"
                 lastSlide={lastSlide}
@@ -62,6 +95,7 @@ const BLockFeatureTwo = ({ style }: any) => {
               />
             </div>
           </div>
+
           <Swiper
             ref={swiperRef}
             modules={[Autoplay]}
@@ -107,6 +141,11 @@ const BLockFeatureTwo = ({ style }: any) => {
                       {item.title}
                     </h5>
                   </Link>
+                  {item.parentTitle && (
+                    <p className="text-sm text-gray-400 italic">
+                      Supplier Category
+                    </p>
+                  )}
                   <p className="text-gray-500">{item.desc}</p>
                 </div>
               </SwiperSlide>

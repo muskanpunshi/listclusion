@@ -8,7 +8,7 @@ import { FaArrowUpLong } from "react-icons/fa6";
 
 const HeroBanner = () => {
   return (
-    <div className="relative h-svh flex items-center justify-center  bg-top bg-cover bg-no-repeat w-full bg-[url(/template/hero-banner.jpg)] ">
+    <div className="relative h-svh flex items-center justify-center  bg-top bg-cover bg-no-repeat w-full bg-[url(/template/img_47.jpg)] ">
       <Container className="">
         <div className="flex flex-wrap items-center justify-between max-md:justify-center  ">
           <div className="w-full  lg:w-[50%]  fade-in-left">

@@ -1,8 +1,12 @@
+import { feature_data } from "@utils/data";
+
 export interface HeaderNavbar {
   label: string;
-  path: string;
- 
-
+  path?: string; // Optional if it has children
+  children?: {
+    label: string;
+    path: string;
+  }[];
 }
 
 export interface FooterSection {
@@ -11,17 +15,22 @@ export interface FooterSection {
     label: string;
     href: string;
   }[];
-};
-
+}
 
 export const headerNavigation: HeaderNavbar[] = [
   { label: "Home", path: "/" },
+  {
+    label: "Categories",
+    children: feature_data.map((cat) => ({
+      label: cat.title,
+      path: "/listing_04", // or dynamically `/categories/${slugify(cat.title)}`
+    })),
+  },
   { label: "Blog", path: "#" },
   { label: "About Us", path: "#" },
   { label: "Contact", path: "/contact" },
 
 ];
-
 export const footerSections: FooterSection[] = [
   {
     title: "Links",
@@ -56,4 +65,3 @@ export const footerSections: FooterSection[] = [
     ],
   },
 ];
-
