@@ -1,7 +1,7 @@
 "use client";
 import Container from "@components/container";
-import Heading from "@components/heading";
-import Paragraph from "@components/paragraph";
+import Heading from "@components/common/heading";
+import Paragraph from "@components/common/paragraph";
 import React from "react";
 import { FaLocationDot  } from "react-icons/fa6";
 import { IoCall } from "react-icons/io5";

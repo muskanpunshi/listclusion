@@ -5,14 +5,13 @@ import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger,
+  AccordionTrigger
 } from "@components/radix/ui/accordion";
 import { cn } from "@utils/index";
 import Container from "@components/container";
 import Link from "next/link";
-import Heading from "@components/heading";
-import Paragraph from "@components/paragraph";
-import Button from "@components/Button";
+import Paragraph from "@components/common/paragraph";
+import Button from "@components/common/Button";
 
 const InnerFaqs = () => {
   return (
@@ -26,19 +25,11 @@ const InnerFaqs = () => {
                   <li key={link.id_name}>
                     <Link
                       href={`#${link.id_name}`}
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.preventDefault();
                         const el = document.getElementById(link.id_name);
                         if (el) {
-                          const offset = 100;
-                          const y =
-                            el.getBoundingClientRect().top +
-                            window.scrollY -
-                            offset;
-
-                          window.scrollTo({
-                            top: y,
-                            behavior: "smooth",
-                          });
+                          el.scrollIntoView({ behavior: "smooth" });
                         }
                       }}
                       className="flex items-center mb-5 space-x-2 text-2xl max-sm:text-lg text-secondary hover:text-primary transition-all "
@@ -66,45 +57,15 @@ const InnerFaqs = () => {
 
         <div className="lg:col-span-2">
           {faqData.map((category) => (
-            <div key={category.id} className={`mb-12 pt-2`}>
-              <Paragraph
-                id={category.id_name}
-                className="font-semibold text-primary uppercase mb-6 scroll-mt-36 "
-              >
-                {category.title}
-              </Paragraph>
-              <div className=" border-t border-b border-t-text-primary/10 border-b-text-primary/10">
-                <Accordion key={category.id} type="single" collapsible>
-                  {category.faq.map((item, index, arr) => (
-                    <AccordionItem
-                      key={index}
-                      value={`item-${item.id}`}
-                      className={cn(index === arr.length - 1 && "border-none")}
-                    >
-                      <AccordionTrigger>{item.question}</AccordionTrigger>
-                      <AccordionContent>{item.answer}</AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Container>
-      <Container className="hidden">
-        <div className=" bg-white lg:px-10 px-4">
-          {faqData.map((category) => (
             <div
               key={category.id}
               id={category.id_name}
-              className={`mb-12 grid lg:grid-cols-3 grid-cols-1`}
+              className={`mb-12 pt-2`}
             >
-              <div className="lg:col-span-1 lg:py-8">
-                <Paragraph className="text-xl max-sm:text-lg font-semibold text-primary uppercase mb-6">
-                  {category.title}
-                </Paragraph>
-              </div>
-              <div className="lg:col-span-2  max-lg:border-t border-b border-t-text-primary/10 border-b-text-primary/10">
+              <Paragraph className="font-semibold text-primary uppercase mb-6 ">
+                {category.title}
+              </Paragraph>
+              <div className=" border-t border-b border-t-secondary/30 border-b-secondary/30">
                 <Accordion key={category.id} type="single" collapsible>
                   {category.faq.map((item, index, arr) => (
                     <AccordionItem

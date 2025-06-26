@@ -3,7 +3,7 @@
 import Image from "next/image";
 import BannerImage from "@public/template/shape/ils_07.svg";
 import Breadcrumb from "@components/common/breadCrumb";
-import Heading from "@components/heading";
+import Heading from "@components/common/heading";
 import Container from "@components/container";
 
 interface BreadcrumbItem {

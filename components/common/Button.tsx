@@ -16,7 +16,7 @@ type LinkButtonProps = {
 };
 
 const Button: React.FC<LinkButtonProps> = ({
-  href='#',
+  href,
   type = "link",
   className = "",
   buttonType = "button",
@@ -27,7 +27,7 @@ const Button: React.FC<LinkButtonProps> = ({
 }) => {
   return (
     <>
-      {type === "link" ? (
+    {type === "link" && href ? (
         <Link
           className={cn(
             "w-fit px-8 py-4  bg-black hover:bg-primary text-white font-medium flex items-center justify-center transition-all duration-300 ease-in-out ",
@@ -49,13 +49,25 @@ const Button: React.FC<LinkButtonProps> = ({
         >
           <span className="relative z-10 leading-[1]">
             {isLoading && (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3d3838" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-loader-circle-icon lucide-loader-circle h-4 w-4 absolute -left-[22px] -top-[2px] animate-spin transition-all text-primary-color"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
-            
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#3d3838"
+                strokeWidth="1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-loader-circle-icon lucide-loader-circle h-4 w-4 absolute -left-[22px] -top-[2px] animate-spin transition-all text-primary-color"
+              >
+                <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+              </svg>
             )}
             {children}
           </span>
         </button>
-      )}
+       )} 
     </>
   );
 };

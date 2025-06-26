@@ -1,8 +1,8 @@
 "use client";
 
-import Heading from "@components/heading";
-import Paragraph from "@components/paragraph";
-import Button from "@components/Button";
+import Heading from "@components/common/heading";
+import Paragraph from "@components/common/paragraph";
+import Button from "@components/common/Button";
 import Container from "@components/container";
 import { FaArrowUpLong } from "react-icons/fa6";
 

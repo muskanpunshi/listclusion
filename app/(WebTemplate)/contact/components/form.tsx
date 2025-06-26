@@ -1,7 +1,7 @@
 "use client";
 import Input from "@components/common/input";
 import TextArea from "@components/common/textArea";
-import Button from "@components/Button";
+import Button from "@components/common/Button";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import React, { useState } from "react";
@@ -9,13 +9,16 @@ import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 import { ContactInput, ContactSchema } from "@lib/validations/form.schema";
-import Heading from "@components/heading";
+
 
 function Form() {
   const methods = useForm<ContactInput>({
     resolver: zodResolver(ContactSchema),
     mode: "onBlur"
   });
+
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
   const [isLoading, setIsLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -24,8 +27,21 @@ function Form() {
     handleSubmit,
     formState: { isSubmitSuccessful }
   } = methods;
-  const onSubmitHandler: SubmitHandler<ContactInput> = async (values: any) => {
-    console.log("values");
+  const onSubmitHandler: SubmitHandler<ContactInput> = async (
+    values: any,
+    e
+  ) => {
+    e?.preventDefault();
+
+    if (!executeRecaptcha) {
+      console.log("Execute recaptcha not yet available");
+      return;
+    }
+    executeRecaptcha("contactForm").then(async (gReCaptchaToken: string) => {
+      console.log("reCAPTCHA token:", gReCaptchaToken);
+
+      
+    });
   };
 
   return (

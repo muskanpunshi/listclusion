@@ -1,16 +1,20 @@
 "use client";
 
 import Image from "next/image";
+import React, { useRef } from "react";
 
 import shape1 from "@public/template/shape/shape_51.svg";
 import img from "@public/template/img_44.png";
-import Heading from "@components/heading";
-import Button from "@components/Button";
+import Heading from "@components/common/heading";
+import Button from "@components/common/Button";
 import Container from "@components/container";
+import useElementVisibility from "@hooks/useInView";
 
 const FooterPromoBanner = () => {
+  const ref = useRef(null);
+  const isVisible = useElementVisibility(ref);
   return (
-    <section className=" pt-10  fade-in-up">
+    <section className={`pt-10  ${isVisible? 'fade-in-up' : ''}`} ref={ref}>
       <Container className=" mx-auto px-4">
         <div className="relative z-[1] p-0">
           <div className="flex flex-col md:flex-row  justify-between md:gap-10 gap-1 ">
@@ -25,7 +29,7 @@ const FooterPromoBanner = () => {
                   Become a Consultant
                 </Button>
                 <Button
-                  href="#"
+                  href="/contact"
                   className=" border border-primary bg-primary text-white  mt-2"
                 >
                   Contact us
@@ -33,7 +37,7 @@ const FooterPromoBanner = () => {
                 <Image
                   src={shape1}
                   alt=""
-                  className="mb-[-30px] w-[80px] hidden lg:block"
+                  className={`mb-[-30px] w-[80px] hidden lg:block ${isVisible ?'fade-in-right':''}`  }
                 />
               </div>
             </div>

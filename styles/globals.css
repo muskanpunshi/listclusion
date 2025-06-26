@@ -61,6 +61,17 @@ h6 {
   --font-primary: "Gordita", sans-serif;
 }
 
+::-webkit-scrollbar-track {
+    background: #fff;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: #000;
+    border-radius: 0;
+}
+
 @theme {
   --font-primary: var(--font-primary);
   --color-primary: var(--color-primary);

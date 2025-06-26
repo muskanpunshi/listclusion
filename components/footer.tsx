@@ -1,6 +1,6 @@
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
-import Heading from "@components/heading";
-import Paragraph from "@components/paragraph";
+import Heading from "@components/common/heading";
+import Paragraph from "@components/common/paragraph";
 import Container from "@components/container";
 import Logo from "@public/template/logo-1.png";
 import Image from "next/image";
