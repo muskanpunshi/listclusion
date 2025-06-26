@@ -27,7 +27,7 @@ const HeroBanner = () => {
             </Paragraph>
             <Button
               className="hover:bg-primary mt-8 px-8 py-4 max-sm:mt-0 bg-black text-white"
-              href="#"
+              href="/contact"
             >
               {" "}
               Contact us <FaArrowUpLong className="rotate-45" />
