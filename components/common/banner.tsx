@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import BannerImage from "@public/template/shape/ils_07.svg";
@@ -13,7 +13,7 @@ interface BreadcrumbItem {
 
 interface BannerProps {
   title: string;
-  breadcrumbs: BreadcrumbItem[];
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 const Banner = ({ title, breadcrumbs }: BannerProps) => {
@@ -25,11 +25,10 @@ const Banner = ({ title, breadcrumbs }: BannerProps) => {
           <Heading isHeadingH1={true} className="mb-4">
             {title}
           </Heading>
-          <Breadcrumb breadcrumbs={breadcrumbs} />
+          {breadcrumbs && <Breadcrumb breadcrumbs={breadcrumbs} />}
         </Container>
       </div>
 
-      
       <div className="absolute bottom-0 left-0 w-full z-0">
         <Image
           src={BannerImage}
