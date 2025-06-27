@@ -9,6 +9,7 @@ type inputType = {
   classes?: string;
   defaultValue?: string;
   name: string;
+  label?: string;
 
   onFocus?: React.FocusEventHandler<HTMLInputElement> | undefined;
 };
@@ -20,6 +21,7 @@ function Input({
   classes,
   defaultValue = "",
   name,
+  label,
 
   onFocus
 }: inputType) {
@@ -30,6 +32,8 @@ function Input({
   return (
     <>
       <div className="relative">
+        {label && <label className="block mb-1 text-secondary capitalize font-medium">{label}</label>}
+
         <input
           type={type ?? "text"}
           className={cn([

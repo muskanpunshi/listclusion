@@ -43,7 +43,7 @@ const Button: React.FC<LinkButtonProps> = ({
           onClick={onClick}
           disabled={isLoading}
           className={cn([
-            "font-primary  uppercase cursor-pointer w-fit text-secondary font-semibold py-[12px] px-6  inline-flex  2xl:py-[14px] whitespace-nowrap  justify-center items-center gap-2 disabled:bg-opacity-90 disabled:cursor-default relative after:absolute after:w-full after:h-full after:top-0 after:left-0  after:z-[1]",
+            "font-primary  bg-primary text-white rounded-md uppercase cursor-pointer min-w-[150px] font-medium py-[12px] px-6  inline-flex  2xl:py-[14px] whitespace-nowrap  justify-center items-center gap-2 disabled:bg-opacity-90 disabled:cursor-default relative after:absolute after:w-full after:h-full after:top-0 after:left-0  after:z-[1] hover:bg-[#d1af32]  " ,
             className
           ])}
         >

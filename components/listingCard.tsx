@@ -35,9 +35,9 @@ const ListingCard = () => {
               .filter((items) => items.page === "home_1")
               .map((item) => (
                 <div key={item.id} className="flex mt-10 group card-pagination">
-                  <div className="bg-white rounded-2xl shadow-md w-full flex flex-col">
+                  <div className="bg-white/50 rounded-md shadow-md w-full flex flex-col">
                     <div className="p-4">
-                      <div className="relative rounded-2xl overflow-hidden">
+                      <div className="relative rounded-md overflow-hidden">
                         <Swiper
                           modules={[Pagination]}
                           pagination={{ clickable: true }}
@@ -58,10 +58,10 @@ const ListingCard = () => {
                       </div>
                     </div>
 
-                    <div className="p-6 flex flex-col gap-2">
+                    <div className="px-6 pb-6 flex flex-col gap-2">
                       <Link
                         href="/listing_details_01"
-                        className="text-2xl font-medium  text-[#000000b3] group-hover:text-primary transition-all duration-300"
+                        className=" text-xl font-medium  text-[#000000b3] group-hover:text-primary transition-all duration-300"
                       >
                         {item.title}
                       </Link>

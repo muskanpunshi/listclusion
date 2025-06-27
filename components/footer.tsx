@@ -2,7 +2,7 @@ import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import Heading from "@components/common/heading";
 import Paragraph from "@components/common/paragraph";
 import Container from "@components/container";
-import Logo from "@public/template/logo-1.png";
+import Logo from "@public/template/logoWithText.jpeg";
 import Image from "next/image";
 import Link from "next/link";
 import { footerSections } from "../routes/navigation";

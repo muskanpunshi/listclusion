@@ -9,11 +9,14 @@ function TextArea({
   name,
   rows,
   placeholder,
+  label
 }: {
   classes?: string;
   name: string;
   rows?: number;
   placeholder?: string;
+  label?:string
+
 }) {
   const {
     register,
@@ -21,11 +24,13 @@ function TextArea({
   } = useFormContext();
   return (
     <div className="relative">
+        {label && <label className="inline-block capitalize text-secondary mb-1 font-medium">{label}</label>}
+
       <textarea
         rows={rows}
         placeholder={placeholder}
         className={cn([
-          "bg-primary-color min-h-36 resize-none text-base  text-secondary bg-white block w-full border border-secondary/40  rounded-md py-4 px-5  focus:outline-none focus:shadow-none placeholder:text-[#949393] ",
+          "bg-primary-color resize-none text-base  text-secondary bg-white block w-full border border-secondary/40  rounded-md py-4 px-5  focus:outline-none focus:shadow-none placeholder:text-[#949393] ",
           classes,
         ])}
         {...register(name)}
