@@ -10,7 +10,7 @@ import Container from "./container";
 
 const ListingCard = () => {
   return (
-    <section className="bg-[#f3f3f3] mt-8 xl:mt-16 pt-8 xl:pt-16 lg:pt-20 pb-24 xl:pb-28 lg:pb-24">
+    <section className="bg-[#e5e5e5] mt-8 xl:mt-16 pt-8 xl:pt-16 lg:pt-20 pb-24 xl:pb-28 lg:pb-24">
       <Container>
         <div className="relative">
           <div className="text-center lg:text-left mb-12 xl:mb-8 lg:mb-5">

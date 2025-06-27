@@ -7,18 +7,20 @@ interface PageProps {
   params: Promise<{ name: string }>;
 }
 
- async function Page({ params }: PageProps) {
-   const { name } = await params;
-   console.log(name)
+async function Page({ params }: PageProps) {
+  const { name } = await params;
+  console.log(name);
   const data = categoryDetail.find((item) => item.slug === name);
   return (
     <>
       <Banner title={data?.name} />
-      <Container>
-        <InnerCategoryDetail data={data}/>
-      </Container>
+      <div className="bg-[#e5e5e5]">
+        <Container>
+          <InnerCategoryDetail data={data} />
+        </Container>
+      </div>
     </>
   );
-};
+}
 
 export default Page;
