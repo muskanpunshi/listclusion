@@ -30,11 +30,11 @@ const Banner = ({ title, breadcrumbs,image }: BannerProps) => {
         </Container>
       </div>
 
-      <div className="w-full h-full z-0">
+      <div className="absolute bottom-0 left-0 w-full  z-0">
         <Image
           src={image ?? BannerImage}
           alt="Banner Illustration"
-          className="w-full h-full object-cover   border-b border-black"
+          className="w-full h-auto object-contain   border-b border-black"
         />
       </div>
     </div>

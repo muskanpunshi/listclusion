@@ -38,7 +38,8 @@
 
 :root {
   --font-primary: "Gordita", sans-serif;
-  --color-primary: #e8c347;
+  /* --color-primary: #e8c347; */
+  --color-primary: #ae7a19;
   --color-secondary: #000000b3;
   --color-grey: #fff9;
   --color-background: #ffffff;

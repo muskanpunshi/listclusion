@@ -11,7 +11,7 @@ const Paragraph = ({ className, children, htmlText, ...props  }: CustomParagraph
   return children ? (
     <p
       className={cn([
-        "font-primary  text-[16px] text-secondary ",
+        "font-primary  text-lg text-secondary max-sm:text-base ",
         className
       ])}
        {...props}
