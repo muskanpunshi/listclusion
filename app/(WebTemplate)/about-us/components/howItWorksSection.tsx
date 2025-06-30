@@ -13,8 +13,8 @@ import Paragraph from "@components/common/paragraph";
 
 const HowItWorksSection = () => {
   return (
-    <section className="relative z-[1] lg:py-32 py-10">
-      <Container className="container mx-auto px-4">
+    <section className="relative z-[1]">
+      <Container className="container mx-auto !px-4  lg:py-32 py-14 bg-[#e5e5e5]">
         <div className="flex justify-center">
           <div className="xl:w-8/12 text-center mb-[35px] lg:mb-[20px]">
             <Heading className="leading-normal ">

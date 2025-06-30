@@ -1,6 +1,6 @@
 "use client";
-import Input from "@components/common/input";
-import TextArea from "@components/common/textArea";
+import Input from "@components/form/input";
+import TextArea from "@components/form/textArea";
 import Button from "@components/common/Button";
 import { zodResolver } from "@hookform/resolvers/zod";
 

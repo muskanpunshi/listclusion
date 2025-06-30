@@ -6,12 +6,13 @@ import { FaTimes } from "react-icons/fa";
 import Paragraph from "@components/common/paragraph";
 import Heading from "@components/heading";
 import Button from "@components/common/Button";
-import Input from "@components/common/input";
+import Input from "@components/form/input";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { ContactInput, ContactSchema } from "@lib/validations/form.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import TextArea from "@components/common/textArea";
+import TextArea from "@components/form/textArea";
+import ImageUploader from "@components/common/imageUploader";
 
 const RegisterForm = () => {
   const methods = useForm<ContactInput>({
@@ -54,7 +55,7 @@ const RegisterForm = () => {
   };
   return (
     <section className="w-full">
-      <h3 className="text-2xl text-secondary font-medium mb-6">
+      <h3 className="text-2xl text-secondary font-medium mb-4">
         Company Registration
       </h3>
 
@@ -85,25 +86,63 @@ const RegisterForm = () => {
                 label="Email*"
               />
             </div>
-             <div className="grid grid-cols-1 lg:grid-cols-2 space-x-4 mb-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 space-x-4 mb-6">
               <Input
-                name="address"
-                label="address*"
-                placeholder="Company's Address"
+                name="working-hours"
+                label="Working hours*"
+                placeholder="Working Hours"
               />
               <Input
-                name="email"
-                type="email"
-                placeholder="Company's Email Address"
-                label="Email*"
+                name="phone-number"
+                type="number"
+                placeholder="Phone Number"
+                label="Phone Number*"
               />
             </div>
             <div className="mb-6">
               <Input
                 name="expertise"
                 label="expertise"
-                placeholder="Your Company's expertise"
+                placeholder="Your Company's Expertise"
               />
+            </div>
+            <div className="mb-6">
+              <Input
+                name="projects"
+                label="projects"
+                placeholder="Your Company's Projects"
+              />
+            </div>
+            <div>
+              <div className="bg-white rounded-[20px] py-6">
+                <h4 className="text-xl font-medium text-secondary pb-5">
+                  Select Categories
+                </h4>
+                <ul className="flex flex-wrap gap-x-6 gap-y-4">
+                  {[
+                    "Engineering Consultants",
+                    "Architects Consultants",
+                    "Civil Contractors",
+                    "Interior Contractors",
+                    "Electrical Consultants"
+                  ].map((amenity, index) => (
+                    <li key={index} className="flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        name="categories"
+                        value={index}
+                        className="accent-primary"
+                      />
+                      <label className="text-base text-secondary">
+                        {amenity}
+                      </label>
+                    </li>
+                  ))}
+                </ul>
+
+                <ImageUploader name="propertyImages" multiple />
+
+              </div>
             </div>
           </form>
         </FormProvider>

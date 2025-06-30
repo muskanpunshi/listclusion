@@ -3,6 +3,8 @@ import React from 'react'
 import Introduction from './components/introduction'
 import HowItWorksSection from './components/howItWorksSection'
 import TeamSection from './components/teamSection'
+import Testimonials from '@components/testimonials'
+import FeatureSection from './components/featureSection'
 
 
 
@@ -15,6 +17,8 @@ const About = () => {
        />
        <Introduction />
        <HowItWorksSection/>
+       <Testimonials />
+       <FeatureSection />
        <TeamSection/>
     </>
   )

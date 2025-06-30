@@ -1,112 +1,117 @@
-'use client'
+"use client";
+
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
+import { Autoplay } from "swiper/modules";
+
+
+import React, { useState } from "react";
 import Heading from "@components/common/heading";
 import Container from "@components/container";
 import Image from "next/image";
 import titleShape from "@public/template/shape/title_shape_03.svg";
+import Paragraph from "@components/common/paragraph";
 
 const agents = [
   {
     name: "Mark Filo",
     role: "CEO & Founder",
-    img: "/_next/static/media/img_01.d7744e58.jpg",
+    img: "/template/agent/img_01.jpg"
   },
   {
     name: "Chris Matial",
     role: "Retailer",
-    img: "/_next/static/media/img_02.e5e232ea.jpg",
+    img: "/template/agent/img_02.jpg"
   },
   {
     name: "Jubayer Al Hasan",
     role: "Marketing Expert",
-    img: "/_next/static/media/img_03.92ffc8ed.jpg",
+    img: "/template/agent/img_03.jpg"
   },
   {
     name: "Jannatul Ferdaus",
     role: "Broker",
-    img: "/_next/static/media/img_04.baddfb45.jpg",
+    img: "/template/agent/img_04.jpg"
   },
   {
     name: "Chris Matial",
     role: "Broker",
-    img: "/_next/static/media/img_05.5cb43cd4.jpg",
-  },
+    img: "/template/agent/img_05.jpg"
+  }
 ];
 
-export default function TeamSection() {
+const TeamSection =()=> {
+  const [swiperInstance, setSwiperInstance] = useState<any>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   return (
-    <section className="relative z-[1] lg:py-32 py-10">
+    <section className="relative z-[1] lg:py-32 py-14  ">
       <Container className="container mx-auto px-4">
-        <div className="relative mb-[85px] lg:mb-[50px] text-center">
-          <Heading >
-            Our <span className="relative inline-block">Agents
+        <div className="relative mb-[50px] text-center">
+          <Heading>
+            Our{" "}
+            <span className="relative inline-block">
+              Agents
               <Image
-                  src={titleShape}
-                  alt=""
-                  className="absolute -bottom-1 left-1/2 transform -translate-x-1/2"
-                />
+                src={titleShape}
+                alt=""
+                className="absolute -bottom-1 left-1/2 transform -translate-x-1/2"
+              />
             </span>
           </Heading>
-          <p className="text-lg mt-4 text-gray-600">
+          <Paragraph className="mt-4">
             Lorem is placeholder text commonly used graphic
-          </p>
+          </Paragraph>
         </div>
-
-        <Swiper
-          modules={[Pagination]}
-          pagination={{ clickable: true }}
-          spaceBetween={20}
-          breakpoints={{
-            640: {
-              slidesPerView: 1,
-            },
-            1024: {
-              slidesPerView: 3,
-            },
-            1280: {
-              slidesPerView: 4,
-            },
-          }}
-          className="bg-[url('/template/shape/shape_28.svg')] bg-no-repeat bg-center bg-cover"
-        >
-          {agents.map((agent, idx) => (
-            <SwiperSlide key={idx}>
-              <div className="relative shadow-md rounded-2xl overflow-hidden">
-                <div className="border-2 rounded-2xl overflow-hidden">
-                  <Image
-                    src={agent.img}
-                    alt={agent.name}
-                    width={330}
-                    height={400}
-                    className="w-full h-auto object-cover transition duration-300"
-                  />
-                </div>
-                <div className="text-center mt-4 pb-4">
-                  <h6 className="text-xl font-semibold">{agent.name}</h6>
-                  <a
-                    href="/agent_details"
-                    className="text-blue-600 hover:underline block mt-1"
-                  >
-                    {agent.role}
-                  </a>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-
-        <div className="text-center mt-[60px]">
-          <a
-            href="/agent"
-            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition"
+        <div className="px-4 relative before:absolute before:top-[-15px] before:right-[-12px] before:left-[-12px] before:h-[45%] before:-z-10 before:bg-[url('/template/shape/shape_05.svg')] before:bg-cover">
+          <Swiper
+            onSwiper={(swiper) => setSwiperInstance(swiper)}
+            onSlideChange={(swiper) => setCurrentSlide(swiper.realIndex)}
+            modules={[Autoplay]}
+            loop={true}
+            autoplay={{ delay: 3000 }}
+            breakpoints={{
+              640: { slidesPerView: 2,spaceBetween:10 },
+              1024: { slidesPerView: 3,spaceBetween:10 },
+              1280: { slidesPerView: 4, spaceBetween: 24 }
+            }}
           >
-            Meet Entire Team
-          </a>
+            {agents.map((agent, idx) => (
+              <SwiperSlide key={idx}>
+                <div className="relative pt-8 ">
+                  <div className="rounded-2xl overflow-hidden">
+                    <Image
+                      src={agent.img}
+                      alt={agent.name}
+                      width={260}
+                      height={400}
+                      className=" h-auto w-full max-lg:h-[360px] object-cover transition-transform duration-500 ease-in-out hover:scale-110"
+                    />
+                  </div>
+                  <div className="text-center mt-4 pb-4">
+                    <Paragraph className="text-2xl font-medium mb-1">
+                      {agent.name}
+                    </Paragraph>
+                    <Paragraph>{agent.role}</Paragraph>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <div className="flex justify-center items-center gap-2 mt-8 button-line">
+            {[0, 1, 2].map((i) => (
+              <button
+                key={i}
+                onClick={() => swiperInstance?.slideToLoop(i)}
+                className={`w-2 h-2 rounded-full transition-all duration-300  ${
+                  currentSlide % 3 === i ? "bg-primary" : "bg-secondary"
+                }`}
+              ></button>
+            ))}
+          </div>
         </div>
       </Container>
     </section>
   );
 }
+
+export default TeamSection

@@ -22,7 +22,7 @@ const RegisterPage = () => {
           </div>
           <div className="grid lg:grid-cols-3 gap-6  my-10 lg:my-20">
             <div className="col-span-1 h-full w-full    rounded-lg shadow-md ">
-              <Image src={Banner} alt="register banner" className="object-cover rounded-lg"/>
+              <Image src={Banner} alt="register banner" className="object-cover rounded-lg h-full"/>
             </div>
             <div className="col-span-2 h-full   p-10 bg-amber-50 rounded-lg shadow-md">
               <RegisterForm />
