@@ -14,9 +14,10 @@ interface BreadcrumbItem {
 interface BannerProps {
   title: string;
   breadcrumbs?: BreadcrumbItem[];
+  image?:any
 }
 
-const Banner = ({ title, breadcrumbs }: BannerProps) => {
+const Banner = ({ title, breadcrumbs,image }: BannerProps) => {
   return (
     <div className="relative bg-pink-50 text-center h-[70svh] mb-10 ">
   
@@ -32,7 +33,7 @@ const Banner = ({ title, breadcrumbs }: BannerProps) => {
       
       <div className="w-full h-full z-0">
         <Image
-          src={BannerImage}
+          src={image??BannerImage}
           alt="Banner Illustration"
           className="w-full h-full object-cover  border-b border-black"
         />
