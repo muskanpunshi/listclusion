@@ -19,7 +19,7 @@ interface BannerProps {
 
 const Banner = ({ title, breadcrumbs,image }: BannerProps) => {
   return (
-    <div className="relative bg-pink-50 text-center h-[70svh] mb-10 ">
+    <div className={`relative bg-pink-50 text-center h-[70svh] ${!image?"mb-10":""} `}>
   
       <div className="absolute top-0 left-0 w-full h-full z-10">
         <Container className="h-full flex flex-col items-center justify-center">

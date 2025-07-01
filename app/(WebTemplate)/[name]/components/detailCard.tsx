@@ -1,10 +1,9 @@
-'use client';
+"use client";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-
 
 const DetailCategoryCard = ({ data }: { data: any }) => {
   return (
@@ -17,7 +16,7 @@ const DetailCategoryCard = ({ data }: { data: any }) => {
               pagination={{ clickable: true }}
               className="w-full h-full listing-slider"
             >
-              {data.listing_thumb?.map((imgItem:any, index:number) => (
+              {data.listing_thumb?.map((imgItem: any, index: number) => (
                 <SwiperSlide key={index}>
                   <Link href="/listing_details_01">
                     <Image
@@ -39,8 +38,10 @@ const DetailCategoryCard = ({ data }: { data: any }) => {
           >
             {data.name}
           </Link>
-          <div className="text-sm text-gray-500">{data.tel}</div>
+          {/* <div className="text-sm text-gray-500">{data.tel}</div>
           <div className="text-sm text-gray-500">{data.email}</div>
+          <div className="text-sm text-gray-500">{data.address}</div>
+          <div className="text-sm text-gray-500">{data.workingHours}</div> */}
         </div>
       </div>
     </div>

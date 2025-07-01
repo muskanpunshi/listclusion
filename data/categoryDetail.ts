@@ -1258,4 +1258,35 @@ export const categoryDetails = [
             { img: property2Thumb_33 },
         ],
     },
+//     {
+//     id: 13,
+//     page: "home_5_feature_1",
+//     category: "Suppliers",
+//     desc: "2,000 Listings",
+//     item_bg: "home-5-feature-item-suppliers",
+//     categoryBannerImage: image5,
+//     children: [
+//       {
+//         id: 101,
+//         category: "Light Suppliers",
+//         count: "500",
+//         categoryBannerImage: image6,
+//         item_bg: "home-5-feature-item-light",
+//       },
+//       {
+//         id: 102,
+//         category: "Raw Wood Suppliers",
+//         count: "300",
+//         categoryBannerImage: image3,
+//         item_bg: "home-5-feature-item-wood",
+//       },
+//       {
+//         id: 103,
+//         category: "Metal Suppliers",
+//         count: "300",
+//         categoryBannerImage: image8,
+//         item_bg: "home-5-feature-item-metal",
+//       },
+//     ],
+//   },
 ];

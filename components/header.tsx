@@ -80,7 +80,7 @@ const Header = () => {
                               >
                                 <Link
                                   href={child.path}
-                                  className="flex items-center justify-between px-5 pt-3 text-[16px] text-text-primary hover:text-primary hover:bg-gray-100 whitespace-nowrap transition  "
+                                  className="flex items-center justify-between px-5 py-3 text-[16px] text-text-primary hover:text-primary hover:bg-gray-100 whitespace-nowrap transition  "
                                 >
                                   {child.label}
                                   {hasSubcategories && (
