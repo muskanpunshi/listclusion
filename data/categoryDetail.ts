@@ -11,7 +11,7 @@ import image10 from "@public/template/project-managers.png";
 import image11 from "@public/template/quanlity-surveyors-consultants.png";
 import image12 from "@public/template/metal-works.png";
 
-export const categoryDetails = [
+ const categoryDetails = [
   // Architects Consultants
   {
     category: "Architects Consultants",
@@ -854,3 +854,4 @@ export const categoryDetails = [
     categoryBannerImage: image12,
   },
 ];
+export default categoryDetails;
