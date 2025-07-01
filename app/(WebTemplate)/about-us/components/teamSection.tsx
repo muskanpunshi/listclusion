@@ -75,17 +75,18 @@ const TeamSection =()=> {
               1024: { slidesPerView: 3,spaceBetween:10 },
               1280: { slidesPerView: 4, spaceBetween: 24 }
             }}
+          
           >
             {categoryDetails.map((agent, idx) => (
-              <SwiperSlide key={idx}>
+              <SwiperSlide key={idx} className="">
                 <div className="relative pt-8 ">
                   <div className="rounded-2xl overflow-hidden">
                     <Image
                       src={agent.categoryBannerImage}
                       alt={agent.name}
                       width={260}
-                      height={400}
-                      className=" h-auto w-full max-lg:h-[360px] object-cover transition-transform duration-500 ease-in-out hover:scale-110"
+                      
+                      className=" h-[380px] w-full max-lg:h-[320px] object-cover transition-transform duration-500 ease-in-out hover:scale-110"
                     />
                   </div>
                   <div className="text-center mt-4 pb-4">
