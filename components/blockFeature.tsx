@@ -27,7 +27,6 @@ const BLockFeatureTwo = ({ style }: any) => {
     });
 
     const uniqueWithCount = [...categoryMap.values()];
-    console.log(uniqueWithCount, "uniqueWithCount");
 
     const flattened = uniqueWithCount.flatMap((item: any) => {
       if (item.children && Array.isArray(item.children)) {
@@ -41,7 +40,6 @@ const BLockFeatureTwo = ({ style }: any) => {
 
     return flattened;
   }, []);
-  console.log(filteredData, "filteredData");
   const swiperRef = useRef<any>({}) as any;
   const [slideIndex, setSlideIndex] = useState(0);
   const [lastSlide, setLastSlide] = useState<boolean>(false);
