@@ -1,4 +1,5 @@
 import { feature_data } from "@utils/data";
+import { categoryDetails } from "data/categoryDetail";
 
 export interface HeaderNavbar {
   label: string;
@@ -17,13 +18,18 @@ export interface FooterSection {
   }[];
 }
 
+
+const uniqueCategories = [
+  ...new Map(categoryDetails.map(cat => [cat.category, cat])).values()
+];
+
 export const headerNavigation: HeaderNavbar[] = [
   { label: "Home", path: "/" },
   {
     label: "Categories",
-    children: feature_data.map((cat) => ({
-      label: cat.title,
-      path: "/listing_04", // or dynamically `/categories/${slugify(cat.title)}`
+    children: uniqueCategories.map((cat) => ({
+      label: cat.category,
+      path: cat.categorySlug, // or dynamically `/categories/${slugify(cat.title)}`
     })),
   },
   { label: "About Us", path: "/about-us" },
