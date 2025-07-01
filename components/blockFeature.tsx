@@ -11,6 +11,7 @@ import Container from "./container";
 import SliderButtons from "./sliderButtons";
 import { useMemo, useRef, useState } from "react";
 import SearchSelectInput from "./ui/searchSelect";
+import Heading from "./common/heading";
 
 const BLockFeatureTwo = ({ style }: any) => {
   const filteredData = useMemo(() => {
@@ -64,11 +65,11 @@ const BLockFeatureTwo = ({ style }: any) => {
     }
   };
   return (
-    <div className={`mt-[170px] xl:mt-[120px]`}>
+    <div className={`lg:mt-[170px] mt-[80px]  xl:mt-[120px]`}>
       <Container>
         <div className="relative">
-          <div className="flex items-center justify-between text-center mb-12 lg:text-left animate-fadeInUp">
-            <h3 className="text-[64px] font-[500] text-[#000000b3] pb-5">
+          <div className="flex items-center justify-between max-md:flex-col  text-center mb-12 lg:text-left animate-fadeInUp">
+            <Heading className=" pb-5">
               Most&nbsp;
               <span className="relative inline-block">
                 Popular
@@ -78,8 +79,8 @@ const BLockFeatureTwo = ({ style }: any) => {
                   className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
                 />
               </span>
-            </h3>
-            <div className="flex w-[34%] items-center gap-x-5">
+            </Heading>
+            <div className="flex md:w-[40%] w-full  items-center gap-x-5">
               <SearchSelectInput
                 value={selectedCategory}
                 onChange={handleCategoryChange}
