@@ -1,4 +1,5 @@
 "use client";
+import React, { useRef } from "react";
 
 import Heading from "@components/common/heading";
 import Paragraph from "@components/common/paragraph";
@@ -7,8 +8,12 @@ import Image from "next/image";
 import Link from "next/link";
 import titleShape from "@public/template/shape/title_shape_03.svg";
 import Button from "@components/common/Button";
+import CountUp from "react-countup";
+import useElementVisibility from "@hooks/useInView";
 
 const Introduction = () => {
+  const ref = useRef(null);
+  const isVisible = useElementVisibility(ref);
   return (
     <section className="py-16">
       <Container>
@@ -43,13 +48,22 @@ const Introduction = () => {
                 </Button>
               </div>
 
-             
               <div className="border-t pt-10  ">
-                <div className="flex flex-wrap">
+                <div className="flex flex-wrap" ref={ref}>
                   <div className="w-1/2 mt-5">
                     <div>
                       <Paragraph className="text-6xl font-medium text-secondary">
-                        1.2%
+                        {isVisible ? (
+                          <CountUp
+                            end={1.2}
+                            decimals={1}
+                            suffix="%"
+                            duration={1.5}
+                    delay={0}
+                          />
+                        ) : (
+                          "0.0%"
+                        )}
                       </Paragraph>
                       <Paragraph className="text-lg text-secondary my-2">
                         Low interest rate
@@ -59,7 +73,17 @@ const Introduction = () => {
                   <div className="w-1/2 mt-5">
                     <div>
                       <Paragraph className="text-6xl font-medium text-secondary">
-                        $1.3b+
+                        {isVisible ? (
+                          <CountUp
+                            end={1.3}
+                            decimals={1}
+                            suffix="b+"
+                            duration={1.5}
+                    delay={0}
+                          />
+                        ) : (
+                          "$0.0b+"
+                        )}
                       </Paragraph>
 
                       <Paragraph className="text-lg text-secondary my-2">
@@ -72,8 +96,7 @@ const Introduction = () => {
             </div>
           </div>
 
-        
-          <div className="relative h-full w-full bg-[url('/template/shape/shape_28.svg')] bg-no-repeat bg-center bg-cover py-[40px] px-[36px] max-md:p-[12px]  ">
+          <div className="relative h-full w-full bg-[url('/template/shape/shape_28.svg')] bg-no-repeat bg-center bg-cover py-[40px] px-[36px] max-md:p-[12px] fade-in-right  ">
             <div className="py-5 px-8 bg-white rounded-md">
               <div className="pt-5 pb-3">
                 <Paragraph className="text-3xl my-2 font-medium">

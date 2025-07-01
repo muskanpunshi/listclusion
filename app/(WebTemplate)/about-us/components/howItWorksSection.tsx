@@ -1,4 +1,5 @@
 "use client";
+import React, { useRef } from "react";
 
 import Heading from "@components/common/heading";
 import Container from "@components/container";
@@ -8,13 +9,16 @@ import step1 from "@public/template/shape/step1.svg";
 import step2 from "@public/template/shape/step2.svg";
 import step3 from "@public/template/shape/step3.svg";
 import arrow from "@public/template/shape/arrow.svg";
+import useElementVisibility from "@hooks/useInView";
 
 import Paragraph from "@components/common/paragraph";
 
 const HowItWorksSection = () => {
+    const ref = useRef(null);
+  const isVisible = useElementVisibility(ref);
   return (
-    <section className="relative z-[1]">
-      <Container className="container mx-auto !px-4  lg:py-32 py-14 bg-[#e5e5e5]">
+    <section className="relative z-[1]" ref={ref} >
+      <Container className="container mx-auto !px-4  lg:py-32 py-14 bg-[#e5e5e5]" >
         <div className="flex justify-center">
           <div className="xl:w-8/12 text-center mb-[35px] lg:mb-[20px]">
             <Heading className="leading-normal ">
@@ -34,10 +38,10 @@ const HowItWorksSection = () => {
           </div>
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex justify-center" >
           <div className="w-full ">
-            <div className=" fade-in-up relative flex  justify-center flex-wrap">
-              {/* Step 1 */}
+            <div className={`relative flex  justify-center flex-wrap ${isVisible? 'fade-in-up':''}`}>
+              
               <div className="w-full sm:w-1/2 lg:w-1/3 mt-10 text-center">
                 <div >
                   <Image
@@ -55,7 +59,7 @@ const HowItWorksSection = () => {
                 </div>
               </div>
 
-              {/* Step 2 */}
+             
               <div className="  w-full sm:w-1/2 lg:w-1/3 mt-10 text-center relative before:absolute before:top-[90px] before:left-[-90px]  before:content-[url('/template/shape/arrow.svg')] after:absolute after:top-[90px] after:left-auto after:right-[-72px]  after:content-[url('/template/shape/arrow.svg')] max-lg:before:content-none max-lg:after:content-none">
                 <div className=" relative">
                   <Image
@@ -73,7 +77,7 @@ const HowItWorksSection = () => {
                 </div>
               </div>
 
-              {/* Step 3 */}
+           
               <div className="w-full sm:w-1/2 lg:w-1/3 mt-10 text-center">
                 <div >
                   <Image

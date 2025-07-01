@@ -140,7 +140,7 @@ const RegisterForm = () => {
                   ))}
                 </ul>
 
-                <ImageUploader name="propertyImages" multiple />
+                {/* <ImageUploader name="propertyImages" multiple /> */}
 
               </div>
             </div>
