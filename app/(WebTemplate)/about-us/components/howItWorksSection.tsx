@@ -24,7 +24,7 @@ const HowItWorksSection = () => {
             <Heading className="leading-normal ">
               We’re here to help you get your{" "}
               <span className="relative inline-block">
-                dream home
+                ideal Consultant
                 <Image
                   src={titleShape}
                   alt=""
@@ -64,11 +64,11 @@ const HowItWorksSection = () => {
                 <div className=" relative">
                   <Image
                     src={step2}
-                    alt="Find Home"
+                    alt="Find consultant"
                     className="mx-auto w-[220px] max-xl:w-[150px]"
                   />
                   <h5 className="mt-[50px] lg:mt-[30px] mb-[15px] font-semibold text-xl">
-                    Find Home
+                    Find Consultant
                   </h5>
                   <Paragraph className="px-4 xl:px-8 text-gray-600">
                     Complete your profile with all the info to get attention of
