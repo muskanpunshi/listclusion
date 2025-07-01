@@ -9,7 +9,6 @@ interface PageProps {
 
 async function Page({ params }: PageProps) {
   const { name } = await params;
-  console.log(name);
   const data = categoryDetails.filter((item: any) => item.categorySlug === name);
   return (
     <>
