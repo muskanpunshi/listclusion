@@ -10,7 +10,7 @@ type IconXShapeProps = {
 };
 
 const IconXShape: React.FC<IconXShapeProps> = ({
-  fill = "#e8c347",
+  fill = "#ae7a19",
   width = 236,
   height = 268,
   className = "",
