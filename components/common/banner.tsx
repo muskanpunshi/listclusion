@@ -19,11 +19,11 @@ interface BannerProps {
 
 const Banner = ({ title, breadcrumbs,image }: BannerProps) => {
   return (
-    <div className={`relative bg-pink-50 text-center h-[70svh] ${!image?"mb-10":""} `}>
+    <div className={`relative bg-pink-50 text-center ${image?"h-[80svh]":"h-[70svh]"} ${!image?"mb-10":""} `}>
   
       <div className="absolute top-0 left-0 w-full h-full z-10">
         <Container className="h-full flex flex-col items-center justify-center">
-          <Heading isHeadingH1={true} className="mb-4">
+          <Heading isHeadingH1={true} className="mb-4 text-shadow-lg/30">
             {title}
           </Heading>
           {breadcrumbs && <Breadcrumb breadcrumbs={breadcrumbs} />}
@@ -34,7 +34,7 @@ const Banner = ({ title, breadcrumbs,image }: BannerProps) => {
         <Image
           src={image??BannerImage}
           alt="Banner Illustration"
-          className="w-full h-auto object-contain   border-b border-black"
+          className={`w-full h-auto ${image?"object-contain":"object-contain"}   border-b border-black`}
         />
       </div>
     </div>
