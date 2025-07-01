@@ -5,7 +5,7 @@ import { useState } from "react";
 import UseSticky from "@hooks/UseSticky";
 import { FaLock } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
-import Logo from "@public/template/logo-1.png";
+import Logo from "@public/template/logo1.png"
 import { HeaderNavbar, headerNavigation } from "../routes/navigation";
 import MobileNavigation from "./mobileNavigation";
 import { usePathname } from "next/navigation";
@@ -34,7 +34,7 @@ const Header = () => {
             <Image
               src={Logo}
               alt="Logo"
-              className="w-[130px] max-md:w-[90px] h-auto"
+              className="w-[60px]  h-auto"
             />
           </Link>
 

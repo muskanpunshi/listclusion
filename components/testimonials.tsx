@@ -16,7 +16,7 @@ const Testimonials = () => {
   const ref = useRef(null);
   const isVisible = useElementVisibility(ref);
   return (
-    <section className=" bg-white min-h-[600px] lg:py-16 py-10" ref={ref}>
+    <section className=" bg-white min-h-[600px] lg:py-16 py-14" ref={ref}>
       <Container className="mx-auto flex flex-col  lg:flex-row lg:items-center lg:justify-between ">
         <div
           className={`relative lg:w-[45%] h-full w-full  ${

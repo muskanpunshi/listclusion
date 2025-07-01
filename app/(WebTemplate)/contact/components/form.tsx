@@ -1,6 +1,6 @@
 "use client";
-import Input from "@components/common/input";
-import TextArea from "@components/common/textArea";
+import Input from "@components/form/input";
+import TextArea from "@components/form/textArea";
 import Button from "@components/common/Button";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -9,7 +9,6 @@ import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 import { ContactInput, ContactSchema } from "@lib/validations/form.schema";
-
 
 function Form() {
   const methods = useForm<ContactInput>({
@@ -39,8 +38,6 @@ function Form() {
     }
     executeRecaptcha("contactForm").then(async (gReCaptchaToken: string) => {
       console.log("reCAPTCHA token:", gReCaptchaToken);
-
-      
     });
   };
 
@@ -50,24 +47,33 @@ function Form() {
         <form onSubmit={handleSubmit(onSubmitHandler)}>
           <div className="space-y-4">
             <div className="mt-8">
-              <label className="block mb-1 font-medium">Name*</label>
-              <Input type="text" name="name" placeholder="Your Name*" />
+              <Input
+                type="text"
+                name="name"
+                placeholder="Your Name*"
+                label="Name*"
+              />
             </div>
             <div className="flex gap-3 max-sm:flex-col max-sm:gap-0 mt-8">
               <div className="w-1/2 max-sm:w-full">
-                <label className="block mb-1 font-medium">Email*</label>
-
-                <Input name="email" placeholder="Email Address" />
+                <Input
+                  name="email"
+                  type="email"
+                  placeholder="Email Address"
+                  label="Email*"
+                />
               </div>
               <div className="w-1/2 max-sm:w-full">
-                <label className="block mb-1 font-medium">Phone*</label>
-
-                <Input name="phone" placeholder="Phone Number" />
+                <Input name="phone" placeholder="Phone Number" label="Phone*" />
               </div>
             </div>
             <div className="mt-8">
-              <label className="block mb-1 font-medium">Message*</label>
-              <TextArea name="message" placeholder="Your Message" />
+              <TextArea
+                name="message"
+                placeholder="Your Message"
+                label="Message*"
+                rows={4}
+              />
             </div>
             <Button
               buttonType="submit"

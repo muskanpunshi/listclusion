@@ -19,7 +19,7 @@ export default function Heading({
   ) : (
     <h2
       className={cn([
-        "font-primary  text-secondary text-[64px] max-xl:text-[48px]  max-lg:text-[36px] max-sm:[24px] font-medium ",
+        "font-primary leading-tight  text-secondary text-[64px] max-xl:text-[48px]  max-lg:text-[36px] max-sm:[24px] font-medium ",
         className
       ])}
     >

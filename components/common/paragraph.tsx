@@ -1,20 +1,20 @@
 import { cn } from "@utils/index";
 import React, { ReactNode } from "react";
 
-interface CustomParagraph extends React.HTMLAttributes<HTMLElement>{
+interface CustomParagraph {
   className?: string;
   children?: ReactNode;
   htmlText?: string;
 }
 
-const Paragraph = ({ className, children, htmlText, ...props  }: CustomParagraph) => {
+const Paragraph = ({ className, children, htmlText  }: CustomParagraph) => {
   return children ? (
     <p
       className={cn([
-        "font-primary  text-[16px]  ",
+        "font-primary  text-lg text-secondary max-sm:text-base ",
         className
       ])}
-       {...props}
+      
     >
       {children}
     </p>

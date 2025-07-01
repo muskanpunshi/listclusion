@@ -13,7 +13,7 @@ const CategoryItemCard: React.FC<Props> = ({ item }) => {
     <li>
       <Link
         href="#"
-        className="flex items-center font-medium transition-all duration-400 hover:text-primary hover:border-primary text-white gap-2 border border-[#ffffff21]  py-[15px] px-[25px] rounded-[50px]"
+        className="flex items-center font-medium transition-all duration-400 hover:text-primary hover:border-primary text-white gap-2 border border-[#ffffff21]  py-[15px] px-[25px] "
       >
         <Image
           src={item.icon || ''}

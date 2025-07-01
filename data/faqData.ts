@@ -1,4 +1,4 @@
-interface DataType {
+interface faqDataProps {
    id: number;
    id_name: string;
    title: string;
@@ -10,7 +10,7 @@ interface DataType {
    }[];
 }
 
-const faqData:DataType[] = [
+const faqData:faqDataProps[] = [
    {
       id: 1,
       id_name: "selling",

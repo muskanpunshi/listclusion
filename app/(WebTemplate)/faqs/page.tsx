@@ -1,5 +1,4 @@
 import Banner from "@components/common/banner";
-import Container from "@components/container";
 import React from "react";
 import InnerFaqs from "./components/innerFaqs";
 

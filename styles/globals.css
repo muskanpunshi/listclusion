@@ -38,19 +38,18 @@
 
 :root {
   --font-primary: "Gordita", sans-serif;
-  --color-primary: #e8c347;
+  /* --color-primary: #e8c347; */
+  --color-primary: #ae7a19;
   --color-secondary: #000000b3;
   --color-grey: #fff9;
   --color-background: #ffffff;
   --color-dark-background: #141414;
 }
 
-
 body {
   scroll-behavior: smooth;
   font-display: swap;
 }
-
 
 h1,
 h2,
@@ -185,7 +184,7 @@ h6 {
   }
 
   .slideIn {
-    animation: slideIn 0.4s ease-out forwards,
+    animation: slideIn 0.4s ease-out forwards;
   }
 }
 
@@ -206,8 +205,6 @@ h6 {
 
   transition: all 0.3s ease-in-out;
 }
-
-
 
 .listing-slider .swiper-pagination-bullet {
   position: relative;
@@ -244,7 +241,6 @@ h6 {
   bottom: 10%;
   left: 10%;
 
-
   bottom: 6%;
   left: 9%;
 }
@@ -257,14 +253,28 @@ h6 {
   border: 1px solid black;
 }
 
+
 .testimonial-swiper .swiper-pagination-bullet-active {
   opacity: 1;
   background: var(--color-primary);
   border: 1px solid black;
 }
 
+.team-swiper {
+  padding-bottom: 15px !important;
+}
 
-/* styles/globals.css */
+
+
+.button-line::before,
+.button-line::after {
+  content: "";
+  flex-grow: 1;
+  height: 1.5px;
+  background-color: var(--color-primary);
+  display: block;
+} 
+
 ul::-webkit-scrollbar {
   width: 6px;
 }
