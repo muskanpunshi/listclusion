@@ -19,13 +19,13 @@ const stats: StatItem[] = [
   {
     id: 1,
     end: 200,
-    suffix: "",
+    suffix: "+",
     label: "Categories"
   },
   {
     id: 2,
     end: 640,
-    suffix: "",
+    suffix: "+",
     label: "Listing",
     decimals: 0
   },

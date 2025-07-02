@@ -56,7 +56,7 @@ const Introduction = () => {
                           <CountUp
                             end={200}
                             decimals={0}
-                            suffix=""
+                            suffix="+"
                             duration={1.5}
                             delay={0}
                           />
@@ -76,7 +76,7 @@ const Introduction = () => {
                           <CountUp
                             end={640}
                             decimals={0}
-                            suffix=""
+                            suffix="+"
                             duration={1.5}
                             delay={0}
                           />

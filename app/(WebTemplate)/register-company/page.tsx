@@ -2,9 +2,7 @@ import Container from "@components/container";
 import RegisterForm from "./components/form";
 import Heading from "@components/heading";
 import Paragraph from "@components/common/paragraph";
-import Link from "next/link";
-import Banner from "@public/register-banner.jpeg";
-import Image from "next/image";
+
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
