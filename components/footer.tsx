@@ -2,7 +2,7 @@ import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import Heading from "@components/common/heading";
 import Paragraph from "@components/common/paragraph";
 import Container from "@components/container";
-import Logo from "@public/template/logoWithText.jpeg";
+import Logo from "@public/template/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import { footerSections } from "../routes/navigation";
@@ -10,10 +10,12 @@ import { footerSections } from "../routes/navigation";
 export default function Footer() {
   return (
     <footer className="bg-dark-background w-full ">
-      <div className="max-w-full mx-auto px-10 max-md:px-4 py-12 border-b border-neutral-800">
+      {/* <div className="max-w-full mx-auto px-10 max-md:px-4 py-12 border-b border-neutral-800">
         <div className="flex flex-col lg:flex-row justify-between max-md:py-6  items-center gap-6">
           <div>
-            <Heading className="text-white text-[44px] ">Our Newsletter</Heading>
+            <Heading className="text-white text-[44px] ">
+              Our Newsletter
+            </Heading>
             <Paragraph className="text-[18px] text-grey mt-2">
               Get instant news by subscribe to our newsletter
             </Paragraph>
@@ -39,40 +41,52 @@ export default function Footer() {
             </Paragraph>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <Container className="max-w-full mx-auto px-8 max-md:px-6 py-16 grid grid-cols-1 md:grid-cols-14 gap-10 max-md:gap-4">
-        <div className="md:col-span-5">
+      <Container className="max-w-full mx-auto px-8 max-md:px-6 py-16 grid grid-cols-4 gap-10">
+        <div className="md:col-span-2">
           <div className="mb-7">
             <Link href="/">
-              <Image src={Logo} alt="Logo" className="w-[130px]  h-auto" />
+              <Image src={Logo} alt="Logo" className="w-[110px]  h-auto" />
             </Link>
           </div>
           <Paragraph className="opacity-75 leading-relaxed  mb-[40px] text-white">
-            11910 Clyde Rapid Suite 210, Willyand, Virginia,
-            <br /> United States
+            25 B1 31 Street Off Khayaban e Shamsheer DHA Phase V Ext<br/> karachi
+            Pakistan
           </Paragraph>
           <div className="flex space-x-4 mt-4">
-            <div className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-primary hover:bg-white flex items-center justify-center rounded-full">
+            <Link
+              href={"/"}
+              className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-primary hover:bg-white flex items-center justify-center rounded-full"
+            >
               <FaFacebookF />
-            </div>
-            <div className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-primary hover:bg-white flex items-center justify-center rounded-full">
+            </Link>
+            <Link
+              href={"/"}
+              className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-primary hover:bg-white flex items-center justify-center rounded-full"
+            >
               <FaTwitter />
-            </div>
-            <div className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-primary hover:bg-white flex items-center justify-center rounded-full">
+            </Link>
+            <Link
+              href={"/"}
+              className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-primary hover:bg-white flex items-center justify-center rounded-full"
+            >
               <FaInstagram />
-            </div>
+            </Link>
           </div>
         </div>
         <>
           {footerSections.map((section, index) => (
-            <div key={index} className="md:col-span-3">
+            <div key={index} className="">
               <Paragraph className="font-semibold text-white mb-4 text-[24px] max-md:text-[18px] max-sm:text-[18px]">
                 {section.title}
               </Paragraph>
               <ul className="space-y-2 text-grey">
                 {section.items.map((item, idx) => (
-                  <li key={idx} className="text-[18px] max-md:text-[14px] my-5 hover:text-primary transition-colors duration-200">
+                  <li
+                    key={idx}
+                    className="text-[18px] max-md:text-[14px] my-5 hover:text-primary transition-colors duration-200"
+                  >
                     <a href={item.href}>{item.label}</a>
                   </li>
                 ))}
@@ -83,7 +97,7 @@ export default function Footer() {
       </Container>
 
       <div className="text-center text-grey border-t border-neutral-800 py-4">
-        Copyright @2025 DK Smartex inc.
+        Copyright @2025 Listclusion.
       </div>
     </footer>
   );

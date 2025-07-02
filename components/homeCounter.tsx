@@ -18,7 +18,7 @@ type StatItem = {
 const stats: StatItem[] = [
   {
     id: 1,
-    end: 200,
+    end: 50,
     suffix: "+",
     label: "Categories"
   },
@@ -31,10 +31,10 @@ const stats: StatItem[] = [
   },
   {
     id: 3,
-    end: 80.5  ,
+    end: 2  ,
     suffix: "k+",
     label: "Happy customers",
-    decimals: 1
+    decimals: 0
   }
 ];
 

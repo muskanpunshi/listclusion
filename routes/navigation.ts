@@ -71,12 +71,8 @@ export const footerSections: FooterSection[] = [
     title: "Links",
     items: [
       { label: "Home", href: "/" },
-      { label: "Membership", href: "#" },
       { label: "About Company", href: "/about-us" },
-      { label: "Blog", href: "#" },
-      { label: "Explore Careers", href: "#" },
-      { label: "Pricing", href: "#" },
-      { label: "Dashboard", href: "#" },
+      { label: "Contact", href: "/contact" },
     ],
   },
   {
@@ -89,15 +85,15 @@ export const footerSections: FooterSection[] = [
       { label: "Faq’s", href: "/faqs" },
     ],
   },
-  {
-    title: "New Listing",
-    items: [
-      { label: "Buy Apartments", href: "#" },
-      { label: "Buy Condos", href: "#" },
-      { label: "Rent Houses", href: "#" },
-      { label: "Rent Industrial", href: "#" },
-      { label: "Buy Villas", href: "#" },
-      { label: "Rent Office", href: "#" },
-    ],
-  },
+  // {
+  //   title: "New Listing",
+  //   items: [
+  //     { label: "Buy Apartments", href: "#" },
+  //     { label: "Buy Condos", href: "#" },
+  //     { label: "Rent Houses", href: "#" },
+  //     { label: "Rent Industrial", href: "#" },
+  //     { label: "Buy Villas", href: "#" },
+  //     { label: "Rent Office", href: "#" },
+  //   ],
+  // },
 ];

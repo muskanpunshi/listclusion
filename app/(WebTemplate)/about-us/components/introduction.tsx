@@ -54,7 +54,7 @@ const Introduction = () => {
                       <Paragraph className="text-6xl font-medium text-secondary">
                         {isVisible ? (
                           <CountUp
-                            end={200}
+                            end={50}
                             decimals={0}
                             suffix="+"
                             duration={1.5}
