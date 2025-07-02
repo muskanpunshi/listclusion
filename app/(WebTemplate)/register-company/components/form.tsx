@@ -10,48 +10,98 @@ import MultiCheckboxGroup from "@components/radix/ui/checkbox";
 import ImageUploader from "@components/form/imageUploader";
 import MultiImageUploader from "@components/form/multiImageUploader";
 import { DaysSelector } from "@components/form/daySelector";
-
 import { CompanyInput, CompanySchema } from "@lib/validations/form.schema";
-import { TimePickerField } from "@components/form/timePicker";
+import TimePicker from "@components/form/timePicker";
+import CustomPhoneInput from "@components/common/phoneInput";
+import { contactPostService } from "services/register";
 
 // Updated Zod Schema to match payload
 
 const RegisterForm = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
   const methods = useForm<CompanyInput>({
-    // resolver: zodResolver(CompanySchema),
+    resolver: zodResolver(CompanySchema),
     defaultValues: {
       name: "",
       email: "",
-      company_logo: new File([], ""), // placeholder file to keep it controlled
+      company_logo: undefined, // Better than empty File
       company_expertise: "",
       company_categories: [],
       company_address: {
         address1: "",
-        address2: "",
         city: "",
-        state: "",
         country: "",
+        state: "",
         zipcode: "",
       },
       company_telephone_numbers: "",
-      company_description: "",
-      company_portfolio_images: [],
-      days: [],
+      days: [], // Changed from array to string
       time_from: "2025-07-01T09:00:00", // ISO string from transform()
-      time_to: "2025-07-01T18:00:00",
+      time_to: "2025-07-01T18:00:00", // HH:MM format
     },
   });
 
   const { executeRecaptcha } = useGoogleReCaptcha();
 
+  // const onSubmitHandler: SubmitHandler<CompanyInput> = async (values, e) => {
+  //   e?.preventDefault();
+
+  //   const fileToBase64 = (file: File): Promise<string> => {
+  //     return new Promise((resolve, reject) => {
+  //       const reader = new FileReader();
+  //       reader.readAsDataURL(file);
+  //       reader.onload = () => resolve(reader.result as string);
+  //       reader.onerror = (error) => reject(error);
+  //     });
+  //   };
+
+  //   try {
+  //     const payload = {
+  //       params: {
+  //         ...values,
+  //         days: values.days.join(", "),
+  //         company_logo: await fileToBase64(values.company_logo),
+  //         company_portfolio_images: await Promise.all(
+  //           values.company_portfolio_images.map(fileToBase64)
+  //         ),
+  //       },
+  //     };
+
+  //     console.log("Processed payload:", payload);
+
+  //     if (!executeRecaptcha) {
+  //       console.log("Execute recaptcha not yet available");
+  //       return;
+  //     }
+
+  //     const token = await executeRecaptcha("contactForm");
+  //     console.log("reCAPTCHA token:", token);
+
+  //     // Submit to your API here
+  //     // await submitToApi(payload, token);
+  //   } catch (error) {
+  //     console.error("Error processing form data:", error);
+  //   }
+  // };
+
   const onSubmitHandler: SubmitHandler<CompanyInput> = async (values, e) => {
     e?.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError(null);
+    setSubmitSuccess(false);
 
     const fileToBase64 = (file: File): Promise<string> => {
       return new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result as string);
+        reader.onload = () => {
+          const result = reader.result as string;
+          // Split the data URL at the comma and take the second part (the base64 data)
+          const base64Data = result.split(",")[1];
+          resolve(base64Data);
+        };
         reader.onerror = (error) => reject(error);
       });
     };
@@ -59,6 +109,7 @@ const RegisterForm = () => {
     try {
       const payload = {
         ...values,
+        days: values.days.join(", "),
         company_logo: await fileToBase64(values.company_logo),
         company_portfolio_images: await Promise.all(
           values.company_portfolio_images.map(fileToBase64)
@@ -67,18 +118,32 @@ const RegisterForm = () => {
 
       console.log("Processed payload:", payload);
 
-      if (!executeRecaptcha) {
-        console.log("Execute recaptcha not yet available");
-        return;
-      }
+      // if (!executeRecaptcha) {
+      //   console.log("Execute recaptcha not yet available");
+      //   setIsSubmitting(false);
+      //   return;
+      // }
 
-      const token = await executeRecaptcha("contactForm");
-      console.log("reCAPTCHA token:", token);
+      // const token = await executeRecaptcha("contactForm");
+      // console.log("reCAPTCHA token:", token);
 
-      // Submit to your API here
-      // await submitToApi(payload, token);
+      // API call to the endpoint
+      const response = await contactPostService({
+        payload,
+      });
+      console.log(response);
+      // console.log("API response:", data);
+      setSubmitSuccess(true);
+      methods.reset(); // Reset form after successful submission
     } catch (error) {
-      console.error("Error processing form data:", error);
+      console.error("Error submitting form:", error);
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : "An unexpected error occurred. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -142,10 +207,15 @@ const RegisterForm = () => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
-              <Input
+              {/* <Input
                 name="company_telephone_numbers"
                 label="Phone Number*"
                 placeholder="+92-300-1234567"
+              /> */}
+              <CustomPhoneInput
+                name="company_telephone_numbers"
+                label="Phone Number*"
+                placeholder="Phone Number"
               />
               <Input
                 name="email"
@@ -175,12 +245,12 @@ const RegisterForm = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <TimePickerField
+                <TimePicker
                   name="time_from"
                   control={methods.control}
                   label="Opening Time*"
                 />
-                <TimePickerField
+                <TimePicker
                   name="time_to"
                   control={methods.control}
                   label="Closing Time*"
@@ -216,8 +286,17 @@ const RegisterForm = () => {
 
             <div className="text-center">
               <Button className="mt-8" buttonType="submit">
-                Submit
+                {isSubmitting ? "Submitting..." : "Submit"}
               </Button>
+              {submitError && (
+                <p className="mt-4 text-red-500">{submitError}</p>
+              )}
+
+              {submitSuccess && (
+                <p className="mt-4 text-green-500">
+                  Form submitted successfully!
+                </p>
+              )}
             </div>
           </form>
         </FormProvider>
