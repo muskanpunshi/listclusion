@@ -1,68 +1,52 @@
 import { z } from "zod";
 
-export const ContactSchema = z.object({
-  name: z
-    .string({
-      required_error: "Name is required",
-    })
-    .min(1, "Name is required"),
-  phone: z
-    .string({
-      required_error: "Phone Number is required",
-    })
-    .min(1, "Phone Number is required"),
-  message: z
-    .string({
-      required_error: "Message is required",
-    })
-    .min(1, "Message is required"),
-  email: z
-    .string({
-      required_error: "Email is required",
-    })
-    .min(1, "Email is required")
-    .email("Email is invalid"),
-});
+export const CompanySchema = z
+  .object({
+    name: z.string().min(1, "Company name is required"),
+    email: z.string().email("Invalid email format"),
+    company_logo: z
+      .instanceof(File, { message: "Company logo is required" })
+      .refine(
+        (file) => file.size <= 5 * 1024 * 1024,
+        "File size should be less than 5MB"
+      ),
+    company_expertise: z.string().min(1, "Expertise is required"),
+    company_categories: z
+      .array(z.string())
+      .min(1, "Select at least one category"),
+    company_address: z.object({
+      address1: z.string().min(1, "Address is required"),
+      address2: z.string().optional(),
+      city: z.string().min(1, "City is required"),
+      state: z.string().min(1, "State is required"),
+      country: z.string().min(1, "Country is required"),
+      zipcode: z.string().min(1, "Zip code is required"),
+    }),
+    company_telephone_numbers: z.string().min(1, "Phone number is required"),
+    company_description: z.string().optional(),
+    company_portfolio_images: z
+      .array(z.instanceof(File))
+      .min(1, "At least one portfolio image is required"),
+    days: z.array(z.string()).min(1, "Select at least one working day"),
+    time_from: z
+      .string()
+      .regex(/^\d{2}:\d{2}$/, "Time must be in HH:MM format")
+      .transform((time) => `2025-07-01T${time}:00`),
+    time_to: z
+      .string()
+      .regex(/^\d{2}:\d{2}$/, "Time must be in HH:MM format")
+      .transform((time) => `2025-07-01T${time}:00`),
+  })
+  .superRefine((data, ctx) => {
+    const fromTime = new Date(data.time_from);
+    const toTime = new Date(data.time_to);
+    if (fromTime >= toTime) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["time_to"], // show error on time_to field
+        message: "End time must be after start time",
+      });
+    }
+  });
 
-export type ContactInput = z.infer<typeof ContactSchema>;
-
-export const CustomerRegisterSchema = z.object({
-  firstName: z
-    .string({
-      required_error: "First name is required",
-    })
-    .min(1, "First name is required"),
-
-  lastName: z
-    .string({
-      required_error: "Last name is required",
-    })
-    .min(1, "Last name is required"),
-
-  email: z
-    .string({
-      required_error: "Email is required",
-    })
-    .min(1, "Email is required")
-    .email("Email is invalid"),
-
-  phoneNumber: z
-    .string({
-      required_error: "Phone number is required",
-    })
-    .min(1, "Phone number is required"),
-
-  category: z
-    .string({
-      required_error: "Category is required",
-    })
-    .min(1, "Category is required"),
-
-  customerType: z
-    .string({
-      required_error: "Please select atleast one type",
-    })
-    .min(1, "Please select atleast one type"),
-});
-
-export type CustomerRegisterInput = z.infer<typeof CustomerRegisterSchema>;
+export type CompanyInput = z.infer<typeof CompanySchema>;

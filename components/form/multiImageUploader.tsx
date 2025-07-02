@@ -6,7 +6,6 @@ import { FaCloudUploadAlt } from "react-icons/fa";
 import ErrorText from "./errorText";
 import { RxCross2 } from "react-icons/rx";
 
-
 interface Props {
   name: string;
   label?: string;
@@ -14,6 +13,7 @@ interface Props {
   className?: string;
   height?: string;
   width?: string;
+  errorClassName?: string;
 }
 
 type FileOrString = File | string;
@@ -25,6 +25,7 @@ const MultiImageUploader: React.FC<Props> = ({
   className = "",
   height = "h-[300px]",
   width = "w-full",
+  errorClassName,
 }) => {
   const {
     control,
@@ -36,7 +37,6 @@ const MultiImageUploader: React.FC<Props> = ({
   const inputRef = useRef<HTMLInputElement>(null);
   const [images, setImages] = useState<FileOrString[]>([]);
 
-  
   const getPreviewURL = (file: FileOrString) =>
     typeof file === "string" ? file : URL.createObjectURL(file);
 
@@ -60,7 +60,7 @@ const MultiImageUploader: React.FC<Props> = ({
     const updated = [...images, ...files];
     setImages(updated);
     setValue(name, updated);
- 
+
     e.target.value = "";
   };
 
@@ -89,14 +89,11 @@ const MultiImageUploader: React.FC<Props> = ({
                 <button
                   type="button"
                   onClick={(e) => {
-                    e.stopPropagation(); 
+                    e.stopPropagation();
                     handleRemove(idx);
                   }}
                 >
-                  <RxCross2 
-                  className="absolute top-1 right-0 bg-primary hover:bg-primary-800 text-white  rounded-full w-5 h-5  "
-                   />
-
+                  <RxCross2 className="absolute top-1 right-0 bg-primary hover:bg-primary-800 text-white  rounded-full w-5 h-5  " />
                 </button>
               </div>
             ))}
@@ -126,7 +123,10 @@ const MultiImageUploader: React.FC<Props> = ({
       </div>
 
       {errors[name] && (
-        <ErrorText message={errors[name]?.message?.toString()} />
+        <ErrorText
+          errorClassName={errorClassName}
+          message={errors[name]?.message?.toString()}
+        />
       )}
     </div>
   );

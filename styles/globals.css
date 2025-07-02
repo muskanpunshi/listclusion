@@ -273,7 +273,7 @@ h6 {
   height: 1.5px;
   background-color: var(--color-primary);
   display: block;
-} 
+}
 
 ul::-webkit-scrollbar {
   width: 6px;
@@ -282,4 +282,14 @@ ul::-webkit-scrollbar {
 ul::-webkit-scrollbar-thumb {
   background-color: #ccc;
   border-radius: 4px;
+}
+
+
+.time-input {
+  @apply w-full p-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent;
+}
+
+.time-input::-webkit-calendar-picker-indicator {
+  @apply bg-gray-500 rounded;
+  filter: invert(1);
 }

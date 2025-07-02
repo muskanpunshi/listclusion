@@ -1,146 +1,221 @@
 "use client";
 import React, { useState } from "react";
-import { cn } from "@utils/index";
-import Image from "next/image";
-import { FaTimes } from "react-icons/fa";
-import Paragraph from "@components/common/paragraph";
-import Heading from "@components/heading";
 import Button from "@components/common/Button";
 import Input from "@components/form/input";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import { ContactInput, ContactSchema } from "@lib/validations/form.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import TextArea from "@components/form/textArea";
 import MultiCheckboxGroup from "@components/radix/ui/checkbox";
 import ImageUploader from "@components/form/imageUploader";
 import MultiImageUploader from "@components/form/multiImageUploader";
+import { DaysSelector } from "@components/form/daySelector";
+
+import { CompanyInput, CompanySchema } from "@lib/validations/form.schema";
+import { TimePickerField } from "@components/form/timePicker";
+
+// Updated Zod Schema to match payload
 
 const RegisterForm = () => {
-  const methods = useForm<ContactInput>({
-    resolver: zodResolver(ContactSchema),
-    mode: "onBlur"
+  const methods = useForm<CompanyInput>({
+    // resolver: zodResolver(CompanySchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      company_logo: new File([], ""), // placeholder file to keep it controlled
+      company_expertise: "",
+      company_categories: [],
+      company_address: {
+        address1: "",
+        address2: "",
+        city: "",
+        state: "",
+        country: "",
+        zipcode: "",
+      },
+      company_telephone_numbers: "",
+      company_description: "",
+      company_portfolio_images: [],
+      days: [],
+      time_from: "2025-07-01T09:00:00", // ISO string from transform()
+      time_to: "2025-07-01T18:00:00",
+    },
   });
 
   const { executeRecaptcha } = useGoogleReCaptcha();
-  const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
-  const [companyLogo, setCompanyLogo] = useState<File | null>(null);
 
-  const {
-    reset,
-    handleSubmit,
-    formState: { isSubmitSuccessful }
-  } = methods;
-  const onSubmitHandler: SubmitHandler<ContactInput> = async (
-    values: any,
-    e
-  ) => {
+  const onSubmitHandler: SubmitHandler<CompanyInput> = async (values, e) => {
     e?.preventDefault();
 
-    if (!executeRecaptcha) {
-      console.log("Execute recaptcha not yet available");
-      return;
+    const fileToBase64 = (file: File): Promise<string> => {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result as string);
+        reader.onerror = (error) => reject(error);
+      });
+    };
+
+    try {
+      const payload = {
+        ...values,
+        company_logo: await fileToBase64(values.company_logo),
+        company_portfolio_images: await Promise.all(
+          values.company_portfolio_images.map(fileToBase64)
+        ),
+      };
+
+      console.log("Processed payload:", payload);
+
+      if (!executeRecaptcha) {
+        console.log("Execute recaptcha not yet available");
+        return;
+      }
+
+      const token = await executeRecaptcha("contactForm");
+      console.log("reCAPTCHA token:", token);
+
+      // Submit to your API here
+      // await submitToApi(payload, token);
+    } catch (error) {
+      console.error("Error processing form data:", error);
     }
-    executeRecaptcha("contactForm").then(async (gReCaptchaToken: string) => {
-      console.log("reCAPTCHA token:", gReCaptchaToken);
-    });
   };
 
   return (
     <section className="w-full bg-white lg:p-10 p-4">
       <div className="py-6">
         <FormProvider {...methods}>
-          <div className="">
-            <h3 className="text-2xl text-primary font-medium mb-4 max-md:text-center ">
-              Company Details
-            </h3>
-            <ImageUploader
-              name="company-logo"
-              label="Company Logo"
-              size={150}
-              defaultImage=""
-            />
-          </div>
-          <form onSubmit={handleSubmit(onSubmitHandler)}>
-            <div className="mb-6">
-              <Input name="name" label="Name*" placeholder="Company Name" />
+          <form onSubmit={methods.handleSubmit(onSubmitHandler)}>
+            <div className="">
+              <h3 className="text-2xl text-primary font-medium mb-4 max-md:text-center">
+                Company Details
+              </h3>
+              <ImageUploader
+                name="company_logo"
+                label="Company Logo"
+                size={150}
+              />
             </div>
+
+            <div className="mb-6">
+              <Input
+                name="name"
+                label="Company Name*"
+                placeholder="TechNova Pvt Ltd"
+              />
+            </div>
+
             <div className="mb-6">
               <TextArea
-                name="description"
-                label="description*"
-                placeholder="Write about your Company..."
+                name="company_description"
+                label="Company Description"
+                placeholder="We build scalable, intelligent platforms..."
                 rows={4}
               />
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 space-x-4 mb-6">
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
               <Input
-                name="address"
-                label="address*"
-                placeholder="Company's Address"
+                name="company_address.address1"
+                label="Address Line 1*"
+                placeholder="Suite 502, Tech Park"
+              />
+              <Input
+                name="company_address.address2"
+                label="Address Line 2"
+                placeholder="Block B"
+              />
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
+              <Input
+                name="company_address.city"
+                label="City*"
+                placeholder="Lahore"
+              />
+              <Input
+                name="company_address.country"
+                label="Country*"
+                placeholder="Pakistan"
+              />
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
+              <Input
+                name="company_telephone_numbers"
+                label="Phone Number*"
+                placeholder="+92-300-1234567"
               />
               <Input
                 name="email"
                 type="email"
-                placeholder="Company's Email Address"
                 label="Email*"
-              />
-            </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 space-x-4 mb-6">
-              <Input
-                name="working-hours"
-                label="Working hours*"
-                placeholder="Working Hours"
-              />
-              <Input
-                name="phone-number"
-                type="number"
-                placeholder="Phone Number"
-                label="Phone Number*"
-              />
-            </div>
-            <div className="mb-6">
-              <Input
-                name="expertise"
-                label="expertise"
-                placeholder=" Company's Expertise"
-              />
-            </div>
-            <div className="mb-6">
-              <Input
-                name="projects"
-                label="projects"
-                placeholder=" Company's Projects"
+                placeholder="info@technova.com"
               />
             </div>
 
-            <div className="bg-white rounded-[20px] py-6">
-              <h4 className="text-xl font-medium text-secondary pb-5">
-                Select Categories
-              </h4>
-              <MultiCheckboxGroup
-                name="categories"
-                options={[
-                  "Engineering Consultants",
-                  "Architects Consultants",
-                  "Civil Contractors",
-                  "Interior Contractors",
-                  "Electrical Consultants"
-                ]}
-                selectedValues={selectedCategory}
-                onChange={(value) => setSelectedCategory(value)}
+            <div className="mb-6">
+              <Input
+                name="company_expertise"
+                label="Expertise*"
+                placeholder="AI, Web Development, Cloud Infrastructure"
               />
             </div>
-            <div className="bg-white rounded-[20px] py-6">
-              <h4 className="text-xl font-medium text-secondary pb-5">
-                File Attachment<span className="text-primary">*</span>{" "}
+            <div className="mb-6">
+              <h4 className="text-lg font-medium mb-2">
+                Working Days & Hours*
               </h4>
-               <MultiImageUploader name="banner" label="Upload Company's images" />
+
+              <div className="mb-4">
+                <label className="block text-sm font-medium mb-2">
+                  Select Working Days*
+                </label>
+                <DaysSelector control={methods.control} name="days" />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <TimePickerField
+                  name="time_from"
+                  control={methods.control}
+                  label="Opening Time*"
+                />
+                <TimePickerField
+                  name="time_to"
+                  control={methods.control}
+                  label="Closing Time*"
+                />
+              </div>
+            </div>
+            <div className="bg-white rounded-[20px] py-6 mb-6">
+              <h4 className="text-xl font-medium text-secondary pb-5">
+                Select Categories*
+              </h4>
+              <MultiCheckboxGroup
+                name="company_categories"
+                options={[
+                  "Artificial Intelligence",
+                  "Web Apps",
+                  "Cloud Services",
+                  "Data Analytics",
+                  "Mobile Development",
+                ]}
+              />
+            </div>
+
+            <div className="bg-white rounded-[20px] py-6 mb-6">
+              <h4 className="text-xl font-medium text-secondary pb-5">
+                Portfolio Images*
+              </h4>
+              <MultiImageUploader
+                errorClassName="bottom-[145px] left-[30px]"
+                name="company_portfolio_images"
+                label="Upload portfolio images"
+              />
             </div>
 
             <div className="text-center">
-              {" "}
-              <Button className="mt-8 " buttonType="submit">
+              <Button className="mt-8" buttonType="submit">
                 Submit
               </Button>
             </div>
