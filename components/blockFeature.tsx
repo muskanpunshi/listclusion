@@ -34,7 +34,7 @@ const BLockFeatureTwo = ({ style }: any) => {
   const dropdownItems = useMemo(() => {
     return categoryDetails.map((item) => ({
       value: item.category,
-      label: item.category,
+      label: item?.parentCategory?`${item.category}(${item?.parentCategory})`:item?.category,
     }));
   }, [categoryDetails]);
 
@@ -128,11 +128,11 @@ const BLockFeatureTwo = ({ style }: any) => {
                       {item.category}
                     </h5>
                   </Link>
-                  {/* {item.parentTitle && (
+                  {item?.parentCategory && (
                     <p className="text-sm text-gray-400 italic">
-                      Supplier Category
+                      {item?.parentCategory}
                     </p>
-                  )} */}
+                  )}
                   <p className="text-gray-500">{item.child.length} Listing</p>
                 </div>
               </SwiperSlide>

@@ -30,7 +30,7 @@ function MenuButton({ isOpen, onClick }: component) {
         {/* Bottom bar */}
         <span
           className={`absolute left-0 bottom-0 w-full h-[2px] bg-white rounded transition-transform duration-300 ${
-            isOpen ? "-rotate-45 -translate-y-[8px]" : ""
+            isOpen ? "-rotate-45 -translate-y-[6px]" : ""
           }`}
         ></span>
       </div>

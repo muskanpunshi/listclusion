@@ -1,4 +1,4 @@
-import Banner from "@components/common/banner";
+
 import Container from "@components/container";
 import React from "react";
 import InnerCategoryDetail from "./components/innerCategoryDetails";
@@ -7,6 +7,7 @@ import {
   StructuredCategories,
   StructuredCategory,
 } from "data/categoryDetail";
+import Banner from "./components/banner";
 interface PageProps {
   params: Promise<{ name: string }>;
 }
