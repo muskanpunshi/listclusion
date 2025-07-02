@@ -23,23 +23,27 @@ function Input({
   name,
   label,
 
-  onFocus
+  onFocus,
 }: inputType) {
   const {
     register,
-    formState: { errors, touchedFields }
+    formState: { errors, touchedFields },
   } = useFormContext();
   return (
     <>
       <div className="relative">
-        {label && <label className="block mb-1 text-secondary capitalize font-medium">{label}</label>}
+        {label && (
+          <label className="block mb-1 text-secondary capitalize font-medium">
+            {label}
+          </label>
+        )}
 
         <input
           type={type ?? "text"}
           className={cn([
             `bg-white text-base text-secondary block w-full border border-secondary/40  rounded-md py-4 px-5  focus:outline-none focus:shadow-none placeholder:text-[#949393] 
               `,
-            classes
+            classes,
           ])}
           onFocus={onFocus}
           defaultValue={defaultValue}

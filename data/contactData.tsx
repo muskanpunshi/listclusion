@@ -5,7 +5,7 @@ import { BsFillChatQuoteFill } from "react-icons/bs";
 import React, { ReactNode } from "react";
 
 export type ContactInfoLink = {
-  href: string;
+  href?: string;
   label: string;
 };
 
@@ -32,17 +32,17 @@ const contactData = [
     icon: <IoCall className="text-white lg:text-3xl text-2xl" />,
     title: "Our hotline number",
     links: [
-      { href: "tel:+7576994478", label: "+757 699 4478" },
-      { href: "tel:+9913779731", label: "+991 377 9731" },
+      { href: "tel:+923238226416", label: "+92 323 8226416" },
+      // { href: "tel:+9913779731", label: "+991 377 9731" },
     ],
   },
   {
     icon: <BsFillChatQuoteFill className="text-white lg:text-3xl text-2xl" />,
-    title: "Live chat",
+    title: "Address",
     links: [
       {
-        href: "https://www.homylivechat.com",
-        label: "www.homylivechat.com",
+       
+        label: "25 B1 31 Street Off Khayaban e Shamsheer DHA Phase V Ext karachi Pakistan",
         target: "_blank",
       },
     ],

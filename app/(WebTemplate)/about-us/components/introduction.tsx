@@ -24,21 +24,20 @@ const Introduction = () => {
                 <Paragraph className=" font-medium uppercase text-primary mb-2 tracking-widest">
                   About us
                 </Paragraph>
-                <Heading className=" leading-tight">
-                  Secure your {""}
+                <Heading className="text-[56px] leading-tight">
+                  Your One-Stop Reliable Source for {""}
                   <span className="relative inline-block">
-                    family&apos;s
+                   {""} Interior
                     <Image
                       src={titleShape}
                       alt=""
                       className="absolute -bottom-1 left-1/2 transform -translate-x-1/2"
                     />
                   </span>
-                  {""} Dream home.
+                  {""} Solutions
                 </Heading>
                 <Paragraph className="text-lg mt-4">
-                  Our founders Dustin Moskovitz and Justin Rosenstein met while
-                  leading Engineering.
+                  There’s more to discover as you explore Listclusion. Find the people, products, and partnerships you need to bring your projects to life with confidence.
                 </Paragraph>
                 <Button
                   href="/contact"
@@ -55,18 +54,18 @@ const Introduction = () => {
                       <Paragraph className="text-6xl font-medium text-secondary">
                         {isVisible ? (
                           <CountUp
-                            end={1.2}
-                            decimals={1}
-                            suffix="%"
+                            end={200}
+                            decimals={0}
+                            suffix=""
                             duration={1.5}
-                    delay={0}
+                            delay={0}
                           />
                         ) : (
-                          "0.0%"
+                          "0.0"
                         )}
                       </Paragraph>
                       <Paragraph className="text-lg text-secondary my-2">
-                        Low interest rate
+                       Categories
                       </Paragraph>
                     </div>
                   </div>
@@ -75,19 +74,19 @@ const Introduction = () => {
                       <Paragraph className="text-6xl font-medium text-secondary">
                         {isVisible ? (
                           <CountUp
-                            end={1.3}
-                            decimals={1}
-                            suffix="b+"
+                            end={640}
+                            decimals={0}
+                            suffix=""
                             duration={1.5}
-                    delay={0}
+                            delay={0}
                           />
                         ) : (
-                          "$0.0b+"
+                          "0.0"
                         )}
                       </Paragraph>
 
                       <Paragraph className="text-lg text-secondary my-2">
-                        Cumulative trading volume
+                        Listing
                       </Paragraph>
                     </div>
                   </div>
@@ -103,9 +102,7 @@ const Introduction = () => {
                   Who we are?
                 </Paragraph>
                 <Paragraph className="text-lg my-4 leading-relaxed">
-                  Our founders Dustin Moskovitz & Justin Rosenstein met leading
-                  Engineering teams at Facebook. As operations scaled, they grew
-                  frustrated by how difficult coordinate
+                 Your trusted one-stop platform for all things interior and construction. We connect architects, designers, consultants, contractors, and manufacturers with importers, exporters, and customers, making sourcing reliable and effortless for your projects.
                 </Paragraph>
               </div>
 
@@ -114,8 +111,7 @@ const Introduction = () => {
                   Our Mission
                 </Paragraph>
                 <Paragraph className="text-lg my-4 leading-relaxed">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod incididunt ut labore et dolore aliqua.
+                 At Listclusion, we aim to simplify and secure sourcing by bringing all your project needs into one trusted, transparent, and easy‑to‑use platform.
                 </Paragraph>
               </div>
               <div className="py-3 border-t">
@@ -123,8 +119,7 @@ const Introduction = () => {
                   Our vision
                 </Paragraph>
                 <Paragraph className="text-lg my-4 leading-relaxed">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod incididunt ut labore et dolore aliqua.
+                  To be Pakistan’s go‑to, one‑stop platform where professionals connect, collaborate, and build with confidence.
                 </Paragraph>
               </div>
             </div>

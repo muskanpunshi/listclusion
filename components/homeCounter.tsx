@@ -18,21 +18,21 @@ type StatItem = {
 const stats: StatItem[] = [
   {
     id: 1,
-    end: 720,
-    suffix: "k+",
-    label: "Project handover"
+    end: 200,
+    suffix: "",
+    label: "Categories"
   },
   {
     id: 2,
-    end: 2.3,
-    suffix: "%",
-    label: "Low Interest",
-    decimals: 1
+    end: 640,
+    suffix: "",
+    label: "Listing",
+    decimals: 0
   },
   {
     id: 3,
-    end: 2.9,
-    suffix: "mil+",
+    end: 80.5  ,
+    suffix: "k+",
     label: "Happy customers",
     decimals: 1
   }
