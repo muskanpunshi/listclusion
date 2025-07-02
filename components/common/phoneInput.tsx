@@ -32,7 +32,7 @@ const CustomPhoneInput = ({
       {label && (
         <label
           htmlFor={name}
-          className="block mb-2 text-base font-medium text-secondary"
+          className="block mb-1 text-base font-medium text-secondary"
         >
           {label}
         </label>
