@@ -5,7 +5,7 @@ import { useState } from "react";
 import UseSticky from "@hooks/UseSticky";
 import { FaLock } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
-import Logo from "@public/template/logo1.png"
+import Logo from "@public/template/logo1.png";
 import { HeaderNavbar, headerNavigation } from "../routes/navigation";
 import MobileNavigation from "./mobileNavigation";
 import { usePathname } from "next/navigation";
@@ -19,7 +19,6 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const { ref, position } = useSmartSubmenuPosition();
-
   return (
     <header
       className={`z-[999] w-full transition-all duration-300 ease-in-out ${
@@ -32,11 +31,7 @@ const Header = () => {
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/">
-            <Image
-              src={Logo}
-              alt="Logo"
-              className="w-[60px]  h-auto"
-            />
+            <Image src={Logo} alt="Logo" className="w-[60px]  h-auto" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -44,7 +39,6 @@ const Header = () => {
             <ul className="flex items-center space-x-14 lg:space-x-10">
               {headerNavigation.map((nav: HeaderNavbar, index: number) => {
                 const isActive = pathname === nav.path;
-
                 return (
                   <li key={index} className="group relative">
                     {nav.children ? (
@@ -66,13 +60,7 @@ const Header = () => {
 
                         {/* Dropdown */}
                         <ul className="absolute  left-0 top-full mt-2 min-w-[220px] bg-white rounded-md shadow-lg z-50 opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 [&>li:last-child>a]:pb-3 [&>li:last-child>a]:rounded-md ">
-                          {nav.children.map((child, idx) => {
-                            const category = feature_data.find(
-                              (c) => c.title === child.label
-                            );
-                            const hasSubcategories =
-                              category?.children?.length > 0;
-
+                          {nav.children.map((item, idx) => {
                             return (
                               <li
                                 key={idx}
@@ -80,28 +68,28 @@ const Header = () => {
                                 ref={ref}
                               >
                                 <Link
-                                  href={child.path}
+                                  href={item.path ?? ""}
                                   className="flex items-center justify-between px-5 py-3 text-[16px] text-text-primary hover:text-primary hover:bg-gray-100 whitespace-nowrap transition  "
                                 >
-                                  {child.label}
-                                  {hasSubcategories && (
+                                  {item.label}
+                                  {item?.child && (
                                     <ChevronRightIcon className="ml-2 w-4 h-4 text-gray-400 group-hover/item:text-primary transition" />
                                   )}
                                 </Link>
 
-                                {hasSubcategories && (
+                                {item?.child?.length > 0 && (
                                   <ul
                                     className={`absolute left-full ml-1 w-[220px] bg-white rounded-md shadow-lg opacity-0 invisible group-hover/item:visible group-hover/item:opacity-100 transition-all duration-300 z-50 ${
                                       position === "top" ? "bottom-0" : "top-0"
                                     } `}
                                   >
-                                    {category.children?.map((sub, subIdx) => (
+                                    {item?.child?.map((sub, subIdx) => (
                                       <li key={subIdx}>
                                         <Link
-                                          href="/listing_04"
+                                          href={sub?.path}
                                           className="block hover:text-primary px-5 py-3 text-[15px] hover:bg-gray-100 transition"
                                         >
-                                          {sub.title}
+                                          {sub.label}
                                         </Link>
                                       </li>
                                     ))}
@@ -145,7 +133,7 @@ const Header = () => {
           </button>
 
           {/* Uncomment when ready */}
-          {/* <MobileNavigation isOpen={isOpen} setIsOpen={setIsOpen} /> */}
+          <MobileNavigation isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
       </div>
     </header>
