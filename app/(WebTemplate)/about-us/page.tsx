@@ -5,7 +5,11 @@ import HowItWorksSection from './components/howItWorksSection'
 import TeamSection from './components/teamSection'
 import Testimonials from '@components/testimonials'
 import FeatureSection from './components/featureSection'
+import { Metadata } from 'next'
 
+export const metadata: Metadata = {
+  title: "About Us - ListClusion",
+};
 
 
 const About = () => {
@@ -17,8 +21,8 @@ const About = () => {
        />
        <Introduction />
        <HowItWorksSection/>
-       <Testimonials />
-       <FeatureSection />
+       {/* <Testimonials /> */}
+       {/* <FeatureSection /> */}
        <TeamSection/>
     </>
   )

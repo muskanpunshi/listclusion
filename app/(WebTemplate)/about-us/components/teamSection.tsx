@@ -10,6 +10,7 @@ import Container from "@components/container";
 import Image from "next/image";
 import titleShape from "@public/template/shape/title_shape_03.svg";
 import Paragraph from "@components/common/paragraph";
+import categoryDetails from "data/categoryDetail";
 
 const agents = [
   {
@@ -50,7 +51,7 @@ const TeamSection =()=> {
           <Heading>
             Our{" "}
             <span className="relative inline-block">
-              Agents
+              Consultants
               <Image
                 src={titleShape}
                 alt=""
@@ -59,7 +60,7 @@ const TeamSection =()=> {
             </span>
           </Heading>
           <Paragraph className="mt-4">
-            Lorem is placeholder text commonly used graphic
+           Meet the experts who bring vision, strategy, and innovation to every project.
           </Paragraph>
         </div>
         <div className="px-4 relative before:absolute before:top-[-15px] before:right-[-12px] before:left-[-12px] before:h-[45%] before:-z-10 before:bg-[url('/template/shape/shape_05.svg')] before:bg-cover">
@@ -74,24 +75,25 @@ const TeamSection =()=> {
               1024: { slidesPerView: 3,spaceBetween:10 },
               1280: { slidesPerView: 4, spaceBetween: 24 }
             }}
+          
           >
-            {agents.map((agent, idx) => (
-              <SwiperSlide key={idx}>
+            {categoryDetails.map((agent, idx) => (
+              <SwiperSlide key={idx} className="">
                 <div className="relative pt-8 ">
                   <div className="rounded-2xl overflow-hidden">
                     <Image
-                      src={agent.img}
+                      src={agent.categoryBannerImage}
                       alt={agent.name}
                       width={260}
-                      height={400}
-                      className=" h-auto w-full max-lg:h-[360px] object-cover transition-transform duration-500 ease-in-out hover:scale-110"
+                      
+                      className=" h-[380px] w-full max-lg:h-[320px] object-cover transition-transform duration-500 ease-in-out hover:scale-110"
                     />
                   </div>
                   <div className="text-center mt-4 pb-4">
-                    <Paragraph className="text-2xl font-medium mb-1">
+                    <Paragraph className="text-xl font-medium mb-1">
                       {agent.name}
                     </Paragraph>
-                    <Paragraph>{agent.role}</Paragraph>
+                    <Paragraph>{agent.category}</Paragraph>
                   </div>
                 </div>
               </SwiperSlide>

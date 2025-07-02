@@ -12,6 +12,7 @@ import { usePathname } from "next/navigation";
 import { feature_data } from "@utils/data";
 import { useSmartSubmenuPosition } from "@hooks/SmartSubmenu";
 import { ChevronRightIcon } from "@radix-ui/react-icons";
+import Button from "./common/Button";
 
 const Header = () => {
   const { sticky } = UseSticky();
@@ -117,7 +118,10 @@ const Header = () => {
         </div>
 
         {/* Right Icons */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center  gap-2">
+          {/* <Button className="!text-sm font-medium">Register As Company</Button>
+          <Button className="!text-sm font-medium">Register As User</Button> */}
+
           <button className="w-14 h-14 max-md:w-10 max-md:h-10 flex items-center justify-center rounded-full bg-black text-white hover:bg-primary transition-all duration-300 ease-in-out">
             <FaLock />
           </button>

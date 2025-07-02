@@ -8,8 +8,27 @@ import {
   StructuredCategory,
 } from "data/categoryDetail";
 import Banner from "./components/banner";
+import { Metadata } from "next";
 interface PageProps {
   params: Promise<{ name: string }>;
+}
+
+export async function generateMetadata({
+  params
+}: {
+  params: { name: string };
+}): Promise<Metadata> {
+  const { name } = params;
+
+  const matchedCategory = categoryDetails.find(
+    (item) => item.categorySlug === name
+  );
+
+  return {
+    title: matchedCategory
+      ? `${matchedCategory.category} -  ListClusion`
+      : "ListClusion"
+  };
 }
 
 async function Page({ params }: PageProps) {
