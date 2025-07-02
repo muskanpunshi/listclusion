@@ -15,6 +15,7 @@ import TimePicker from "@components/form/timePicker";
 import CustomPhoneInput from "@components/common/phoneInput";
 import { contactPostService } from "services/register";
 import Swal from "sweetalert2";
+import categoryDetails from "data/categoryDetail";
 
 // Updated Zod Schema to match payload
 
@@ -208,7 +209,7 @@ const RegisterForm = () => {
               />
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
               <Input
                 name="company_address.city"
                 label="City*"
@@ -278,13 +279,9 @@ const RegisterForm = () => {
               </h4>
               <MultiCheckboxGroup
                 name="company_categories"
-                options={[
-                  "Artificial Intelligence",
-                  "Web Apps",
-                  "Cloud Services",
-                  "Data Analytics",
-                  "Mobile Development",
-                ]}
+                options={categoryDetails.map(
+                  (categories: any) => categories.category
+                )}
               />
             </div>
 
