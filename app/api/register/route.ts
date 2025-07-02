@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request: NextRequest) {
   const data = await request.json();
   const { payload, ...rest } = data;
-  console.log(rest, "asdasdasd");
+  console.log(payload, "asdasdasd");
   //   const verify = await verifyCaptchaAction(executeRecaptcha);
   //   if (!verify) {
   //     return new NextResponse(

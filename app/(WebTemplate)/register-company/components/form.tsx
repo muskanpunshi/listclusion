@@ -14,6 +14,7 @@ import { CompanyInput, CompanySchema } from "@lib/validations/form.schema";
 import TimePicker from "@components/form/timePicker";
 import CustomPhoneInput from "@components/common/phoneInput";
 import { contactPostService } from "services/register";
+import Swal from "sweetalert2";
 
 // Updated Zod Schema to match payload
 
@@ -42,6 +43,7 @@ const RegisterForm = () => {
       time_to: "2025-07-01T18:00:00", // HH:MM format
     },
   });
+  const { reset } = methods;
 
   const { executeRecaptcha } = useGoogleReCaptcha();
 
@@ -128,13 +130,26 @@ const RegisterForm = () => {
       // console.log("reCAPTCHA token:", token);
 
       // API call to the endpoint
-      const response = await contactPostService({
+      const response: any = await contactPostService({
         payload,
       });
-      console.log(response);
-      // console.log("API response:", data);
-      setSubmitSuccess(true);
-      methods.reset(); // Reset form after successful submission
+      console.log(response, "asdasdsd");
+      if (response.status === "success") {
+        Swal.fire({
+          icon: "success",
+          title: response?.data?.result?.message,
+          position: "center",
+          timer: 2000,
+          showConfirmButton: false,
+        });
+
+        setSubmitSuccess(true);
+        reset();
+      } else {
+        setSubmitError(
+          response.message || "Something went wrong. Please Try Again"
+        );
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
       setSubmitError(

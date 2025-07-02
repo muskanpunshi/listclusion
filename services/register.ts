@@ -2,9 +2,12 @@ import { handleResponse } from "@utils/api-helpers";
 
 const SERVER_ENDPOINT =
   process.env.SERVER_ENDPOINT || process.env.NEXT_PUBLIC_API_URL;
-export async function contactPostService(
-  form: any
-): Promise<{ status: string; data: any }> {
+
+export async function contactPostService(form: any): Promise<{
+  message: string;
+  partner_id: number;
+  status: "success" | "error";
+}> {
   const response = await fetch(`${SERVER_ENDPOINT}/api/register`, {
     method: "POST",
     cache: "no-cache",
@@ -14,5 +17,6 @@ export async function contactPostService(
     },
     body: JSON.stringify(form),
   });
-  return handleResponse<{ status: string; data: any }>(response);
+
+  return handleResponse(response);
 }

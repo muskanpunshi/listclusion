@@ -45,20 +45,24 @@ export async function handleResponse<T>(response: Response): Promise<T> {
         position: "bottom-end",
         title: `${data.message || response.statusText}`,
         showConfirmButton: false,
-        timer: 1500
+        timer: 1500,
       });
-      console.log(JSON.stringify(data.errors), "data.errors")
+      console.log(JSON.stringify(data.errors), "data.errors");
     }
+
     Swal.fire({
       position: "bottom-end",
       title: `${data.message || response.statusText}`,
       showConfirmButton: false,
-      timer: 1500
+      timer: 1500,
     });
-    // Toast({
-    //   variant: "error", message: data.message || response.statusText
-    // })
-    console.log(data.message || response.statusText, "data.message")
+
+    console.log(data.message || response.statusText, "data.message");
+  }
+
+  // ✅ Handle Odoo structure
+  if (data?.result) {
+    return data.result as T;
   }
 
   return data as T;
