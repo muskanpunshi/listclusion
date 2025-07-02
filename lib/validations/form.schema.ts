@@ -14,29 +14,46 @@ export const CompanySchema = z
     company_expertise: z.string().min(1, "Expertise is required"),
     company_categories: z
       .array(z.string())
-      .min(1, "Select at least one category"),
+      .min(1, "Select at least one category"), // Ensure non-empty array
     company_address: z.object({
       address1: z.string().min(1, "Address is required"),
       address2: z.string().optional(),
       city: z.string().min(1, "City is required"),
-      state: z.string().min(1, "State is required"),
+      state: z.string().optional(),
       country: z.string().min(1, "Country is required"),
-      zipcode: z.string().min(1, "Zip code is required"),
+      zipcode: z.string().optional(),
     }),
     company_telephone_numbers: z.string().min(1, "Phone number is required"),
     company_description: z.string().optional(),
-    company_portfolio_images: z
-      .array(z.instanceof(File))
-      .min(1, "At least one portfolio image is required"),
+    company_portfolio_images: z.array(z.instanceof(File)).optional(),
     days: z.array(z.string()).min(1, "Select at least one working day"),
     time_from: z
       .string()
-      .regex(/^\d{2}:\d{2}$/, "Time must be in HH:MM format")
-      .transform((time) => `2025-07-01T${time}:00`),
+      .refine((val) => {
+        // Accept either HH:MM or your ISO format
+        return (
+          /^\d{2}:\d{2}$/.test(val) ||
+          /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/.test(val)
+        );
+      }, "Time must be in HH:MM format")
+      .transform((time) => {
+        // If already in ISO format, return as-is
+        if (time.includes("T")) return time;
+        // Convert HH:MM to ISO format
+        return `2025-07-01T${time}:00`;
+      }),
     time_to: z
       .string()
-      .regex(/^\d{2}:\d{2}$/, "Time must be in HH:MM format")
-      .transform((time) => `2025-07-01T${time}:00`),
+      .refine((val) => {
+        return (
+          /^\d{2}:\d{2}$/.test(val) ||
+          /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/.test(val)
+        );
+      }, "Time must be in HH:MM format")
+      .transform((time) => {
+        if (time.includes("T")) return time;
+        return `2025-07-01T${time}:00`;
+      }),
   })
   .superRefine((data, ctx) => {
     const fromTime = new Date(data.time_from);
@@ -44,7 +61,7 @@ export const CompanySchema = z
     if (fromTime >= toTime) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
-        path: ["time_to"], // show error on time_to field
+        path: ["time_to"],
         message: "End time must be after start time",
       });
     }

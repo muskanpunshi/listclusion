@@ -31,6 +31,7 @@ const MultiImageUploader: React.FC<Props> = ({
     control,
     setValue,
     getValues,
+    watch,
     formState: { errors },
   } = useFormContext();
 
@@ -69,6 +70,16 @@ const MultiImageUploader: React.FC<Props> = ({
     setImages(updated);
     setValue(name, updated);
   };
+
+  useEffect(() => {
+    const current = getValues(name);
+    if (Array.isArray(current)) {
+      setImages(current);
+    } else if (defaultImages?.length) {
+      setImages(defaultImages);
+      setValue(name, defaultImages);
+    }
+  }, [getValues(name)]);
 
   return (
     <div className={`flex flex-col gap-2 ${className}`}>
