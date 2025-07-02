@@ -7,6 +7,13 @@ import Banner from "@public/register-banner.jpeg";
 import Image from "next/image";
 import RegisterCustomerForm from "./components/form";
 
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "Register Customer - ListClusion",
+};
+
+
 const RegisterCustomerPage = () => {
   return (
     <>

@@ -6,6 +6,11 @@ import React from "react";
 import Form from "./components/form";
 import contactData from "data/contactData";
 import ContactInfo from "./components/contactInfo";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us - ListClusion"
+};
 
 const ContactUs = () => {
   return (
@@ -17,7 +22,7 @@ const ContactUs = () => {
           </Heading>
         </div>
 
-        <div className="flex flex-wrap justify-center items-center  lg:justify-between gap-10 lg:gap-5 my-10 lg:my-20 lg:px-10  fade-in-up">
+        <div className="flex flex-wrap justify-center lg:justify-between   gap-y-10 my-10 lg:my-20 lg:px-10 fade-in-up">
           {contactData.map((item, index) => (
             <ContactInfo
               key={index}
@@ -34,7 +39,7 @@ const ContactUs = () => {
           <div className="w-full lg:w-2/5 min-h-[500px] ">
             <iframe
               className="w-full h-full border-0"
-              src="https://maps.google.com/maps?width=600&height=400&hl=en&q=dhaka collage&t=&z=12&ie=UTF8&iwloc=B&output=embed"
+              src="https://www.google.com/maps?q=25%20B1%2031%20Street%20Off%20Khayaban%20e%20Shamsheer%20DHA%20Phase%20V%20Ext%20Karachi%20Pakistan&output=embed"
               allowFullScreen
               loading="lazy"
             ></iframe>

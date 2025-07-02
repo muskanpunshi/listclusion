@@ -130,7 +130,7 @@ const Header = () => {
         </div>
 
         {/* Right Icons */}
-        <div className="flex items-center max-md:flex-col gap-2">
+        <div className="flex items-center  gap-2">
           {/* <Button className="!text-sm font-medium">Register As Company</Button>
           <Button className="!text-sm font-medium">Register As User</Button> */}
 

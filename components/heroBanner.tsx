@@ -30,7 +30,7 @@ const HeroBanner = () => {
               href="/contact"
             >
               {" "}
-              Contact us <FaArrowUpLong className="rotate-45" />
+              Contact us <FaArrowUpLong className="rotate-45 ml-3" />
             </Button>
           </div>
         </div>

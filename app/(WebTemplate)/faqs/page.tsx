@@ -1,6 +1,11 @@
 import Banner from "@components/common/banner";
 import React from "react";
 import InnerFaqs from "./components/innerFaqs";
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "FAQs - ListClusion",
+};
 
 const Faqs = () => {
   return (
