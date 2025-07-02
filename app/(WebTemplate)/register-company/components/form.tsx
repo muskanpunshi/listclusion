@@ -17,8 +17,6 @@ import { contactPostService } from "services/register";
 import Swal from "sweetalert2";
 import categoryDetails from "data/categoryDetail";
 
-// Updated Zod Schema to match payload
-
 const RegisterForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -118,6 +116,43 @@ const RegisterForm = () => {
           values.company_portfolio_images.map(fileToBase64)
         ),
       };
+
+      executeRecaptcha("enquiryFormSubmit").then(
+        async (gReCaptchaToken: string) => {
+          console.log(gReCaptchaToken, "response Google reCaptcha server");
+          try {
+            const response: any = await contactPostService({
+              payload,
+              gReCaptchaToken,
+            });
+            if (response.status === "success") {
+              Swal.fire({
+                icon: "success",
+                title: response?.data?.result?.message,
+                position: "center",
+                timer: 2000,
+                showConfirmButton: false,
+              });
+
+              setSubmitSuccess(true);
+              reset();
+            } else {
+              setSubmitError(
+                response.message || "Something went wrong. Please Try Again"
+              );
+            }
+          } catch (error) {
+            console.error("Error submitting form:", error);
+            setSubmitError(
+              error instanceof Error
+                ? error.message
+                : "An unexpected error occurred. Please try again."
+            );
+          } finally {
+            setIsSubmitting(false);
+          }
+        }
+      );
 
       console.log("Processed payload:", payload);
 
@@ -302,12 +337,6 @@ const RegisterForm = () => {
               </Button>
               {submitError && (
                 <p className="mt-4 text-red-500">{submitError}</p>
-              )}
-
-              {submitSuccess && (
-                <p className="mt-4 text-green-500">
-                  Form submitted successfully!
-                </p>
               )}
             </div>
           </form>

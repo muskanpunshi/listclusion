@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Logo from "@public/template/logo1.png";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,11 +30,11 @@ const MobileNavigation = ({
               className="w-full flex items-center justify-between font-medium text-secondary hover:text-primary px-[12px] py-[10px] transition-colors border-t border-dashed border-[rgba(0,0,0,0.1)]"
             >
               {item.label}
-               <ChevronRightIcon
-              className={`ml-2 w-4 h-4 text-gray-400 transition-transform ${
-                isOpen ? "rotate-90 text-primary" : ""
-              }`}
-            />
+              <ChevronRightIcon
+                className={`ml-2 w-4 h-4 text-gray-400 transition-transform ${
+                  isOpen ? "rotate-90 text-primary" : ""
+                }`}
+              />
             </button>
             {isOpen && (
               <ul className={`ml-${(level + 1) * 2} transition-all`}>
@@ -55,15 +55,15 @@ const MobileNavigation = ({
       </li>
     );
   };
-  console.log(headerNavigation, "headerNavigation");
+
   const normalizeCategories = (items) =>
-  items.map((item) => {
-    const children = item.children || item.child;
-    return {
-      ...item,
-      children: children ? normalizeCategories(children) : undefined,
-    };
-  });
+    items.map((item) => {
+      const children = item.children || item.child;
+      return {
+        ...item,
+        children: children ? normalizeCategories(children) : undefined,
+      };
+    });
   const normalizedCategories = normalizeCategories(headerNavigation);
 
   return (
