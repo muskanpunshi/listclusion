@@ -8,7 +8,8 @@ import React, { useState } from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
-import { ContactInput, ContactSchema } from "@lib/validations/form.schema";
+import { ContactInput, ContactSchema } from "@lib/validations/contact.schema";
+import CustomPhoneInput from "@components/common/phoneInput";
 
 function Form() {
   const methods = useForm<ContactInput>({
@@ -64,7 +65,7 @@ function Form() {
                 />
               </div>
               <div className="w-1/2 max-sm:w-full">
-                <Input name="phone" placeholder="Phone Number" label="Phone*" />
+                <CustomPhoneInput name="phone" placeholder="Phone Number" label="Phone*" />
               </div>
             </div>
             <div className="mt-8">

@@ -15,31 +15,6 @@ import { categoryDetails } from "data/categoryDetail";
 import Heading from "./common/heading";
 
 const BLockFeatureTwo = ({ style }: any) => {
-  const filteredData = useMemo(() => {
-    const categoryMap = new Map();
-
-    categoryDetails.forEach((obj) => {
-      if (categoryMap.has(obj.category)) {
-        categoryMap.get(obj.category).count += 1;
-      } else {
-        categoryMap.set(obj.category, { ...obj, count: 1 });
-      }
-    });
-
-    const uniqueWithCount = [...categoryMap.values()];
-
-    const flattened = uniqueWithCount.flatMap((item: any) => {
-      if (item.children && Array.isArray(item.children)) {
-        return item.children.map((child) => ({
-          ...child,
-          parentTitle: item.category, // Optional if you want to show parent label
-        }));
-      }
-      return item;
-    });
-
-    return flattened;
-  }, []);
   const swiperRef = useRef<any>({}) as any;
   const [slideIndex, setSlideIndex] = useState(0);
   const [lastSlide, setLastSlide] = useState<boolean>(false);
@@ -57,16 +32,16 @@ const BLockFeatureTwo = ({ style }: any) => {
   };
   // Create dropdown items from data
   const dropdownItems = useMemo(() => {
-    return filteredData.map((item) => ({
+    return categoryDetails.map((item) => ({
       value: item.category,
-      label: item.category,
+      label: item?.parentCategory?`${item.category}(${item?.parentCategory})`:item?.category,
     }));
-  }, [filteredData]);
+  }, [categoryDetails]);
 
   const handleCategoryChange = (value: string) => {
     setSelectedCategory(value);
 
-    const index = filteredData.findIndex((item) => item.category === value);
+    const index = categoryDetails.findIndex((item) => item.category === value);
 
     // Slide to exact index (offset for looped swipers if needed)
     if (index !== -1 && swiperRef.current?.swiper) {
@@ -101,7 +76,7 @@ const BLockFeatureTwo = ({ style }: any) => {
                 lastSlide={lastSlide}
                 slideIndex={slideIndex}
                 swiperRef={swiperRef}
-                sliderLength={filteredData.length}
+                sliderLength={categoryDetails.length}
               />
             </div>
           </div>
@@ -123,7 +98,7 @@ const BLockFeatureTwo = ({ style }: any) => {
             }}
             className=" !pb-12"
           >
-            {filteredData.map((item, index) => (
+            {categoryDetails.map((item, index) => (
               <SwiperSlide key={index}>
                 <div
                   className="text-center animate-fadeInUp"
@@ -146,21 +121,19 @@ const BLockFeatureTwo = ({ style }: any) => {
                     </Link>
                   </div>
                   <Link
-                    href={
-                      item.category_slug ? item.category_slug : "/listing_04"
-                    }
+                    href={item.categorySlug ? item.categorySlug : "/listing_04"}
                     className="no-underline text-black hover:text-orange-500 transition"
                   >
                     <h5 className="text-[24px] text-[#000000b3] font-medium">
                       {item.category}
                     </h5>
                   </Link>
-                  {item.parentTitle && (
+                  {item?.parentCategory && (
                     <p className="text-sm text-gray-400 italic">
-                      Supplier Category
+                      {item?.parentCategory}
                     </p>
                   )}
-                  <p className="text-gray-500">{item.count} Listing</p>
+                  <p className="text-gray-500">{item.child.length} Listing</p>
                 </div>
               </SwiperSlide>
             ))}

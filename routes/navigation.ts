@@ -7,6 +7,7 @@ export interface HeaderNavbar {
   children?: {
     label: string;
     path: string;
+    child?:any[];
   }[];
 }
 
@@ -19,18 +20,45 @@ export interface FooterSection {
 }
 
 
-const uniqueCategories = [
-  ...new Map(categoryDetails.map(cat => [cat.category, cat])).values()
-];
+const parentCategoryAssign = () => {
+  const result = [];
+
+  const parentMap = {};
+
+  categoryDetails.forEach(cat => {
+    if (cat.parentCategory) {
+      // Add under existing parent or create it
+      if (!parentMap[cat.parentCategory]) {
+        parentMap[cat.parentCategory] = {
+          label: cat.parentCategory,
+          child: []
+        };
+        result.push(parentMap[cat.parentCategory]);
+      }
+
+      parentMap[cat.parentCategory].child.push({
+        label: cat.category,
+        path: cat.categorySlug
+      });
+    } else {
+      // Top-level category (may or may not have children)
+      const item = {
+        label: cat.category,
+        path: cat.categorySlug
+      };
+      parentMap[cat.category] = item;
+      result.push(item);
+    }
+  });
+  return result
+}
+
 
 export const headerNavigation: HeaderNavbar[] = [
   { label: "Home", path: "/" },
   {
     label: "Categories",
-    children: uniqueCategories.map((cat) => ({
-      label: cat.category,
-      path: cat.categorySlug, // or dynamically `/categories/${slugify(cat.title)}`
-    })),
+    children: parentCategoryAssign()
   },
   { label: "About Us", path: "/about-us" },
   { label: "FAQs", path: "/faqs" },
@@ -54,9 +82,10 @@ export const footerSections: FooterSection[] = [
   {
     title: "Legal",
     items: [
-      { label: "Terms & conditions", href: "#" },
+      { label: "Terms & conditions", href: "/terms-and-conditions" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
+
       { label: "Resgiter Your  Company", href: "/register-company" },
-      { label: "Register as  Customer", href: "/register-customer" },
       { label: "Faq’s", href: "/faqs" },
     ],
   },
