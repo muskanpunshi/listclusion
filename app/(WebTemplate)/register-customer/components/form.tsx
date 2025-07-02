@@ -12,7 +12,7 @@ import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import {
   CustomerRegisterInput,
   CustomerRegisterSchema,
-} from "@lib/validations/form.schema";
+} from "@lib/validations/customer.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import CustomSelect from "@components/radix/ui/customSelect";
