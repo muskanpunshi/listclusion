@@ -8,23 +8,23 @@ interface PageProps {
   params: Promise<{ name: string }>;
 }
 
-export async function generateMetadata({
-  params
-}: {
-  params: { name: string };
-}): Promise<Metadata> {
-  const { name } = params;
+// export async function generateMetadata({
+//   params
+// }: {
+//   params: { name: string };
+// }): Promise<Metadata> {
+//   const { name } = params;
 
-  const matchedCategory = categoryDetails.find(
-    (item) => item.categorySlug === name
-  );
+//   const matchedCategory = categoryDetails.find(
+//     (item) => item.categorySlug === name
+//   );
 
-  return {
-    title: matchedCategory
-      ? `${matchedCategory.category} -  ListClusion`
-      : "ListClusion"
-  };
-}
+//   return {
+//     title: matchedCategory
+//       ? `${matchedCategory.category} -  ListClusion`
+//       : "ListClusion"
+//   };
+// }
 
 async function Page({ params }: PageProps) {
   const { name } = await params;
