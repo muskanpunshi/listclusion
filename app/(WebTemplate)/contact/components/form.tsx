@@ -70,7 +70,7 @@ function Form() {
                 label="Name*"
               />
             </div>
-            <div className="flex gap-3 max-sm:flex-col max-sm:gap-0 mt-8">
+            <div className="flex gap-3 max-sm:flex-col max-sm:gap-y-8 mt-8">
               <div className="w-1/2 max-sm:w-full">
                 <Input
                   name="email"

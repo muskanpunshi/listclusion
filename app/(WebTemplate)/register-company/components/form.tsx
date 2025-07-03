@@ -215,12 +215,12 @@ const RegisterForm = () => {
               />
             </div>
             <div className="mb-6">
-              <h4 className="text-lg font-medium mb-2">
+              <h4 className="text-lg font-medium text-secondary mb-2">
                 Working Days & Hours*
               </h4>
 
-              <div className="mb-4">
-                <label className="block text-sm font-medium mb-2">
+              <div className="my-6">
+                <label className="block text-md font-medium text-secondary my-3">
                   Select Working Days*
                 </label>
                 <DaysSelector control={methods.control} name="days" />

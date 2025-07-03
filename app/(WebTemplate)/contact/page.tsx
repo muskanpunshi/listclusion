@@ -40,7 +40,7 @@ const ContactUs = () => {
            <iframe   className="w-full h-full border-0"  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.7906687327227!2d67.03279868002781!3d24.802620521156747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33d06f7998a55%3A0x55bb3bc73c7d11e0!2sKhayaban-e-Shamsheer%20%26%2031st%20St%2C%20DHA%20Phase%205%20Defence%20V%20Defence%20Housing%20Authority%2C%20Karachi%2C%2075500%2C%20Pakistan!5e0!3m2!1sen!2s!4v1751460824315!5m2!1sen!2s" width="600" height="450"   loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
 
-          <div className="w-full lg:w-[55%] py-16 px-10 fade-in-up">
+          <div className="w-full lg:w-[55%] py-16 md:px-10 px-6 fade-in-up">
             <Heading className=" text-5xl mb-6">Send Message</Heading>
             <Form />
           </div>

@@ -46,7 +46,7 @@ const HomeCounter = () => {
     // <div className="relative  w-full bg-[url('/template/shape/shape_28.svg')] bg-no-repeat bg-center bg-cover py-[20px] px-[20px] max-md:p-[12px]  ">
       <div
         ref={ref}
-        className="flex  justify-center flex-wrap  md:py-10 pt-4 pb-8  max-md:gap-4 bg-white "
+        className="flex  justify-center flex-wrap  md:py-10 pt-0 pb-8  max-md:gap-4 bg-white "
       >
         {stats.map((item) => (
           <div
