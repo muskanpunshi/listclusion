@@ -13,6 +13,7 @@ import { feature_data } from "@utils/data";
 import { useSmartSubmenuPosition } from "@hooks/SmartSubmenu";
 import { ChevronRightIcon } from "@radix-ui/react-icons";
 import Button from "./common/Button";
+import { FaArrowUpLong } from "react-icons/fa6";
 
 const Header = () => {
   const { sticky } = UseSticky();
@@ -122,16 +123,22 @@ const Header = () => {
           {/* <Button className="!text-sm font-medium">Register As Company</Button>
           <Button className="!text-sm font-medium">Register As User</Button> */}
 
-          <button className="w-14 h-14 max-md:w-10 max-md:h-10 flex items-center justify-center rounded-full bg-black text-white hover:bg-primary transition-all duration-300 ease-in-out">
+          {/* <button className="w-14 h-14 max-md:w-10 max-md:h-10 flex items-center justify-center rounded-full bg-black text-white hover:bg-primary transition-all duration-300 ease-in-out">
             <FaLock />
-          </button>
-          <button className="group w-14 h-14 max-md:w-10 max-md:h-10 flex items-center justify-center bg-black text-white text-[1.3em] relative z-[1] overflow-hidden ml-[-18px] rounded-full transition-all duration-300 ease-in-out hover:bg-primary">
+          </button> */}
+          {/* <button className="group w-14 h-14 max-md:w-10 max-md:h-10 flex items-center justify-center bg-black text-white text-[1.3em] relative z-[1] overflow-hidden ml-[-18px] rounded-full transition-all duration-300 ease-in-out hover:bg-primary">
             <span className="absolute top-0 left-[-45px] max-md:left-[-35px] w-full h-full bg-white rounded-full transition-all duration-300 ease-in-out group-hover:bg-primary"></span>
             <span className="relative z-10">
               <FaSearch />
             </span>
-          </button>
-
+          </button> */}
+          <Button
+            className="hover:bg-primary px-5 py-2 bg-black text-white text-[14px] max-sm:text-[12px] max-sm:px-3 rounded-full max-sm:hidden"
+            href="/register-company"
+          >
+            {" "}
+            Register Your Company <FaArrowUpLong className="rotate-45 ml-3 max-sm:ml-1" />
+          </Button>
           {/* Uncomment when ready */}
           <MobileNavigation isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>

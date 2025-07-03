@@ -60,6 +60,7 @@ export const headerNavigation: HeaderNavbar[] = [
     label: "Categories",
     children: parentCategoryAssign()
   },
+  { label: "Register Company", path: "/register-company" },
   { label: "About Us", path: "/about-us" },
   { label: "FAQs", path: "/faqs" },
 
