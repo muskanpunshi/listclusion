@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "@components/common/Button";
 import Input from "@components/form/input";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import TextArea from "@components/form/textArea";
 import MultiCheckboxGroup from "@components/radix/ui/checkbox";
 import ImageUploader from "@components/form/imageUploader";
-import MultiImageUploader from "@components/form/multiImageUploader";
+
 import { DaysSelector } from "@components/form/daySelector";
 import { CompanyInput, CompanySchema } from "@lib/validations/form.schema";
 import TimePicker from "@components/form/timePicker";
@@ -16,11 +16,14 @@ import CustomPhoneInput from "@components/common/phoneInput";
 import { companyPostService } from "services/register";
 import Swal from "sweetalert2";
 import categoryDetails from "data/categoryDetail";
+import { Country, State, City } from "country-state-city";
+import { MultiImageUploader } from "@components/form/multiImageUploader";
 
 const RegisterForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [availableCities, setAvailableCities] = useState<any[]>([]);
   const methods = useForm<CompanyInput>({
     resolver: zodResolver(CompanySchema),
     defaultValues: {
@@ -42,7 +45,28 @@ const RegisterForm = () => {
       time_to: "2025-07-01T18:00:00", // HH:MM format
     },
   });
-  const { reset } = methods;
+
+  const { reset, watch, setValue } = methods;
+  const selectedCountry = watch("company_address.country");
+
+  const countryList = Country.getAllCountries();
+
+  useEffect(() => {
+    if (selectedCountry) {
+      // Find country code from country name
+      const country = countryList.find((c) => c.name === selectedCountry);
+
+      if (country) {
+        // Get cities for this country
+        const cities = City.getCitiesOfCountry(country.isoCode);
+        setAvailableCities(cities || []);
+        // Reset city field when country changes
+        setValue("company_address.city", "");
+      }
+    } else {
+      setAvailableCities([]);
+    }
+  }, [selectedCountry, countryList, setValue]);
 
   const { executeRecaptcha } = useGoogleReCaptcha();
 
@@ -51,7 +75,6 @@ const RegisterForm = () => {
       console.log("Execute recaptcha not yet available");
       return;
     }
-    console.log("junaid");
     e?.preventDefault();
     setIsSubmitting(true);
     setSubmitError(null);
@@ -176,16 +199,51 @@ const RegisterForm = () => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
-              <Input
-                name="company_address.city"
-                label="City*"
-                placeholder="Lahore"
-              />
-              <Input
-                name="company_address.country"
-                label="Country*"
-                placeholder="Pakistan"
-              />
+              <div>
+                <label
+                  htmlFor="country"
+                  className="block text-sm font-medium text-secondary mb-1"
+                >
+                  Country*
+                </label>
+                <select
+                  id="country"
+                  {...methods.register("company_address.country")}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                >
+                  <option value="">Select a country</option>
+                  {countryList.map((country) => (
+                    <option key={country.isoCode} value={country.name}>
+                      {country.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="city"
+                  className="block text-sm font-medium text-secondary mb-1"
+                >
+                  City*
+                </label>
+                <select
+                  id="city"
+                  {...methods.register("company_address.city")}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  disabled={!selectedCountry}
+                >
+                  <option value="">Select a city</option>
+                  {availableCities.map((city) => (
+                    <option
+                      key={`${city.name}-${city.latitude}-${city.longitude}`}
+                      value={city.name}
+                    >
+                      {city.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
