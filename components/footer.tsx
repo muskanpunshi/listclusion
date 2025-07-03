@@ -51,8 +51,8 @@ export default function Footer() {
             </Link>
           </div>
           <Paragraph className="opacity-75 leading-relaxed  mb-[40px] text-white">
-            25 B1 31 Street Off Khayaban e Shamsheer DHA Phase V Ext<br/> karachi
-            Pakistan
+            25 B1 31 Street Off Khayaban e Shamsheer DHA Phase V Ext
+            <br /> karachi Pakistan
           </Paragraph>
           <div className="flex space-x-4 mt-4">
             <Link
@@ -62,13 +62,15 @@ export default function Footer() {
               <FaFacebookF />
             </Link>
             <Link
-              href={"/"}
+              href={"https://www.instagram.com/listclusion/"}
+              target="_blank"
               className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-primary hover:bg-white flex items-center justify-center rounded-full"
             >
               <FaTwitter />
             </Link>
             <Link
-              href={"/"}
+              href={"https://www.linkedin.com/company/listclusion/about/"}
+              target="_blank"
               className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-primary hover:bg-white flex items-center justify-center rounded-full"
             >
               <FaInstagram />

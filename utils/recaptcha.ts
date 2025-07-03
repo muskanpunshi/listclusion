@@ -7,6 +7,5 @@ export async function verifyCaptchaAction(token: string) {
     }
   );
   const data = await response.json();
-  console.log(data, "asfsadasdfsdfsjdhjfhas");
   return data?.score > 0.5;
 }

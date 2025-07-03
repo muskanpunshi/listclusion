@@ -13,7 +13,7 @@ import { DaysSelector } from "@components/form/daySelector";
 import { CompanyInput, CompanySchema } from "@lib/validations/form.schema";
 import TimePicker from "@components/form/timePicker";
 import CustomPhoneInput from "@components/common/phoneInput";
-import { contactPostService } from "services/register";
+import { companyPostService } from "services/register";
 import Swal from "sweetalert2";
 import categoryDetails from "data/categoryDetail";
 
@@ -46,48 +46,12 @@ const RegisterForm = () => {
 
   const { executeRecaptcha } = useGoogleReCaptcha();
 
-  // const onSubmitHandler: SubmitHandler<CompanyInput> = async (values, e) => {
-  //   e?.preventDefault();
-
-  //   const fileToBase64 = (file: File): Promise<string> => {
-  //     return new Promise((resolve, reject) => {
-  //       const reader = new FileReader();
-  //       reader.readAsDataURL(file);
-  //       reader.onload = () => resolve(reader.result as string);
-  //       reader.onerror = (error) => reject(error);
-  //     });
-  //   };
-
-  //   try {
-  //     const payload = {
-  //       params: {
-  //         ...values,
-  //         days: values.days.join(", "),
-  //         company_logo: await fileToBase64(values.company_logo),
-  //         company_portfolio_images: await Promise.all(
-  //           values.company_portfolio_images.map(fileToBase64)
-  //         ),
-  //       },
-  //     };
-
-  //     console.log("Processed payload:", payload);
-
-  //     if (!executeRecaptcha) {
-  //       console.log("Execute recaptcha not yet available");
-  //       return;
-  //     }
-
-  //     const token = await executeRecaptcha("contactForm");
-  //     console.log("reCAPTCHA token:", token);
-
-  //     // Submit to your API here
-  //     // await submitToApi(payload, token);
-  //   } catch (error) {
-  //     console.error("Error processing form data:", error);
-  //   }
-  // };
-
   const onSubmitHandler: SubmitHandler<CompanyInput> = async (values, e) => {
+    if (!executeRecaptcha) {
+      console.log("Execute recaptcha not yet available");
+      return;
+    }
+    console.log("junaid");
     e?.preventDefault();
     setIsSubmitting(true);
     setSubmitError(null);
@@ -121,7 +85,7 @@ const RegisterForm = () => {
         async (gReCaptchaToken: string) => {
           console.log(gReCaptchaToken, "response Google reCaptcha server");
           try {
-            const response: any = await contactPostService({
+            const response: any = await companyPostService({
               payload,
               gReCaptchaToken,
             });
@@ -153,39 +117,6 @@ const RegisterForm = () => {
           }
         }
       );
-
-      console.log("Processed payload:", payload);
-
-      // if (!executeRecaptcha) {
-      //   console.log("Execute recaptcha not yet available");
-      //   setIsSubmitting(false);
-      //   return;
-      // }
-
-      // const token = await executeRecaptcha("contactForm");
-      // console.log("reCAPTCHA token:", token);
-
-      // API call to the endpoint
-      const response: any = await contactPostService({
-        payload,
-      });
-      console.log(response, "asdasdsd");
-      if (response.status === "success") {
-        Swal.fire({
-          icon: "success",
-          title: response?.data?.result?.message,
-          position: "center",
-          timer: 2000,
-          showConfirmButton: false,
-        });
-
-        setSubmitSuccess(true);
-        reset();
-      } else {
-        setSubmitError(
-          response.message || "Something went wrong. Please Try Again"
-        );
-      }
     } catch (error) {
       console.error("Error submitting form:", error);
       setSubmitError(

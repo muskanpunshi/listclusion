@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 // import nodemailer from "nodemailer";
 export async function POST(request: NextRequest) {
   const data = await request.json();
-  const { payload, gReCaptchaToken, ...rest } = data;
+  const { gReCaptchaToken, ...rest } = data;
   const verify = await verifyCaptchaAction(gReCaptchaToken);
 
   if (!verify) {
@@ -21,14 +21,14 @@ export async function POST(request: NextRequest) {
   }
   try {
     const response = await fetch(
-      `https://ismail-ideabox-listclusion-odoo-staging-21651302.dev.odoo.com/api/create_company`,
+      `https://ismail-ideabox-listclusion-odoo-staging-21651302.dev.odoo.com/api/create_lead`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          params: { ...payload },
+          params: { ...rest },
         }),
       }
     );

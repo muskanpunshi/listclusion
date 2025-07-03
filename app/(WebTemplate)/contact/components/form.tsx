@@ -10,42 +10,57 @@ import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 import { ContactInput, ContactSchema } from "@lib/validations/contact.schema";
 import CustomPhoneInput from "@components/common/phoneInput";
+import Swal from "sweetalert2";
+import { contactPostService } from "services/register";
 
 function Form() {
-  const methods = useForm<ContactInput>({
-    resolver: zodResolver(ContactSchema),
-    mode: "onBlur"
-  });
-
-  const { executeRecaptcha } = useGoogleReCaptcha();
-
   const [isLoading, setIsLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const {
-    reset,
-    handleSubmit,
-    formState: { isSubmitSuccessful }
-  } = methods;
-  const onSubmitHandler: SubmitHandler<ContactInput> = async (
-    values: any,
-    e
-  ) => {
-    e?.preventDefault();
+  const methods = useForm<ContactInput>({
+    resolver: zodResolver(ContactSchema),
+    mode: "onBlur",
+  });
+  const { handleSubmit, reset } = methods;
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
+  const onSubmit: SubmitHandler<ContactInput> = (values) => {
+    console.log(values, "values");
+    setIsLoading(true);
     if (!executeRecaptcha) {
       console.log("Execute recaptcha not yet available");
       return;
     }
-    executeRecaptcha("contactForm").then(async (gReCaptchaToken: string) => {
-      console.log("reCAPTCHA token:", gReCaptchaToken);
-    });
+
+    executeRecaptcha("contactFormSubmit").then(
+      async (gReCaptchaToken: string) => {
+        const response: any = await contactPostService({
+          ...values,
+          gReCaptchaToken,
+        });
+        if (response.status === "success") {
+          console.log("submit done");
+          Swal.fire({
+            icon: "success",
+            title: response?.data?.result?.message,
+            position: "center",
+            timer: 2000,
+            showConfirmButton: false,
+          });
+
+          setIsLoading(false);
+          reset();
+        } else {
+          setIsLoading(false);
+        }
+      }
+    );
   };
 
   return (
     <>
       <FormProvider {...methods}>
-        <form onSubmit={handleSubmit(onSubmitHandler)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="space-y-4">
             <div className="mt-8">
               <Input
@@ -65,7 +80,11 @@ function Form() {
                 />
               </div>
               <div className="w-1/2 max-sm:w-full">
-                <CustomPhoneInput name="phone" placeholder="Phone Number" label="Phone*" />
+                <CustomPhoneInput
+                  name="phone"
+                  placeholder="Phone Number"
+                  label="Phone*"
+                />
               </div>
             </div>
             <div className="mt-8">
@@ -77,6 +96,7 @@ function Form() {
               />
             </div>
             <Button
+              isLoading={isLoading}
               buttonType="submit"
               className="w-full mt-8 bg-primary hover:bg-[#d1af32] text-white font-medium py-3 rounded uppercase"
             >
