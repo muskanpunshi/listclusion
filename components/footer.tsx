@@ -8,6 +8,8 @@ import Link from "next/link";
 import { footerSections } from "../routes/navigation";
 
 export default function Footer() {
+  const date = new Date();
+    const year = date.getFullYear();
   return (
     <footer className="bg-dark-background w-full ">
       <div className="max-w-full mx-auto px-10 max-md:px-4 py-12 border-b border-neutral-800">
@@ -83,7 +85,7 @@ export default function Footer() {
       </Container>
 
       <div className="text-center text-grey border-t border-neutral-800 py-4">
-        Copyright @2025 DK Smartex inc.
+        Copyright @{year} DK Smartex inc.
       </div>
     </footer>
   );

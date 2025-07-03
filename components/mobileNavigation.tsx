@@ -9,17 +9,19 @@ import { ChevronRightIcon } from "@radix-ui/react-icons";
 
 const MobileNavigation = ({
   isOpen,
-  setIsOpen,
+  setIsOpen
 }: {
   isOpen: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   setIsOpen: any;
 }) => {
   const NavItem = ({ item, level = 0 }) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isChildOpen, setIsChildOpen] = useState(false);
     const hasChildren = item.children && item.children.length > 0;
 
-    const toggle = () => setIsOpen((prev) => !prev);
+    const toggle = () => {
+      setIsChildOpen((prev) => !prev);
+    };
 
     return (
       <li className="w-full">
@@ -32,11 +34,11 @@ const MobileNavigation = ({
               {item.label}
               <ChevronRightIcon
                 className={`ml-2 w-4 h-4 text-gray-400 transition-transform ${
-                  isOpen ? "rotate-90 text-primary" : ""
+                  isChildOpen ? "rotate-90 text-primary" : ""
                 }`}
               />
             </button>
-            {isOpen && (
+            {isChildOpen && (
               <ul className={`ml-${(level + 1) * 2} transition-all`}>
                 {item.children.map((child, idx) => (
                   <NavItem key={idx} item={child} level={level + 1} />
@@ -47,6 +49,7 @@ const MobileNavigation = ({
         ) : (
           <Link
             href={item.path ?? ""}
+            onClick={() => setIsOpen(false)}
             className="block font-medium text-secondary hover:text-primary px-[12px] py-[10px] transition-colors border-t border-dashed border-[rgba(0,0,0,0.1)]"
           >
             {item.label}
@@ -61,7 +64,7 @@ const MobileNavigation = ({
       const children = item.children || item.child;
       return {
         ...item,
-        children: children ? normalizeCategories(children) : undefined,
+        children: children ? normalizeCategories(children) : undefined
       };
     });
   const normalizedCategories = normalizeCategories(headerNavigation);

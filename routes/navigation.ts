@@ -85,7 +85,7 @@ export const footerSections: FooterSection[] = [
       { label: "Terms & conditions", href: "/terms-and-conditions" },
       { label: "Privacy Policy", href: "/privacy-policy" },
 
-      { label: "Resgiter Your  Company", href: "/register-company" },
+      { label: "Register Your  Company", href: "/register-company" },
       { label: "Faq’s", href: "/faqs" },
     ],
   },
