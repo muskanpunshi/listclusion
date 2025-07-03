@@ -23,7 +23,7 @@ const Banner = ({ title, breadcrumbs,image }: BannerProps) => {
   
       <div className="absolute top-0 left-0 w-full h-full z-10">
         <Container className="h-full flex flex-col items-center justify-center">
-          <Heading isHeadingH1={true} className="mb-4 text-shadow-lg/30">
+          <Heading isHeadingH1={true} className={`mb-4 ${image?'text-shadow-lg/30':''}`}>
             {title}
           </Heading>
           {breadcrumbs && <Breadcrumb breadcrumbs={breadcrumbs} />}
