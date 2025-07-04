@@ -11,6 +11,10 @@ import furnitureMob from "@public/template/furniture-manufactures.png";
 import projectMob from "@public/template/project-managers.png";
 import quanlityMob from "@public/template/quanlity-surveyors-consultants.png";
 import metalMob from "@public/template/metal-works.png";
+import furnitureSubMob from "@public/template/furniture-card.jpg"
+import woodworkSubMob from "@public/template/wood-working-machine-card.jpg"
+import chairsSubMob from "@public/template/chairs-card.jpg"
+import outdoorSubMob from "@public/template/outdoor-furniture-card.jpg"
 
 //category banner
 import architectsBanner from "@public/template/architects-consultants-ban.jpg";
@@ -25,6 +29,11 @@ import furnitureBanner from "@public/template/furniture-manufactures-ban.jpg";
 import projectBanner from "@public/template/project-managers-ban.jpg";
 import quanlityBanner from "@public/template/quanlity-surveyors-consultants-ban.jpg";
 import metalBanner from "@public/template/metal-works-ban.jpg";
+import furnitureSubBanner from "@public/template/furniture.jpg"
+import woodworkSubBanner from "@public/template/wood-working-machine.jpg"
+import chairsSubBanner from "@public/template/chairs.jpg"
+import outdoorSubBanner from "@public/template/outdoor-furniture.jpg"
+
 
 import property2Thumb_11 from "@public/template/project-1.jpg";
 import property2Thumb_22 from "@public/template/project-2.jpg";
@@ -1108,8 +1117,8 @@ export const categoryDetails: StructuredCategories = [
         parentCategory: "Importer",
         category: "Out Door Furniture",
         categorySlug: "outdoor",
-        categoryBannerImage: metalBanner,
-        categoryImageMob: metalMob,
+        categoryBannerImage: outdoorSubBanner,
+        categoryImageMob: outdoorSubMob,
         child: [
             {
                 name: "KINGCOME",
@@ -1182,8 +1191,8 @@ export const categoryDetails: StructuredCategories = [
         parentCategory: "Importer",
         category: "Wood Working Machinery",
         categorySlug: "machinery",
-        categoryBannerImage: metalBanner,
-        categoryImageMob: metalMob,
+        categoryBannerImage: woodworkSubBanner,
+        categoryImageMob: woodworkSubMob,
         child: [
             {
                 name: "WEILI MACHINERY INDUSTRIAL",
@@ -1256,8 +1265,8 @@ export const categoryDetails: StructuredCategories = [
         parentCategory: "Importer",
         category: "Chairs",
         categorySlug: "chairs",
-        categoryBannerImage: metalBanner,
-        categoryImageMob: metalMob,
+        categoryBannerImage: chairsSubBanner,
+        categoryImageMob: chairsSubMob,
         child: [
             {
                 name: "ANJI FUHE",
@@ -1330,8 +1339,8 @@ export const categoryDetails: StructuredCategories = [
         parentCategory: "Importer",
         category: "Furniture",
         categorySlug: "furniture",
-        categoryBannerImage: metalBanner,
-        categoryImageMob: metalMob,
+        categoryBannerImage: furnitureSubBanner,
+        categoryImageMob: furnitureSubMob,
         child: [
             {
                 name: "FOSHAN SHUNDE SHIMING FURNITURE CO.LTD",

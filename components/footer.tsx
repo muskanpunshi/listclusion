@@ -1,8 +1,8 @@
-import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaLinkedin, FaInstagram } from "react-icons/fa";
 import Heading from "@components/common/heading";
 import Paragraph from "@components/common/paragraph";
 import Container from "@components/container";
-import Logo from "@public/template/logo.png";
+import Logo from "@public/template/logo-white-text.png";
 import Image from "next/image";
 import Link from "next/link";
 import { footerSections } from "../routes/navigation";
@@ -46,78 +46,74 @@ export default function Footer() {
         </div>
       </div> */}
 
-    <Container className="max-w-full mx-auto px-8 max-md:px-6 py-24">
-  <div className="flex flex-col md:flex-row w-full gap-6">
-    
-    <div className="w-full md:w-1/3">
-      <div className="mb-7">
-        <Link href="/">
-          <Image src={Logo} alt="Logo" className="w-[110px] h-auto" />
-        </Link>
-      </div>
-      <Paragraph className="opacity-75 leading-relaxed mb-[40px] max-w-[90%] text-white">
-        25 B1 31 Street Off Khayaban e Shamsheer DHA Phase V Ext
-        <br />
-        Karachi, Pakistan
-      </Paragraph>
-      <div className="flex space-x-4 mt-4">
-        <Link
-          href="/"
-          className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-primary hover:bg-white flex items-center justify-center rounded-full"
-        >
-          <FaFacebookF />
-        </Link>
-        <Link
-          href="https://www.instagram.com/listclusion/"
-          target="_blank"
-          className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-primary hover:bg-white flex items-center justify-center rounded-full"
-        >
-          <FaTwitter />
-        </Link>
-        <Link
-          href="https://www.linkedin.com/company/listclusion/about/"
-          target="_blank"
-          className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-primary hover:bg-white flex items-center justify-center rounded-full"
-        >
-          <FaInstagram />
-        </Link>
-      </div>
-    </div>
-
-   
-    <div className="hidden md:block w-px bg-white opacity-20"></div>
-
-   
-    <div className="w-full md:w-2/3 flex flex-col md:flex-row md:justify-around">
-      {footerSections.map((section, index) => (
-        <React.Fragment key={index}>
-          
-          <div className="md:px-6">
-            <Paragraph className="font-semibold text-white mb-4 text-[24px] max-md:text-[18px]">
-              {section.title}
+      <Container className="max-w-full mx-auto px-8 max-md:px-6 py-24">
+        <div className="flex flex-col md:flex-row w-full gap-6">
+          <div className="w-full md:w-1/3">
+            <div className="mb-7">
+              <Link href="/">
+                <Image src={Logo} alt="Logo" className="w-[110px] h-auto" />
+              </Link>
+            </div>
+            <Paragraph className="opacity-75 leading-relaxed mb-[40px] max-w-[90%] text-white">
+              25 B1 31 Street Off Khayaban e Shamsheer DHA Phase V Ext Karachi,
+              Pakistan
+              <br />
+              Phone:
+              <Link href={"tel:+923238226416"}>+92 323 8226416</Link>
             </Paragraph>
-            <ul className="space-y-2 text-grey">
-              {section.items.map((item, idx) => (
-                <li
-                  key={idx}
-                  className="text-[18px] max-md:text-[14px] my-5 hover:text-primary transition-colors duration-200"
-                >
-                  <a href={item.href}>{item.label}</a>
-                </li>
-              ))}
-            </ul>
+            <div className="flex space-x-4 mt-4">
+              <Link
+                href="https://www.facebook.com/profile.php?id=61577665054620"
+                className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-primary hover:bg-white flex items-center justify-center rounded-full"
+              >
+                <FaFacebookF />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/company/listclusion/about/"
+                target="_blank"
+                className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-primary hover:bg-white flex items-center justify-center rounded-full"
+              >
+                <FaLinkedin />
+              </Link>
+              <Link
+                href="https://www.instagram.com/listclusion/"
+                target="_blank"
+                className="bg-[#ffffff17] text-white transition-all duration-400 ease-in-out cursor-pointer w-10 h-10 hover:text-primary hover:bg-white flex items-center justify-center rounded-full"
+              >
+                <FaInstagram />
+              </Link>
+            </div>
           </div>
 
-         
-          {index !== footerSections.length - 1 && (
-            <div className="hidden md:block w-px bg-white opacity-20 self-stretch" />
-          )}
-        </React.Fragment>
-      ))}
-    </div>
-  </div>
-</Container>
+          <div className="hidden md:block w-px bg-white opacity-20"></div>
 
+          <div className="w-full md:w-2/3 flex flex-col md:flex-row md:justify-around">
+            {footerSections.map((section, index) => (
+              <React.Fragment key={index}>
+                <div className="md:px-6">
+                  <Paragraph className="font-semibold text-white mb-4 text-[24px] max-md:text-[18px]">
+                    {section.title}
+                  </Paragraph>
+                  <ul className="space-y-2 text-grey">
+                    {section.items.map((item, idx) => (
+                      <li
+                        key={idx}
+                        className="text-[18px] max-md:text-[14px] my-5 hover:text-primary transition-colors duration-200"
+                      >
+                        <a href={item.href}>{item.label}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {index !== footerSections.length - 1 && (
+                  <div className="hidden md:block w-px bg-white opacity-20 self-stretch" />
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+      </Container>
 
       <div className="text-center text-grey border-t border-neutral-800 py-4">
         Copyright @{year} Listclusion.

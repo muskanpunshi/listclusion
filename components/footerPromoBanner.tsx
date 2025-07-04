@@ -25,8 +25,8 @@ const FooterPromoBanner = () => {
               </Heading>
 
               <div className="relative flex flex-wrap items-center gap-4 max-md:gap-1 mt-6  ">
-                <Button href="#" className="  mt-2">
-                  Become a Consultant
+                <Button href="/register-company" className="  mt-2">
+                  Register as Consultant
                 </Button>
                 <Button
                   href="/contact"

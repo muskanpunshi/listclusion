@@ -303,3 +303,33 @@ ul::-webkit-scrollbar-thumb {
     -2px 2px 1 rgba(0, 0, 0, .2),
     2px 2px 1 rgba(0, 0, 0, .2);
 }
+
+
+.my-swal-title {
+  color: #141414;
+  font-size: 40px;
+}
+
+.my-swal-button {
+  background-color: #141414;
+  width: 100px;
+
+}
+
+.my-swal-button:hover {
+  background-color: #ae7a19;
+
+}
+
+@media screen and (max-width: 724px) {
+.my-swal-title {
+  color: #141414;
+  font-size: 20px;
+}
+.my-swal-button {
+  background-color: #141414;
+  width: 50px;
+  font-size: 10px;
+
+}
+}

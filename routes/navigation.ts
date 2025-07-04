@@ -62,7 +62,7 @@ export const headerNavigation: HeaderNavbar[] = [
   },
   { label: "Register Company", path: "/register-company" },
   { label: "About Us", path: "/about-us" },
-  { label: "FAQs", path: "/faqs" },
+  { label: "FAQs" },
 
   { label: "Contact", path: "/contact" },
 
@@ -74,9 +74,9 @@ export const headerNavigationWeb: HeaderNavbar[] = [
     children: parentCategoryAssign()
   },
   { label: "About Us", path: "/about-us" },
-  { label: "FAQs", path: "/faqs" },
+  { label: "FAQs" },
 
-  { label: "Contact", path: "/contact" },
+  { label: "Contact Us", path: "/contact" },
 
 ];
 export const footerSections: FooterSection[] = [
@@ -84,18 +84,18 @@ export const footerSections: FooterSection[] = [
     title: "Links",
     items: [
       { label: "Home", href: "/" },
-      { label: "About Company", href: "/about-us" },
-      { label: "Contact", href: "/contact" },
+      { label: "About Us", href: "/about-us" },
+      { label: "Contact Us", href: "/contact" },
     ],
   },
   {
     title: "Legal",
     items: [
-      { label: "Terms & conditions", href: "/terms-and-conditions" },
-      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Terms & conditions", href: "" },
+      { label: "Privacy Policy", href: "" },
 
       { label: "Register Your  Company", href: "/register-company" },
-      { label: "Faq’s", href: "/faqs" },
+      // { label: "Faq’s", href: "/faqs" },
     ],
   },
   // {

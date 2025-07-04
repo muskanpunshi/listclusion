@@ -14,6 +14,8 @@ import { useSmartSubmenuPosition } from "@hooks/SmartSubmenu";
 import { ChevronRightIcon } from "@radix-ui/react-icons";
 import Button from "./common/Button";
 import { FaArrowUpLong } from "react-icons/fa6";
+import Swal from "sweetalert2";
+import Tooltip from "./common/tooltip";
 
 const Header = () => {
   const { sticky } = UseSticky();
@@ -101,7 +103,7 @@ const Header = () => {
                           })}
                         </ul>
                       </>
-                    ) : (
+                    ) : nav.path ? (
                       <Link
                         href={nav.path || "#"}
                         className={`text-[18px] font-medium hover:text-primary transition ${
@@ -110,6 +112,16 @@ const Header = () => {
                       >
                         {nav.label}
                       </Link>
+                    ) : (
+                      <Tooltip text="Coming Soon">
+                        <span
+                          className={`text-[18px] font-medium hover:text-primary transition cursor-pointer ${
+                            isActive ? "text-primary" : "text-secondary"
+                          }`}
+                        >
+                          {nav.label}
+                        </span>
+                      </Tooltip>
                     )}
                   </li>
                 );
@@ -133,7 +145,7 @@ const Header = () => {
             </span>
           </button> */}
           <Button
-            className="hover:bg-primary px-5 py-2 bg-black text-white text-[14px] max-sm:text-[12px] max-sm:px-3 rounded-full max-sm:hidden"
+            className="hover:bg-primary px-5 py-2 bg-black text-white text-[14px] max-sm:text-[12px] max-sm:px-3 rounded-full max-lg:hidden"
             href="/register-company"
           >
             {" "}

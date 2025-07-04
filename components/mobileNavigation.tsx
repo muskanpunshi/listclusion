@@ -6,10 +6,11 @@ import { HeaderNavbar, headerNavigation } from "../routes/navigation";
 import MenuButton from "./menuButton";
 import { useState } from "react";
 import { ChevronRightIcon } from "@radix-ui/react-icons";
+import Swal from "sweetalert2";
 
 const MobileNavigation = ({
   isOpen,
-  setIsOpen
+  setIsOpen,
 }: {
   isOpen: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -46,7 +47,7 @@ const MobileNavigation = ({
               </ul>
             )}
           </>
-        ) : (
+        ) : item.path ? (
           <Link
             href={item.path ?? ""}
             onClick={() => setIsOpen(false)}
@@ -54,6 +55,23 @@ const MobileNavigation = ({
           >
             {item.label}
           </Link>
+        ) : (
+          <span
+            className="block font-medium text-secondary hover:text-primary px-[12px] py-[10px] transition-colors border-t border-dashed border-[rgba(0,0,0,0.1)]"
+            onClick={() => {
+              setIsOpen(false)
+              Swal.fire({
+                title: "Coming Soon",
+                customClass: {
+                  title: "my-swal-title",
+                  confirmButton: "my-swal-button",
+                },
+                confirmButtonText: "OK",
+              });
+            }}
+          >
+            {item.label}
+          </span>
         )}
       </li>
     );
@@ -64,7 +82,7 @@ const MobileNavigation = ({
       const children = item.children || item.child;
       return {
         ...item,
-        children: children ? normalizeCategories(children) : undefined
+        children: children ? normalizeCategories(children) : undefined,
       };
     });
   const normalizedCategories = normalizeCategories(headerNavigation);

@@ -16,7 +16,7 @@ export default function Home() {
       <HomeCounter />
       <ListingCard />
       <Testimonials />
-      <HomeFaqs faqs={faqData} />
+      {/* <HomeFaqs faqs={faqData} /> */}
       <FooterPromoBanner />
     </div>
   );
