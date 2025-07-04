@@ -78,25 +78,53 @@ export type Testimonial = {
 
 export const testimonials: Testimonial[] = [
   {
-    name: "Musa Delimuza",
-    location: "Miami, USA",
+    name: "Zameer Sb",
+    location: "Karachi, PK",
     image: F1,
     review:
-      "Quick solutions coupled with extraordinary performance — a recommendation that's unequivocal.",
+      "Provided excellent woodworking machines with reliable after-sales support.",
   },
   {
-    name: "Alina Cruse",
-    location: "Toronto, Canada",
+    name: "Bushra",
+    location: "Karachi, PK",
     image: F1,
     review:
-      "Found our dream home. Great experience with them. Thank you for the excellent service!",
+      "Delivered stylish and functional interior work with great professionalism.",
   },
   {
-    name: "Carlos Mendes",
-    location: "Lisbon, Portugal",
+    name: "Nasir Aziz",
+    location: "Karachi, PK",
     image: F1,
     review:
-      "Efficient and friendly service, guided us perfectly. I'm fully satisfied with our new home!",
+      "Managed interior and furniture projects with precision and great results.",
+  },
+  {
+    name: "Rashid Khooso",
+    location: "Karachi, PK",
+    image: F1,
+    review:
+      "Crafted quality furniture pieces with detail, care, and great finishing.",
+  },
+  {
+    name: "Sehar Aziz",
+    location: "Karachi, PK",
+    image: F1,
+    review:
+      "Interior work was handled creatively with fine execution and professionalism. ",
+  },
+  {
+    name: "Asfar",
+    location: "Karachi, PK",
+    image: F1,
+    review:
+      "Carried out electrical work with efficiency, safety, and technical expertise.",
+  },
+  {
+    name: "Hira Qadeer",
+    location: "Karachi, PK",
+    image: F1,
+    review:
+      "Led design at AKUH with excellence, blending creativity and functionality.",
   },
 ];
 

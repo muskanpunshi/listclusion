@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef } from "react";
-
+import { MdReviews } from "react-icons/md";
 import Image from "next/image";
 import Container from "./container";
 import Paragraph from "./common/paragraph";
@@ -20,7 +20,7 @@ const Testimonials = () => {
       <Container className="mx-auto flex flex-col  lg:flex-row lg:items-center lg:justify-between ">
         <div
           className={`relative lg:w-[45%] h-full w-full  ${
-            isVisible ? 'fade-in-left' : ""
+            isVisible ? "fade-in-left" : ""
           }`}
         >
           <Paragraph className="uppercase tracking-widest mb-2">
@@ -56,6 +56,7 @@ const Testimonials = () => {
             modules={[Pagination, EffectFade, Autoplay]}
             pagination={{ clickable: true }}
             autoplay={true}
+            speed={1000}
             loop={true}
             effect="fade"
             fadeEffect={{ crossFade: true }}
@@ -69,13 +70,15 @@ const Testimonials = () => {
 
                 <div className="w-full bg-[url('/template/shape/shape_61.svg')] bg-cover bg-no-repeat md:px-16 px-2 py-3 flex justify-end ">
                   <div className="xl:w-1/3 w-2/3 flex items-center justify-end sm:gap-4 gap-2 ml-auto">
-                    <Image
+                    {/* <Image
                       src={testimonial.image}
                       alt={testimonial.name}
                       width={60}
                       height={60}
                       className=" rounded-full object-cover max-sm:w-12 max-sm:h-12"
-                    />
+                    /> */}
+                    <MdReviews className="rounded-full fill-primary object-cover text-[50px] max-sm:text-[30px] " />
+
                     <div className="w-full overflow-hidden">
                       <Paragraph className="font-semibold text-xl max-md:text-base truncate ">
                         {testimonial.name}
