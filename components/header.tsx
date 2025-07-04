@@ -113,7 +113,6 @@ const Header = () => {
                         {nav.label}
                       </Link>
                     ) : (
-                      // In your header component, modify the Tooltip usage:
                       <Tooltip text="Coming Soon" isHeaderFixed={sticky}>
                         <span
                           className={`text-[18px] font-medium hover:text-primary transition cursor-pointer ${
