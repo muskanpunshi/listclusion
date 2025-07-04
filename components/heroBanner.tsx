@@ -9,19 +9,19 @@ import { FaArrowUpLong } from "react-icons/fa6";
 const HeroBanner = () => {
   return (
     <div className="relative h-svh flex items-center justify-center  bg-top bg-cover bg-no-repeat w-full bg-[url(/template/img_47.jpg)]">
-      {/* <div className="absolute top-0 left-0 w-full h-full bg-white opacity-[0.3] z-10"></div> */}
+      <div className="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.4)] opacity-[0.5] z-10"></div>
       <Container className="z-20">
         <div className="flex flex-wrap items-center justify-between max-md:justify-center  ">
           <div className="w-full  lg:w-[50%]  fade-in-left">
             <Heading
               isHeadingH1={true}
-              className="font-medium text-secondary  pr-6 max-xl:pr-4"
+              className="font-medium text-white text-outline-black pr-6 max-xl:pr-4"
             >
               Welcome to LISTCLUSION - your ultimate partner.
             </Heading>
           </div>
           <div className="w-full lg:w-[40%] mt-10 lg:mt-0 fade-in-right  h-full">
-            <Paragraph className=" sm:text-[18px] md:text-[24px] lg:text-[28px]  text-secondary font-normal mb-10 lg:mb-5 leading-[1.6]">
+            <Paragraph className=" sm:text-[18px] !text-white text-outline-black md:text-[24px] lg:text-[28px] font-normal mb-10 lg:mb-5 leading-[1.6]">
               We connect importers, exporters, local manufacturers, and
               customers, providing a seamless and reliable sourcing experience
               on this platform.

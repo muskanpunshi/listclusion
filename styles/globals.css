@@ -295,3 +295,11 @@ ul::-webkit-scrollbar-thumb {
   @apply bg-gray-500 rounded;
   filter: invert(1);
 }
+
+.text-outline-black {
+  text-shadow:
+    -2px -2px 1 rgba(0, 0, 0, .2),
+    2px -2px 1 rgba(0, 0, 0, .2),
+    -2px 2px 1 rgba(0, 0, 0, .2),
+    2px 2px 1 rgba(0, 0, 0, .2);
+}
