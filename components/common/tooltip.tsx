@@ -57,7 +57,7 @@ const Tooltip: React.FC<TooltipProps> = ({ text, children, className }) => {
     return createPortal(
       <div
         ref={tooltipRef}
-        className="fixed z-50 animate-in fade-in duration-200"
+        className="fixed z-[10000] animate-in fade-in duration-200"
         style={{
           top: `${position.top}px`,
           left: `${position.left}px`,

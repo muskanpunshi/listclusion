@@ -19,19 +19,20 @@ export async function POST(request: NextRequest) {
       }
     );
   }
+  const SERVER_ENDPOINT = process.env.NEXT_PUBLIC_FORM_API_URL;
+  if (!SERVER_ENDPOINT) {
+    return console.log("api url not found");
+  }
   try {
-    const response = await fetch(
-      `https://ismail-ideabox-listclusion-odoo-staging-21651302.dev.odoo.com/api/create_lead`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          params: { ...rest },
-        }),
-      }
-    );
+    const response = await fetch(`${SERVER_ENDPOINT}/api/create_lead`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        params: { ...rest },
+      }),
+    });
     const result = await response.json();
     return new NextResponse(
       JSON.stringify({

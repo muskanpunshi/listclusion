@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { footerSections } from "../routes/navigation";
 import React from "react";
+import Tooltip from "./common/tooltip";
 
 export default function Footer() {
   const date = new Date();
@@ -55,11 +56,16 @@ export default function Footer() {
               </Link>
             </div>
             <Paragraph className="opacity-75 leading-relaxed mb-[40px] max-w-[90%] text-white">
-              25 B1 31 Street Off Khayaban e Shamsheer DHA Phase V Ext Karachi,
-              Pakistan
+              25 B1 31 Street Off Khayaban e Shamsheer DHA Phase V Ext karachi
+              Pakistan, 75500
               <br />
-              Phone:
-              <Link href={"tel:+923238226416"}>+92 323 8226416</Link>
+              Phone:&nbsp;
+              <Link
+                href={"tel:+923364027555"}
+                className="hover:text-primary transition-all ease-in-out duration-300"
+              >
+                +92 336 4027555
+              </Link>
             </Paragraph>
             <div className="flex space-x-4 mt-4">
               <Link
@@ -100,7 +106,13 @@ export default function Footer() {
                         key={idx}
                         className="text-[18px] max-md:text-[14px] my-5 hover:text-primary transition-colors duration-200"
                       >
-                        <a href={item.href}>{item.label}</a>
+                        {item.href ? (
+                          <a href={item.href}>{item.label}</a>
+                        ) : (
+                          <Tooltip text="Coming Soon">
+                            <span>{item.label}</span>
+                          </Tooltip>
+                        )}
                       </li>
                     ))}
                   </ul>
@@ -116,7 +128,14 @@ export default function Footer() {
       </Container>
 
       <div className="text-center text-grey border-t border-neutral-800 py-4">
-        Copyright @{year} Listclusion.
+        Copyright @{year} Listclusion. Powered By &nbsp;
+        <Link
+          target="_blank"
+          className="text-[#ffffff] !opacity-100 font-extrabold !text-[12x] "
+          href="https://ideabox.technology/"
+        >
+          IDEABOX
+        </Link>
       </div>
     </footer>
   );
