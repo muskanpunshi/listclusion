@@ -11,10 +11,10 @@ import furnitureMob from "@public/template/furniture-manufactures.png";
 import projectMob from "@public/template/project-managers.png";
 import quanlityMob from "@public/template/quanlity-surveyors-consultants.png";
 import metalMob from "@public/template/metal-works.png";
-import furnitureSubMob from "@public/template/furniture-card.jpg"
-import woodworkSubMob from "@public/template/wood-working-machine-card.jpg"
-import chairsSubMob from "@public/template/chairs-card.jpg"
-import outdoorSubMob from "@public/template/outdoor-furniture-card.jpg"
+import furnitureSubMob from "@public/template/furniture-card.jpg";
+import woodworkSubMob from "@public/template/wood-working-machine-card.jpg";
+import chairsSubMob from "@public/template/chairs-card.jpg";
+import outdoorSubMob from "@public/template/outdoor-furniture-card.jpg";
 
 //category banner
 import architectsBanner from "@public/template/architects-consultants-ban.jpg";
@@ -29,15 +29,18 @@ import furnitureBanner from "@public/template/furniture-manufactures-ban.jpg";
 import projectBanner from "@public/template/project-managers-ban.jpg";
 import quanlityBanner from "@public/template/quanlity-surveyors-consultants-ban.jpg";
 import metalBanner from "@public/template/metal-works-ban.jpg";
-import furnitureSubBanner from "@public/template/furniture.jpg"
-import woodworkSubBanner from "@public/template/wood-working-machine.jpg"
-import chairsSubBanner from "@public/template/chairs.jpg"
-import outdoorSubBanner from "@public/template/outdoor-furniture.jpg"
-
+import furnitureSubBanner from "@public/template/furniture.jpg";
+import woodworkSubBanner from "@public/template/wood-working-machine.jpg";
+import chairsSubBanner from "@public/template/chairs.jpg";
+import outdoorSubBanner from "@public/template/outdoor-furniture.jpg";
 
 import property2Thumb_11 from "@public/template/project-1.jpg";
 import property2Thumb_22 from "@public/template/project-2.jpg";
 import property2Thumb_33 from "@public/template/project-3.jpg";
+
+import arcop1 from "@public/template/arcop-new-1.jpg";
+import arcop2 from "@public/template/arcop-new-2.jpg";
+import arcop3 from "@public/template/arcop-new-3.jpg";
 
 
 export interface ListingThumb {
