@@ -5,9 +5,15 @@ interface TooltipProps {
   text: string;
   children: React.ReactNode;
   className?: string;
+  isHeaderFixed?: boolean; // Add this new prop
 }
 
-const Tooltip: React.FC<TooltipProps> = ({ text, children, className }) => {
+const Tooltip: React.FC<TooltipProps> = ({
+  text,
+  children,
+  className,
+  isHeaderFixed = false,
+}) => {
   const [isVisible, setIsVisible] = useState(false);
   const [position, setPosition] = useState({ top: 0, left: 0 });
   const triggerRef = useRef<HTMLDivElement>(null);
@@ -26,6 +32,9 @@ const Tooltip: React.FC<TooltipProps> = ({ text, children, className }) => {
       let top = triggerRect.top - tooltipRect.height - 8; // 8px gap
       let left = triggerRect.left + (triggerRect.width - tooltipRect.width) / 2;
 
+      // If header is fixed, we don't need to add scrollY to the top position
+      const scrollY = isHeaderFixed ? 0 : window.scrollY;
+
       // Adjust if tooltip would go outside viewport
       if (top < 8) {
         // If not enough space above, show below
@@ -38,7 +47,7 @@ const Tooltip: React.FC<TooltipProps> = ({ text, children, className }) => {
         left = window.innerWidth - tooltipRect.width - 8;
       }
 
-      setPosition({ top: top + window.scrollY, left });
+      setPosition({ top: top + scrollY, left });
     };
 
     updatePosition();
@@ -49,7 +58,7 @@ const Tooltip: React.FC<TooltipProps> = ({ text, children, className }) => {
       window.removeEventListener("resize", updatePosition);
       window.removeEventListener("scroll", updatePosition);
     };
-  }, [isVisible, text]);
+  }, [isVisible, text, isHeaderFixed]); // Add isHeaderFixed to dependencies
 
   const TooltipContent = () => {
     if (!isVisible) return null;
