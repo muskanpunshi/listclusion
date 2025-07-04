@@ -209,7 +209,7 @@ const RegisterForm = () => {
                 <select
                   id="country"
                   {...methods.register("company_address.country")}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  className="w-full px-5 py-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 >
                   <option value="">Select a country</option>
                   {countryList.map((country) => (
@@ -230,7 +230,7 @@ const RegisterForm = () => {
                 <select
                   id="city"
                   {...methods.register("company_address.city")}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  className="w-full px-5 py-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                   disabled={!selectedCountry}
                 >
                   <option value="">Select a city</option>

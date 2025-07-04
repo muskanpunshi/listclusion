@@ -6,7 +6,7 @@ import UseSticky from "@hooks/UseSticky";
 import { FaLock } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
 import Logo from "@public/template/logo1.png";
-import { HeaderNavbar, headerNavigation } from "../routes/navigation";
+import { HeaderNavbar, headerNavigationWeb } from "../routes/navigation";
 import MobileNavigation from "./mobileNavigation";
 import { usePathname } from "next/navigation";
 import { feature_data } from "@utils/data";
@@ -38,7 +38,7 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:block ml-[90px]">
             <ul className="flex items-center space-x-14 lg:space-x-10">
-              {headerNavigation.map((nav: HeaderNavbar, index: number) => {
+              {headerNavigationWeb.map((nav: HeaderNavbar, index: number) => {
                 const isActive = pathname === nav.path;
                 return (
                   <li key={index} className="group relative">
@@ -137,7 +137,8 @@ const Header = () => {
             href="/register-company"
           >
             {" "}
-            Register Your Company <FaArrowUpLong className="rotate-45 ml-3 max-sm:ml-1" />
+            Register Your Company{" "}
+            <FaArrowUpLong className="rotate-45 ml-3 max-sm:ml-1" />
           </Button>
           {/* Uncomment when ready */}
           <MobileNavigation isOpen={isOpen} setIsOpen={setIsOpen} />

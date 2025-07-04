@@ -67,6 +67,18 @@ export const headerNavigation: HeaderNavbar[] = [
   { label: "Contact", path: "/contact" },
 
 ];
+export const headerNavigationWeb: HeaderNavbar[] = [
+  { label: "Home", path: "/" },
+  {
+    label: "Categories",
+    children: parentCategoryAssign()
+  },
+  { label: "About Us", path: "/about-us" },
+  { label: "FAQs", path: "/faqs" },
+
+  { label: "Contact", path: "/contact" },
+
+];
 export const footerSections: FooterSection[] = [
   {
     title: "Links",
