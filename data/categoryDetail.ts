@@ -1106,7 +1106,7 @@ export const categoryDetails: StructuredCategories = [
     },
     {
         parentCategory: "Importer",
-        category: "Out Door",
+        category: "Out Door Furniture",
         categorySlug: "outdoor",
         categoryBannerImage: metalBanner,
         categoryImageMob: metalMob,
@@ -1180,7 +1180,7 @@ export const categoryDetails: StructuredCategories = [
     },
     {
         parentCategory: "Importer",
-        category: "Machinery",
+        category: "Wood Working Machinery",
         categorySlug: "machinery",
         categoryBannerImage: metalBanner,
         categoryImageMob: metalMob,
