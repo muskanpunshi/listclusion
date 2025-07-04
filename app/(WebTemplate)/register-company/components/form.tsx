@@ -172,7 +172,7 @@ const RegisterForm = () => {
               <Input
                 name="name"
                 label="Company Name*"
-                placeholder="TechNova Pvt Ltd"
+                placeholder="Company Name"
               />
             </div>
 
@@ -180,7 +180,7 @@ const RegisterForm = () => {
               <TextArea
                 name="company_description"
                 label="Company Description"
-                placeholder="We build scalable, intelligent platforms..."
+                placeholder=""
                 rows={4}
               />
             </div>
@@ -261,7 +261,7 @@ const RegisterForm = () => {
                 name="email"
                 type="email"
                 label="Email*"
-                placeholder="info@technova.com"
+                placeholder="info@listclusion.com"
               />
             </div>
 
@@ -269,7 +269,7 @@ const RegisterForm = () => {
               <Input
                 name="company_expertise"
                 label="Expertise*"
-                placeholder="AI, Web Development, Cloud Infrastructure"
+                placeholder=""
               />
             </div>
             <div className="mb-6">

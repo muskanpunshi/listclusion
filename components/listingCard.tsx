@@ -35,7 +35,10 @@ const ListingCard = () => {
             {property_data
               .filter((items) => items.page === "home_1")
               .map((item) => (
-                <div key={item.id} className="flex lg:mt-10 mt-5 group card-pagination">
+                <div
+                  key={item.id}
+                  className="flex lg:mt-10 mt-5 group card-pagination"
+                >
                   <div className="bg-white rounded-md shadow-md w-full flex flex-col">
                     <div className="p-4">
                       <div className="relative rounded-md overflow-hidden">
@@ -46,13 +49,18 @@ const ListingCard = () => {
                         >
                           {item.carousel_thumb.map((imgItem, index) => (
                             <SwiperSlide key={index}>
-                              <Link href="/listing_details_01">
+                              {/* <Link href="/listing_details_01">
                                 <Image
                                   src={imgItem.img}
                                   alt={`Listing Image ${index + 1}`}
                                   className="w-full h-auto object-cover"
                                 />
-                              </Link>
+                              </Link> */}
+                              <Image
+                                src={imgItem.img}
+                                alt={`Listing Image ${index + 1}`}
+                                className="w-full h-auto object-cover"
+                              />
                             </SwiperSlide>
                           ))}
                         </Swiper>
@@ -60,12 +68,15 @@ const ListingCard = () => {
                     </div>
 
                     <div className="px-6 pb-6 flex flex-col gap-2">
-                      <Link
+                      {/* <Link
                         href="/listing_details_01"
                         className=" text-xl font-medium  text-[#000000b3] group-hover:text-primary transition-all duration-300"
                       >
                         {item.title}
-                      </Link>
+                      </Link> */}
+                      <span className=" text-xl font-medium cursor-pointer text-[#000000b3] group-hover:text-primary transition-all duration-300">
+                        {item.title}
+                      </span>
                       <div className="text-sm text-gray-500">
                         {item.address}
                       </div>
