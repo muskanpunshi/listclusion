@@ -193,6 +193,21 @@ import propertyLargThumb_3 from "@public/template/project-3.jpg";
 import propertyLargThumb_4 from "@public/template/project-1.jpg";
 import propertyLargThumb_5 from "@public/template/project-2.jpg";
 import propertyLargThumb_6 from "@public/template/project-3.jpg";
+import ahr1 from "@public/template/ahr-1.jpg";
+import ahr2 from "@public/template/ahr-2.jpg";
+import ahr3 from "@public/template/ahr-3.jpg";
+import dolmen1 from "@public/template/dolmen-group-1.jpg";
+import dolmen2 from "@public/template/dolmen-group-2.jpg";
+import dolmen3 from "@public/template/dolmen-group-3.jpg";
+import jazirah1 from "@public/template/al-jazirah-engineers-1.jpg";
+import jazirah2 from "@public/template/al-jazirah-engineers-2.jpg";
+import jazirah3 from "@public/template/al-jazirah-engineers-3.jpg";
+import aa1 from "@public/template/aa-associate-1.jpg";
+import aa2 from "@public/template/aa-associate-2.jpg";
+import aa3 from "@public/template/aa-associate-3.jpg";
+import arif1 from "@public/template/arif-associates-1.jpg";
+import arif2 from "@public/template/arif-associates-2.jpg";
+import arif3 from "@public/template/arif-associates-3.jpg";
 
 // import propertyIcon_1 from "@/public/template/images/icon/icon_04.svg";
 // import propertyIcon_2 from "@/public/template/images/icon/icon_05.svg";
@@ -240,12 +255,12 @@ export const property_data: DataType[] = [
     tag: "FOR SELL",
     tag_bg: "sale",
     carousel_thumb: [
-      { img: propertyThumb_2, active: "active" },
-      { img: propertyThumb_3 },
-      { img: propertyThumb_1 },
+      { img: ahr1, active: "active" },
+      { img: ahr2 },
+      { img: ahr3 },
     ],
-    title: "ARIF & ASSOCIATES",
-    address: "Engineering Consultants",
+    title: "AHR ALI NAQVI",
+    address: "Architects Consultants",
 
     data_delay_time: "0.1s",
     price: 28100,
@@ -257,12 +272,12 @@ export const property_data: DataType[] = [
     tag: "FOR SELL",
     tag_bg: "sale",
     carousel_thumb: [
-      { img: propertyThumb_3, active: "active" },
-      { img: propertyThumb_2 },
-      { img: propertyThumb_1 },
+      { img: dolmen1, active: "active" },
+      { img: dolmen2 },
+      { img: dolmen3 },
     ],
-    title: "AA BUILDERS & DEVELOPERS",
-    address: "Builders & Developers",
+    title: "DOLMEN GROUP",
+    address: "CIVIL CONTRACTORS",
 
     data_delay_time: "0.2s",
     price: 42500,
@@ -273,12 +288,12 @@ export const property_data: DataType[] = [
     page: "home_1",
     tag: "FOR RENT",
     carousel_thumb: [
-      { img: propertyThumb_4, active: "active" },
-      { img: propertyThumb_5 },
-      { img: propertyThumb_6 },
+      { img: jazirah1, active: "active" },
+      { img: jazirah2 },
+      { img: jazirah3 },
     ],
-    title: "AL-SHAFI ENTERPRISES",
-    address: "Interior Designers",
+    title: "Al-Jazirah Engineers @ consultants",
+    address: "CIVIL CONTRACTORS",
 
     price: 3280,
     price_text: "m",
@@ -290,12 +305,12 @@ export const property_data: DataType[] = [
     tag: "FOR SELL",
     tag_bg: "sale",
     carousel_thumb: [
-      { img: propertyThumb_5, active: "active" },
-      { img: propertyThumb_4 },
-      { img: propertyThumb_6 },
+      { img: aa1, active: "active" },
+      { img: aa2 },
+      { img: aa3 },
     ],
-    title: "AZIZ ENTERPRISES",
-    address: "Mechanical Consultant",
+    title: "AA ASSOCIATES",
+    address: "Engineering Consultants",
 
     data_delay_time: "0.1s",
     price: 28100,
@@ -306,12 +321,12 @@ export const property_data: DataType[] = [
     page: "home_1",
     tag: "FOR RENT",
     carousel_thumb: [
-      { img: propertyThumb_6, active: "active" },
-      { img: propertyThumb_5 },
-      { img: propertyThumb_4 },
+      { img: arif1, active: "active" },
+      { img: arif1 },
+      { img: arif1 },
     ],
-    title: "CRESENT",
-    address: "Electrical Consultants",
+    title: "ARIF & ASSOCIATES",
+    address: "Engineering Consultants",
 
     data_delay_time: "0.2s",
     price: 42500,
